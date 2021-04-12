@@ -21,3 +21,5 @@ router.get("/search-results", controllers.searchResults);
 
 
 module.exports = router;
+
+console.log(router);
