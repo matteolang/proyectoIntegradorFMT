@@ -1,31 +1,23 @@
 var express = require('express');
 var router = express.Router();
+var controllers = require(`../controllers/indexController`)
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mercado Libre' });
-});
-router.get("/product", function(req, res, next) {
-  res.render('product', { title: 'Productos' });
-});
-router.get("/register", function(req, res, next) {
-  res.render('register', { title: 'Registrate' });
-});
-router.get("/login", function(req, res, next) {
-  res.render('login', { title: 'Inicia sesion' });
-});
-router.get("/profile", function(req, res, next) {
-  res.render('profile', { title: 'Perfil del usuario' });
-});
-router.get("/product-add", function(req, res, next) {
-  res.render('product-add', { title: 'Agrega tu producto' });
-});
-router.get("/profile-edit", function(req, res, next) {
-  res.render('profile-edit', { title: 'Edita tu perfil' });
-});
-router.get("/search-results", function(req, res, next) {
-  res.render('search-results', { title: 'Respuestas a tu busqueda' });
-});
+router.get('/', controllers.index);
+
+router.get("/product", controllers.product);
+
+router.get("/register", controllers.register);
+
+router.get("/login", controllers.login);
+
+router.get("/profile", controllers.profile);
+
+router.get("/product-add", controllers.productAdd);
+
+router.get("/profile-edit", controllers.profileEdit);
+
+router.get("/search-results", controllers.searchResults);
 
 
 module.exports = router;
