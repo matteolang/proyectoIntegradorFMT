@@ -24,7 +24,7 @@ router.get("/profile-edit", function(req, res, next) {
   res.render('profile-edit', { title: 'Edita tu perfil' });
 });
 router.get("/search-results", function(req, res, next) {
-  res.render('search-results', { title: 'respuestas a tu busqueda' });
+  res.render('search-results', { title: 'Respuestas a tu busqueda' });
 });
 
 
