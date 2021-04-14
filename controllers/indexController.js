@@ -15,7 +15,7 @@ let mainController = {
         res.render('login', {title: 'Inicia Sesion'})
     },
     profile: (req, res) => {
-        res.render('profile', {title: 'Perfil del usuario'})
+        res.render('profile', {instrumentitos: instrumentos.lista})
     },
     productAdd: (req, res) => {
         res.render('product-add', {title: 'Agrega tu producto'})
