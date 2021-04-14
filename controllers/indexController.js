@@ -1,11 +1,12 @@
-//let instrumentos = require('')
+let instrumentos = require('../data/index')
 
 let mainController = {
     index: (req, res) => {
-        res.render('index', {title: 'Instrumentos'})
+        res.render('index', {instrumentitos: instrumentos.lista})
     },
     product: (req, res) => {
-        res.render('product', {title: 'Productos'})
+        let id = req.params.id
+        res.render('product', {producto: instrumentos.lista, idSearch: id})
     },
     register: (req, res) => {
         res.render('register', {title: 'Register'})
