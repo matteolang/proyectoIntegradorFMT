@@ -3,7 +3,7 @@ let instrumentos = {
     { id:0,
     nombreDelInstrumento: "Trompeta",
     marca: "Yamaha",
-    modelo: "k-40",
+    modelo: "K-40",
     fechaDeCreacion: "2/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ytr2330-650x650.jpg" ,
     comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
@@ -12,7 +12,7 @@ let instrumentos = {
     { id:1,
     nombreDelInstrumento: "Trombón",
     marca: "Yamaha",
-    modelo: "wd-45",
+    modelo: "WD-45",
     fechaDeCreacion: "3/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ysl154-650x650.jpg",
     comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible']
@@ -21,7 +21,7 @@ let instrumentos = {
     {id:2,
     nombreDelInstrumento: "Clarinete",
     marca: "Júpiter",
-    modelo: "zk200",
+    modelo: "ZK200",
     fechaDeCreacion: "4/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ycl255-650x650.jpg",
     comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
