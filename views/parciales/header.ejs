@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-melodic-sintexto.png" />
+	<link width="" rel="shortcut icon" href="../images/logo-melodic-sintexto.png" />
 	
 	<title> Melodiic </title>
 	<!--Google fonts importadas-->
@@ -14,12 +14,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="stylesheets/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="/stylesheets/app.css">
 </head>
 <body>
 	<!-- Header -->
@@ -28,21 +28,21 @@
 			<div class="row align-items-center">
 				<div class="col-5 col-md-2">
 					<a href="/ " class="main-header_home-link">
-						<img class="logo-melodic" src="./images/logo-melodic.png">
+						<img class="logo-melodic" src="/images/logo-melodic.png">
 					</a>
 				</div>
 	
 				<div id="busqueda" class="col-7 col-md-6">
 					<form action="" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+						<input type="text" name="search-results" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<button type="submit" class="search-form_button"><a href="../search-results"><i class="fas fa-search"></i></a></button>
 					</form>
 				</div>
 
 				<div id="redes-sociales" class="col-12 col-md-4">
-					<a href="instagram.com"><img src="/images/instagram.svg" alt="Instagram"></a>
-					<a href="facebook.com"><img src="/images/facebook.svg" alt="Facebook"></a>
-					<a href="twitter.com"><img src="/images/twitter.svg" alt="Twitter"></a>
+					<a href="https://instagram.com"><img src="/images/instagram.svg" alt="Instagram"></a>
+					<a href="https://facebook.com"><img src="/images/facebook.svg" alt="Facebook"></a>
+					<a href="https://twitter.com"><img src="/images/twitter.svg" alt="Twitter"></a>
 				</div>
 	
 			<!---	<div class="col-12 col-md-4">
@@ -60,18 +60,19 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/ ">Todos los productos</a></li>
-					<li><a href="product-add">Cargar productos</a></li>
+					<li><a href="../product-add">Cargar productos</a></li>
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="profile">
+					<li><a href="../profile">
 							Nombre del usuario <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
 						<form action="" method="post">
 							<button class="logout" type="submit">
-								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+								<a href="../register">
+								Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
 							</button>
 						</form>
 					</li>

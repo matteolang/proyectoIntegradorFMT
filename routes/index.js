@@ -5,7 +5,7 @@ var controllers = require(`../controllers/indexController`)
 /* GET home page. */
 router.get('/', controllers.index);
 
-router.get("/product", controllers.product);
+router.get("/product/:id", controllers.product);
 
 router.get("/register", controllers.register);
 

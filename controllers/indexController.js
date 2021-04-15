@@ -1,11 +1,12 @@
-//let instrumentos = require('')
+let instrumentos = require('../data/index')
 
 let mainController = {
     index: (req, res) => {
-        res.render('index', {title: 'Instrumentos'})
+        res.render('index', {instrumentitos: instrumentos.lista})
     },
     product: (req, res) => {
-        res.render('product', {title: 'Productos'})
+        let id = req.params.id
+        res.render('product', {producto: instrumentos.lista, idSearch: id})
     },
     register: (req, res) => {
         res.render('register', {title: 'Register'})
@@ -14,7 +15,7 @@ let mainController = {
         res.render('login', {title: 'Inicia Sesion'})
     },
     profile: (req, res) => {
-        res.render('profile', {title: 'Perfil del usuario'})
+        res.render('profile', {instrumentitos: instrumentos.lista})
     },
     productAdd: (req, res) => {
         res.render('product-add', {title: 'Agrega tu producto'})
