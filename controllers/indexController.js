@@ -24,16 +24,16 @@ let mainController = {
         res.render('profile-edit', {title: 'Edita tu perfil'})
     },
     searchResults: (req, res) => {
-        let search = req.params.search 
-        //let searchResults = req.query.search
+
+        let search = req.query.searchResults
 
         let result = []
         for( let i = 0; i < instrumentos.lista.length; i++){
-            if(instrumentos.lista[i].nombreDelInstrumento.includes(search)){
+            console.log(instrumentos.lista[i].nombreDelInstrumento);
+            if(instrumentos.lista[i].nombreDelInstrumento.includes(search.toLowerCase())){
                 result.push(instrumentos.lista[i].nombreDelInstrumento)
             }
         }
-console.log(result)
         res.render('search-results', {resultadoSearch: result})
     },
 }

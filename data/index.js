@@ -1,7 +1,7 @@
 let instrumentos = {
     lista: [ 
     { id:0,
-    nombreDelInstrumento: "Trompeta",
+    nombreDelInstrumento: "trompeta",
     marca: "Yamaha",
     modelo: "K-40",
     fechaDeCreacion: "2/3/2021",
@@ -10,7 +10,7 @@ let instrumentos = {
 },
 
     { id:1,
-    nombreDelInstrumento: "Trombón",
+    nombreDelInstrumento: "trombón",
     marca: "Yamaha",
     modelo: "WD-45",
     fechaDeCreacion: "3/3/2021",
@@ -19,7 +19,7 @@ let instrumentos = {
 },
 
     {id:2,
-    nombreDelInstrumento: "Clarinete",
+    nombreDelInstrumento: "clarinete",
     marca: "Júpiter",
     modelo: "ZK200",
     fechaDeCreacion: "4/3/2021",
@@ -28,7 +28,7 @@ let instrumentos = {
 },
 
     {id:3,
-    nombreDelInstrumento: "Guitarra Electrica",
+    nombreDelInstrumento: "guitarra electrica",
     marca: "Fender",
     modelo: "Stratocaster",
     fechaDeCreacion: "5/3/2021",
@@ -37,7 +37,7 @@ let instrumentos = {
 },
 
     {id:4,
-    nombreDelInstrumento: "Bajo",
+    nombreDelInstrumento: "bajo",
     marca: "Fender",
     modelo: "KK12",
     fechaDeCreacion: "6/3/2021",
@@ -46,7 +46,7 @@ let instrumentos = {
 },
 
     {id:5,
-    nombreDelInstrumento: "Bateria",
+    nombreDelInstrumento: "bateria",
     marca: "Mapex",
     modelo: "GW150",
     fechaDeCreacion: "7/3/2021",
@@ -55,7 +55,7 @@ let instrumentos = {
 },
 
     {id:6,
-    nombreDelInstrumento: "Violin",
+    nombreDelInstrumento: "violin",
     marca: "Stentor",
     modelo: "AF-70",
     fechaDeCreacion: "8/3/2021",
@@ -64,7 +64,7 @@ let instrumentos = {
 },
 
     {id:7,
-    nombreDelInstrumento: "Guitarra Acústica",
+    nombreDelInstrumento: "guitarra acústica",
     marca: "Seagull",
     modelo: "S6",
     fechaDeCreacion: "9/3/2021",
@@ -73,7 +73,7 @@ let instrumentos = {
 },
 
     {id:8,
-    nombreDelInstrumento: "Flauta Dulce",
+    nombreDelInstrumento: "flauta dulce",
     marca: "Yamaha",
     modelo: "YRS-32B",
     fechaDeCreacion: "10/3/2021",
@@ -82,7 +82,7 @@ let instrumentos = {
 },
 
     {id:9,
-    nombreDelInstrumento: "Flauta Traversa",
+    nombreDelInstrumento: "flauta traversa",
     marca: "Pearl",
     modelo: "505e1r",
     fechaDeCreacion: "11/3/2021",
@@ -91,7 +91,7 @@ let instrumentos = {
 },
 
     {id:10,
-    nombreDelInstrumento: "Fagot",
+    nombreDelInstrumento: "fagot",
     marca: "Hercules",
     modelo: "Ds561b",
     fechaDeCreacion: "12/3/2021",
@@ -100,7 +100,7 @@ let instrumentos = {
 },
 
     {id:11,
-    nombreDelInstrumento: "Tambor",
+    nombreDelInstrumento: "tambor",
     marca: "Tambora",
     modelo: "Q11",
     fechaDeCreacion: "13/3/2021",
@@ -109,7 +109,7 @@ let instrumentos = {
 },
 
     {id:12,
-    nombreDelInstrumento: "Maracas",
+    nombreDelInstrumento: "maracas",
     marca: "Onix",
     modelo: "S6",
     fechaDeCreacion: "14/3/2021",
@@ -117,7 +117,7 @@ let instrumentos = {
     comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto'] },
 
     {id:13,
-    nombreDelInstrumento: "Triangulo",
+    nombreDelInstrumento: "triangulo",
     marca: "Castelli",
     modelo: "Z10",
     fechaDeCreacion: "15/3/2021",
@@ -125,7 +125,7 @@ let instrumentos = {
     comentarios: ['Bueno', 'Malo', 'Increible', 'Estaba roto'] },
 
     {id:14,
-    nombreDelInstrumento: "Arpa",
+    nombreDelInstrumento: "arpa",
     marca: "Walter",
     modelo: "J900",
     fechaDeCreacion: "16/3/2021",
