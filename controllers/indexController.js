@@ -4,10 +4,6 @@ let mainController = {
     index: (req, res) => {
         res.render('index', {instrumentitos: instrumentos.lista})
     },
-    product: (req, res) => {
-        let id = req.params.id
-        res.render('product', {producto: instrumentos.lista, idSearch: id})
-    },
     register: (req, res) => {
         res.render('register', {title: 'Register'})
     },
@@ -16,9 +12,6 @@ let mainController = {
     },
     profile: (req, res) => {
         res.render('profile', {instrumentitos: instrumentos.lista})
-    },
-    productAdd: (req, res) => {
-        res.render('product-add', {title: 'Agrega tu producto'})
     },
     profileEdit: (req, res) => {
         res.render('profile-edit', {title: 'Edita tu perfil'})
@@ -29,8 +22,7 @@ let mainController = {
 
         let result = []
         for( let i = 0; i < instrumentos.lista.length; i++){
-            console.log(instrumentos.lista[i].nombreDelInstrumento);
-            if(instrumentos.lista[i].nombreDelInstrumento.includes(search.toLowerCase())){
+            if(instrumentos.lista[i].nombreDelInstrumento.toLowerCase().includes(search.toLowerCase())){
                 result.push(instrumentos.lista[i].nombreDelInstrumento)
             }
         }

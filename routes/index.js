@@ -5,15 +5,11 @@ var controllers = require(`../controllers/indexController`)
 /* GET home page. */
 router.get('/', controllers.index);
 
-router.get("/product/:id", controllers.product);
-
 router.get("/register", controllers.register);
 
 router.get("/login", controllers.login);
 
 router.get("/profile", controllers.profile);
-
-router.get("/product-add", controllers.productAdd);
 
 router.get("/profile-edit", controllers.profileEdit);
 
