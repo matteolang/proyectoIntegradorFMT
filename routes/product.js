@@ -5,9 +5,11 @@ var controllers = require(`../controllers/productController`)
 
 router.get('/', controllers.product);
 
-router.get("/:id", controllers.product);
+router.get("/id/:id?", controllers.product);
 
-router.get("-add", controllers.productAdd);
+router.get("/product-add", controllers.productAdd);
+
+router.get("/product-edit", controllers.productEdit);
 
 
 module.exports = router;

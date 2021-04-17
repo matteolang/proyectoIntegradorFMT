@@ -6,7 +6,10 @@ let productController = {
         res.render('product', {producto: instrumentos.lista, idSearch: id})
     },
     productAdd: (req, res) => {
-        res.render('product-add', {title: 'Agrega tu producto'})
+        res.render('product-add', {})
+    },
+    productEdit: (req, res) => {
+        res.render('product-edit', {})
     },
 }
 

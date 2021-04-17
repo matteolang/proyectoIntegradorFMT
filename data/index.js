@@ -1,7 +1,7 @@
 let instrumentos = {
     lista: [ 
     { id:0,
-    nombreDelInstrumento: "trompeta",
+    nombreDelInstrumento: "Trompeta",
     marca: "Yamaha",
     modelo: "K-40",
     fechaDeCreacion: "2/3/2021",
