@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var controllers = require(`../controllers/usersController`)
 
-router.get('/', controllers.profile);
+router.get('/:usuarioQueComento?', controllers.profile);
 
 router.get("/login", controllers.login);
 

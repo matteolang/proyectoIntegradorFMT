@@ -25,8 +25,8 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/../profile">Nombre usuario: </a> </strong>
-										<%= producto[idSearch].comentarios[i] %> 	
+									<strong> <a href="/../profile/<%= producto[idSearch].comentarios[i].usuarioQueComento %>"><%= producto[idSearch].comentarios[i].usuarioQueComento %>: </a> </strong>
+										<%= producto[idSearch].comentarios[i].comentario %> 	
 								</p>
 							</div>
 						</article>

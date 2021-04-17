@@ -6,7 +6,7 @@ let instrumentos = {
     modelo: "K-40",
     fechaDeCreacion: "2/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ytr2330-650x650.jpg" ,
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba Roto'}]
 },
 
     { id:1,
@@ -15,7 +15,7 @@ let instrumentos = {
     modelo: "WD-45",
     fechaDeCreacion: "3/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ysl154-650x650.jpg",
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Increible'}]
 },
 
     {id:2,
@@ -24,7 +24,7 @@ let instrumentos = {
     modelo: "ZK200",
     fechaDeCreacion: "4/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ycl255-650x650.jpg",
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mheber', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'mheber', comentario:'Increible'}, {usuarioQueComento: 'tmasic', comentario:'Estaba Roto'}]
 },
 
     {id:3,
@@ -33,7 +33,7 @@ let instrumentos = {
     modelo: "Stratocaster",
     fechaDeCreacion: "5/3/2021",
     imagen: "https://famauy.xprostore.com/image/cache/data/imagenesweb/lps18odch1-650x650.jpg",
-    comentarios: ['Bueno', 'Tremendo', 'Malo']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}, {usuarioQueComento: 'mlang', comentario:'Malo'}]
 },
 
     {id:4,
@@ -42,7 +42,7 @@ let instrumentos = {
     modelo: "KK12",
     fechaDeCreacion: "6/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/gb34jj-3ts-650x650.jpg", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba Roto'}]
 },
 
     {id:5,
@@ -51,7 +51,7 @@ let instrumentos = {
     modelo: "GW150",
     fechaDeCreacion: "7/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/rli52kh4sw-650x650.jpg",
-    comentarios: [ 'Estaba roto']
+    comentarios: [ {usuarioQueComento: 'mheber', comentario:'Bueno'}]
 },
 
     {id:6,
@@ -60,7 +60,7 @@ let instrumentos = {
     modelo: "AF-70",
     fechaDeCreacion: "8/3/2021",
     imagen: "https://www.yulmar.com.ar/fotos/articulos/1661333415-Violin-Estudio-Stradella-1-2-Estuche-Resina-Arco.jpg", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Increible'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
     {id:7,
@@ -69,7 +69,7 @@ let instrumentos = {
     modelo: "S6",
     fechaDeCreacion: "9/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/earth100-ns-650x650.jpg", 
-    comentarios: ['Bueno', 'Tremendo']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}]
 },
 
     {id:8,
@@ -78,7 +78,7 @@ let instrumentos = {
     modelo: "YRS-32B",
     fechaDeCreacion: "10/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/yrs20g-b-650x650.jpg", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mlang', comentario:'Bueno'}, {usuarioQueComento: 'tmasic', comentario:'Tremendo'}, {usuarioQueComento: 'mheber', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Estab Roto'}]
 },
 
     {id:9,
@@ -87,7 +87,7 @@ let instrumentos = {
     modelo: "505e1r",
     fechaDeCreacion: "11/3/2021",
     imagen: "https://www.yulmar.com.ar/fotos/articulos/1793420292-Flauta-Traversa-Wisemann-Dfl-310-Plateada-16-Llaves-Estuche.jpg", 
-    comentarios: [ 'Estaba roto']
+    comentarios: [ {usuarioQueComento: 'mlang', comentario:'Tremendo'}]
 },
 
     {id:10,
@@ -96,7 +96,7 @@ let instrumentos = {
     modelo: "Ds561b",
     fechaDeCreacion: "12/3/2021",
     imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPX4XWY8VTR5OXlxCiGbHrkMakqMcWKZ4m5C5P1KP7xg61_R3rVE5m55QMV8I0n75uWhk&usqp=CAU", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Buenisimo'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
     {id:11,
@@ -105,7 +105,7 @@ let instrumentos = {
     modelo: "Q11",
     fechaDeCreacion: "13/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/taj-12-t2-650x650.jpg", 
-    comentarios: ['Bueno', 'Estaba roto']
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
     {id:12,
@@ -114,7 +114,7 @@ let instrumentos = {
     modelo: "S6",
     fechaDeCreacion: "14/3/2021",
     imagen: "https://cl.xprostore.com/image/cache/data/imagenesweb/tmp-b-650x650.jpg", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto'] },
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'iromani', comentario:'Malo'}, {usuarioQueComento: 'frizzi', comentario:'Increible'}, {usuarioQueComento: 'tmasic', comentario:'Estaba Roto'}] },
 
     {id:13,
     nombreDelInstrumento: "Triangulo",
@@ -122,7 +122,7 @@ let instrumentos = {
     modelo: "Z10",
     fechaDeCreacion: "15/3/2021",
     imagen: "https://famauy.xprostore.com/image/cache/data/imagenesweb/cr-p006-00-650x650h.jpg", 
-    comentarios: ['Bueno', 'Malo', 'Increible', 'Estaba roto'] },
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Malo'},{usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}] },
 
     {id:14,
     nombreDelInstrumento: "Arpa",
@@ -130,7 +130,7 @@ let instrumentos = {
     modelo: "J900",
     fechaDeCreacion: "16/3/2021",
     imagen: "https://www.cdbp.patrimoniocultural.gob.cl/652/articles-79173_imagen_06.jpg", 
-    comentarios: ['Bueno', 'Tremendo', 'Malo', 'Increible', 'Estaba roto'] },
+    comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'frizzi', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba roto'}] },
 
     {id:15,
     nombreDelInstrumento: "Ukelele",
@@ -138,8 +138,50 @@ let instrumentos = {
     modelo: "Tenor",
     fechaDeCreacion: "17/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ma-s-650x650.jpg", 
-    comentarios: ['Bueno', 'Tremendo'] },
+    comentarios: [{usuarioQueComento: 'frizzi', comentario:'Bueno'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}] },
     ],
+usuarios: [
+    {
+        username: 'frizzi',
+        fechaDeNacimiento: new Date('12-12-2001'),
+        clave: 'abc1',
+        cantidadDeProductos: 9,
+        seguidores: 25,
+        comentarios: 3
+    },
+    {
+        username: 'mlang',
+        fechaDeNacimiento: new Date('11-10-2001'),
+        clave: 'abbc2',
+        cantidadDeProductos: 5,
+        seguidores: 921,
+        comentarios: 40
+    },
+    {
+        username: 'tmasic',
+        fechaDeNacimiento: new Date('10-12-2001'),
+        clave: 'abccc1',
+        cantidadDeProductos: 8,
+        seguidores: 140,
+        comentarios: 12
+    },
+    {
+        username: 'mheber',
+        fechaDeNacimiento: new Date('02-12-1995'),
+        clave: 'abcde11',
+        cantidadDeProductos: 4,
+        seguidores: 110,
+        comentarios: 2
+    },
+    {
+        username: 'iromani',
+        fechaDeNacimiento: new Date('12-03-1990'),
+        clave: 'abcd10',
+        cantidadDeProductos: 6,
+        seguidores: 100,
+        comentarios: 12
+    },
+]
 }
 
 module.exports = instrumentos
