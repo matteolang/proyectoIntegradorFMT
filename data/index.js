@@ -147,7 +147,8 @@ usuarios: [
         clave: 'abc1',
         cantidadDeProductos: 9,
         seguidores: 25,
-        comentarios: 3
+        comentarios: 35,
+        fotoDePerfil: 'https://i.ibb.co/y0PkCDW/foto-fran.jpg'
     },
     {
         username: 'mlang',
@@ -155,7 +156,8 @@ usuarios: [
         clave: 'abbc2',
         cantidadDeProductos: 5,
         seguidores: 921,
-        comentarios: 40
+        comentarios: 22,
+        fotoDePerfil: 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'
     },
     {
         username: 'tmasic',
@@ -163,7 +165,8 @@ usuarios: [
         clave: 'abccc1',
         cantidadDeProductos: 8,
         seguidores: 140,
-        comentarios: 12
+        comentarios: 30,
+        fotoDePerfil: 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'
     },
     {
         username: 'mheber',
@@ -171,7 +174,8 @@ usuarios: [
         clave: 'abcde11',
         cantidadDeProductos: 4,
         seguidores: 110,
-        comentarios: 2
+        comentarios: 17,
+        fotoDePerfil: 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'
     },
     {
         username: 'iromani',
@@ -179,7 +183,8 @@ usuarios: [
         clave: 'abcd10',
         cantidadDeProductos: 6,
         seguidores: 100,
-        comentarios: 12
+        comentarios: 23,
+        fotoDePerfil: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU'
     },
 ]
 }
