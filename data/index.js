@@ -8,6 +8,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ytr2330-650x650.jpg" ,
     descripcion: 'Instrumento musical de viento , consistente en un tubo largo de metal que va ensanchándose desde la boquilla al pabellón y produce diversidad de sonidos según la fuerza con que la boca impele el aire.',
     creadoPor: 'frizzi',
+    precio: 100,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba Roto'}]
 },
 
@@ -19,6 +20,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ysl154-650x650.jpg",
     descripcion: 'Instrumento musical de metal , especie de trompeta grande , y cuyos sonidos responden , según su clase , a las voces de tenor , contralto o bajo respectivamente.',
     creadoPor: 'mlang',
+    precio: 120,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Increible'}]
 },
 
@@ -30,6 +32,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ycl255-650x650.jpg",
     descripcion: 'Instrumento musical de viento , que se compone de una boquilla de lengüeta de caña , un tubo formado por varias piezas de madera dura , con agujeros que se tapan con los dedos o se cierran con llave , y un pabellón de clarín.',
     creadoPor: 'frizzi',
+    precio: 90,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mheber', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'mheber', comentario:'Increible'}, {usuarioQueComento: 'tmasic', comentario:'Estaba Roto'}]
 },
 
@@ -41,6 +44,7 @@ let instrumentos = {
     imagen: "https://famauy.xprostore.com/image/cache/data/imagenesweb/lps18odch1-650x650.jpg",
     descripcion: 'La guitarra eléctrica es un tipo de guitarra, que a diferencia de la guitarra española y la guitarra acústica, su caja no hace resonancia, ya que esta es por inducción eléctrica a través de un Amplificador de guitarra o también a través de un Pedal de efectos.',
     creadoPor: 'iromani',
+    precio: 160,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}, {usuarioQueComento: 'mlang', comentario:'Malo'}]
 },
 
@@ -52,6 +56,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/gb34jj-3ts-650x650.jpg", 
     descripcion: 'El bajo eléctrico es un instrumento musical de la familia de los cordófonos, similar en apariencia y construcción a la guitarra eléctrica, pero con un cuerpo de mayores dimensiones, un mástil de mayor longitud y escala y, normalmente, cuatro cuerdas afinadas según la afinación estándar del contrabajo.',
     creadoPor: 'mheber',
+    precio: 150,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Malo'}, {usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba Roto'}]
 },
 
@@ -63,6 +68,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/rli52kh4sw-650x650.jpg",
     descripcion: 'La batería es un instrumento multicultural: la caja y el bombo son europeos, los platillos vienen del este y los toms son de origen africano y amerindio.',
     creadoPor: 'frizzi',
+    precio: 200,
     comentarios: [ {usuarioQueComento: 'mheber', comentario:'Bueno'}]
 },
 
@@ -74,6 +80,7 @@ let instrumentos = {
     imagen: "https://www.yulmar.com.ar/fotos/articulos/1661333415-Violin-Estudio-Stradella-1-2-Estuche-Resina-Arco.jpg", 
     descripcion: 'Instrumento musical de cuerda , el más pequeño y agudo entre los de su clase , que se compone de una caja de resonancia en forma de 8, un mástil sin trastes y cuatro cuerdas que se hacen sonar con un arco.',
     creadoPor: 'tmasic',
+    precio: 60,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Increible'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
@@ -85,6 +92,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/earth100-ns-650x650.jpg", 
     descripcion: 'La guitarra acústica se caracteriza básicamente por ser un instrumento de caja hueca encordada con cuerdas metálicas que consiguen unos sonidos metálicos, muy ricos en armónicos y muy utilizados sobre todo en música americana.',
     creadoPor: 'mlang',
+    precio: 130,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}]
 },
 
@@ -96,6 +104,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/yrs20g-b-650x650.jpg", 
     descripcion: 'Es un instrumento de viento muy antiguo. Popular desde la Edad Media hasta finales del Barroco, fue quedando relegado su uso al desarrollarse la orquesta clásica, poblada de instrumentos más sonoros.',
     creadoPor: 'mlang',
+    precio: 40,
     comentarios: [{usuarioQueComento: 'mlang', comentario:'Bueno'}, {usuarioQueComento: 'tmasic', comentario:'Tremendo'}, {usuarioQueComento: 'mheber', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}, {usuarioQueComento: 'frizzi', comentario:'Estab Roto'}]
 },
 
@@ -107,6 +116,7 @@ let instrumentos = {
     imagen: "https://www.yulmar.com.ar/fotos/articulos/1793420292-Flauta-Traversa-Wisemann-Dfl-310-Plateada-16-Llaves-Estuche.jpg", 
     descripcion: 'La flauta travesera es un tipo de flauta que se encuentra fabricada en diversos materiales como el metal, hueso, madera, plástico, alpaca o combinaciones de estos.',
     creadoPor: 'mheber',
+    precio: 95,
     comentarios: [ {usuarioQueComento: 'mlang', comentario:'Tremendo'}]
 },
 
@@ -118,6 +128,7 @@ let instrumentos = {
     imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPX4XWY8VTR5OXlxCiGbHrkMakqMcWKZ4m5C5P1KP7xg61_R3rVE5m55QMV8I0n75uWhk&usqp=CAU", 
     descripcion: 'El fagot es un instrumento de viento madera provisto de lengüeta doble. Está formado por un tubo ligeramente cónico doblado sobre sí mismo.',
     creadoPor: 'iromani',
+    precio: 115,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'iromani', comentario:'Buenisimo'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
@@ -129,6 +140,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/taj-12-t2-650x650.jpg", 
     descripcion: 'Un tambor es un instrumento de percusión de sonido indeterminado, perteneciente a la familia de los membranófonos según el sistema de clasificación de Hornbostel-Sachs.',
     creadoPor: 'tmasic',
+    precio: 55,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}]
 },
 
@@ -140,6 +152,7 @@ let instrumentos = {
     imagen: "https://cl.xprostore.com/image/cache/data/imagenesweb/tmp-b-650x650.jpg", 
     descripcion: 'Las maracas son un instrumento idiófono y de oscilación constituido por una parte esférica hueca sostenida por un mango que la atraviesa, o está adherida a ella.',
     creadoPor: 'mlang',
+    precio: 15,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'iromani', comentario:'Malo'}, {usuarioQueComento: 'frizzi', comentario:'Increible'}, {usuarioQueComento: 'tmasic', comentario:'Estaba Roto'}] },
 
     {id:13,
@@ -150,6 +163,7 @@ let instrumentos = {
     imagen: "https://famauy.xprostore.com/image/cache/data/imagenesweb/cr-p006-00-650x650h.jpg", 
     descripcion: 'El triángulo es un instrumento de percusión de metal, perteneciente al grupo de los idiofonos, porque el sonido resultante es fruto de la vibración del metal tras ser golpeado con la baqueta de acero doblada en forma de triángulo.',
     creadoPor: 'mheber',
+    precio: 10,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Malo'},{usuarioQueComento: 'tmasic', comentario:'Increible'}, {usuarioQueComento: 'frizzi', comentario:'Estaba Roto'}] },
 
     {id:14,
@@ -160,6 +174,7 @@ let instrumentos = {
     imagen: "https://www.cdbp.patrimoniocultural.gob.cl/652/articles-79173_imagen_06.jpg", 
     descripcion: 'El arpa​ es un instrumento de cuerda pulsada formado por un marco resonante y una serie variable de cuerdas tensadas entre la sección inferior y la superior.',
     creadoPor: 'iromani',
+    precio: 250,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'mlang', comentario:'Tremendo'}, {usuarioQueComento: 'tmasic', comentario:'Malo'}, {usuarioQueComento: 'frizzi', comentario:'Increible'}, {usuarioQueComento: 'iromani', comentario:'Estaba roto'}] },
 
     {id:15,
@@ -170,6 +185,7 @@ let instrumentos = {
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ma-s-650x650.jpg", 
     descripcion: 'El Ukelele​ (del hawaiano ukulele, literalmente, Pulga saltadora) es un instrumento de cuerda pulsada, utilizado como instrumento principal en la música de las islas Hawái, Tahití y la isla de Pascua que originalmente tenía cinco cuerdas.',
     creadoPor: 'tmasic',
+    precio: 105,
     comentarios: [{usuarioQueComento: 'frizzi', comentario:'Bueno'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}] },
     ],
     usuarios: [
