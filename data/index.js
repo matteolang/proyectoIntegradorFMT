@@ -10,7 +10,7 @@ let instrumentos = {
 },
 
     { id:1,
-    nombreDelInstrumento: "Trombón",
+    nombreDelInstrumento: "Trombon",
     marca: "Yamaha",
     modelo: "WD-45",
     fechaDeCreacion: "3/3/2021",
@@ -20,7 +20,7 @@ let instrumentos = {
 
     {id:2,
     nombreDelInstrumento: "Clarinete",
-    marca: "Júpiter",
+    marca: "Jupiter",
     modelo: "ZK200",
     fechaDeCreacion: "4/3/2021",
     imagen: "https://ar.xprostore.com/image/cache/data/imagenesweb/ycl255-650x650.jpg",
