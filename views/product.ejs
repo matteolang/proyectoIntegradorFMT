@@ -13,6 +13,7 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<p class="precio">£ <%= producto[idSearch].precio%></p>
+					<h2 class="creadoPor">Creado por: <a href="/../profile/<%= producto[idSearch].creadoPor%>"><%= producto[idSearch].creadoPor%></a></h2>
 					<img src="<%= producto[idSearch].imagen %> " alt="" class="product-detail-img">
 					<p class="product-detail-description"><%= producto[idSearch].descripcion %></p>
 				</article>

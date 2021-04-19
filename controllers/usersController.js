@@ -12,10 +12,10 @@ let usersController = {
             }
         }
 
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result})
+        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result, perfil: instrumentos.usuarios})
     }
     else {
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result})
+        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result, perfil: instrumentos.usuarios})
     }
     },
     login: (req, res) => {
@@ -25,7 +25,8 @@ let usersController = {
         res.render('register', {title: 'Register'})
     },
     profileEdit: (req, res) => {
-        res.render('profile-edit', {title: 'Edita tu perfil'})
+        let id = req.params.id
+        res.render('profile-edit', {producto: instrumentos.lista, idSearch: id, usuario: instrumentos.usuarios})
     },
 }
 

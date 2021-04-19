@@ -38,6 +38,11 @@ body {
   background-color: var(--light-gray);
 }
 
+.creadoPor {
+  padding-left: 30px;
+  font-weight: bold;
+}
+
 .producto-no-encontrado {
   color: red;
   margin-top: 20px;

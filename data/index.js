@@ -190,6 +190,7 @@ let instrumentos = {
     ],
     usuarios: [
     {
+        id: 0,
         username: 'frizzi',
         fechaDeNacimiento: new Date('12-12-2001'),
         clave: 'abc1',
@@ -200,6 +201,7 @@ let instrumentos = {
         fotoDePerfil: 'https://i.ibb.co/y0PkCDW/foto-fran.jpg'
     },
     {
+        id: 1,
         username: 'mlang',
         fechaDeNacimiento: new Date('11-10-2001'),
         clave: 'abbc2',
@@ -210,6 +212,7 @@ let instrumentos = {
         fotoDePerfil: 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'
     },
     {
+        id: 2,
         username: 'tmasic',
         fechaDeNacimiento: new Date('10-12-2001'),
         clave: 'abccc1',
@@ -220,6 +223,7 @@ let instrumentos = {
         fotoDePerfil: 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'
     },
     {
+        id: 3,
         username: 'mheber',
         fechaDeNacimiento: new Date('02-12-1995'),
         clave: 'abcde11',
@@ -230,6 +234,7 @@ let instrumentos = {
         fotoDePerfil: 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'
     },
     {
+        id: 4,
         username: 'iromani',
         fechaDeNacimiento: new Date('12-03-1990'),
         clave: 'abcd10',
