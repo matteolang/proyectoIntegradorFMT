@@ -50,7 +50,15 @@ body {
   justify-content: center !important;
   align-items: center !important;
 }
-
+.boton{
+  border-radius: 10px;
+  font-size: large;
+  height: 40px;
+  background-color:white;
+}
+.aRegister{
+  text-align: center;
+}
 .register-form div input {
   
   width: 300px;
@@ -58,6 +66,11 @@ body {
 font-size: 15px;
 font-family: 'poppins' !important;
 border-radius: 10px 10px 10px 10px;
+}
+.precio{
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 25px;
 }
 
 .register-form div {

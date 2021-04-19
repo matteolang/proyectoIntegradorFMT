@@ -6,16 +6,15 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto[idSearch].nombreDelInstrumento + ' ' + producto[idSearch].marca + ' ' + producto[idSearch].modelo %> </h2> 
 			<p class="product-detail-description">
-				<a href="../product-edit">Editar</a>
+				<a href="../product-edit/<%= producto[idSearch].id%>">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
+					<p class="precio">£ <%= producto[idSearch].precio%></p>
 					<img src="<%= producto[idSearch].imagen %> " alt="" class="product-detail-img">
-					<p class="product-detail-description">
-					Este instrumento, <%= producto[idSearch].nombreDelInstrumento + ' ' + producto[idSearch].marca + ' ' + producto[idSearch].modelo %>, de la marca <%= producto[idSearch].marca %>, fue creado el <%= producto[idSearch].fechaDeCreacion %>.
-					</p>
+					<p class="product-detail-description"><%= producto[idSearch].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">

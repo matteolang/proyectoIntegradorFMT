@@ -9,7 +9,8 @@ let productController = {
         res.render('product-add', {})
     },
     productEdit: (req, res) => {
-        res.render('product-edit', {})
+        let id = req.params.id
+        res.render('product-edit', {producto: instrumentos.lista, idSearch: id})
     },
 }
 

@@ -9,7 +9,7 @@ router.get("/id/:id?", controllers.product);
 
 router.get("/product-add", controllers.productAdd);
 
-router.get("/product-edit", controllers.productEdit);
+router.get("/product-edit/:id", controllers.productEdit);
 
 
 module.exports = router;

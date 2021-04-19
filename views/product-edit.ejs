@@ -7,12 +7,43 @@
 				<h2 class="products-title">Editar producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
+			<h2 class="col-12"> 
+				<form class="register-form" action="">
+					<div>
+					<label>Nombre de tu producto</label>
+					<input type="text" placeholder="<%= producto[idSearch].nombreDelInstrumento%>">
+					</div>
+					<div>
+						<label>Modelo de tu producto</label>
+						<input type="text" placeholder="<%= producto[idSearch].modelo%>">
+					</div>
+					<div>
+						<label>Marca de tu producto</label>
+						<input type="text" placeholder="<%= producto[idSearch].marca%>">
+					</div>
+	
+					<div>
+						<label>Fecha de creación de tu producto</label>
+					<input type="date" placeholder="">
+				</div>
+	
+				<div>
+					<label>Imagen del producto</label>
+					<input type="url" placeholder="<%= producto[idSearch].imagen%>">
+				</div>
+				<div>
+					<label>Descripción</label>
+					<input type="text" placeholder="<%= producto[idSearch].descripcion%>">
+				</div>
+				<div>
+					<label>Precio de tu producto en £</label>
+					<input type="number" placeholder="<%= producto[idSearch].precio%>">
+					</div>
+					<br>
+					<button type="submit" class="boton">Cargar producto</button>
+				</form>
 			</h2>
+			
 
 
             <%- include("./parciales/footers") %>
