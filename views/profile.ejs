@@ -6,11 +6,11 @@
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png" alt="" class="foto-perfil">
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title">Nombre del usuario 
+						<h1 class="main-title">Usuario1 
 							<a href="/../profile-edit/">
 								<i class="fas fa-cog"></i>
 							</a>
@@ -33,12 +33,12 @@
 					<h2 class="products-title">Mis productos</h2>
 				</div>
 				<!-- Show mis productos -->
-				<% for(let i = 7; i < 15; i++) { %> 
+				<% for(let i = 0; i < usuario.idsDeLosProductosCreados; i++) { %> 
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
 							<a href="../product/id/<%= instrumentitos[i].id %>">
 								<figure class="product-box_image">
-									<img src="<%= instrumentitos[i].imagen%> " alt="cafetera moulinex">
+									<img src="<%= instrumentitos[usuario.idsDeLosProductosCreados[i]].imagen%> " alt="">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
@@ -56,7 +56,7 @@
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src="<%= usuario[0].fotoDePerfil %>" alt="foto de perfil" class="foto-perfil">
+					<img src="<%= usuario[0].fotoDePerfil %>" alt="" class="foto-perfil">
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
@@ -88,7 +88,7 @@
 						<section class="product-box">
 							<a href="../product/id/<%= instrumentitos[i].id %>">
 								<figure class="product-box_image">
-									<img src="<%= instrumentitos[i].imagen%> " alt="cafetera moulinex">
+									<img src="<%= instrumentitos[i].imagen%> " alt="">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
