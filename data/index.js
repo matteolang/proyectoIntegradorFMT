@@ -244,6 +244,17 @@ let instrumentos = {
         idsDeLosProductosCreados: [4, 9, 13],
         fotoDePerfil: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU'
     },
+    {
+        id: 5,
+        username: 'Usuario1',
+        fechaDeNacimiento: new Date('02-03-1990'),
+        clave: 'abcd12',
+        cantidadDeProductos: 8,
+        seguidores: 100,
+        comentarios: 10,
+        idsDeLosProductosCreados: [3, 7, 10, 2, 0 ,6, 9, 13],
+        fotoDePerfil: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png'
+    },
 ]
 }
 
