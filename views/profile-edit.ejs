@@ -10,19 +10,19 @@
 				<form class="register-form" action="">
 					<div>
 					<label>Nombre del Usuario</label>
-					<input type="text" placeholder="">
+					<input type="text" placeholder="<%= arrayDatosDelUsuario[0].username %> ">
 					</div>
 					<div>
 						<label>Contraseña</label>
-						<input type="text" placeholder="">
+						<input type="text" placeholder="<%= arrayDatosDelUsuario[0].clave %>">
 					</div>
 					<div>
 						<label>Fecha de Nacimiento</label>
-					<input type="date" placeholder="">
+					<input type="date" placeholder="<%= arrayDatosDelUsuario[0].fechaDeNacimiento %>">
 					</div>
 					<div>
 					<label>Foto de Perfil</label>
-					<input type="url" placeholder="">
+					<input type="url" placeholder="<%= arrayDatosDelUsuario[0].fotoDePerfil %>">
 					</div>
 					<br>
 					<button type="submit" class="boton">Guardar cambios</button>

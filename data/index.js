@@ -43,7 +43,7 @@ let instrumentos = {
     fechaDeCreacion: "5/3/2021",
     imagen: "https://famauy.xprostore.com/image/cache/data/imagenesweb/lps18odch1-650x650.jpg",
     descripcion: 'La guitarra eléctrica es un tipo de guitarra, que a diferencia de la guitarra española y la guitarra acústica, su caja no hace resonancia, ya que esta es por inducción eléctrica a través de un Amplificador de guitarra o también a través de un Pedal de efectos.',
-    creadoPor: 'iromani',
+    creadoPor: 'mheber',
     precio: 160,
     comentarios: [{usuarioQueComento: 'mheber', comentario:'Bueno'}, {usuarioQueComento: 'iromani', comentario:'Tremendo'}, {usuarioQueComento: 'mlang', comentario:'Malo'}]
 },
@@ -115,7 +115,7 @@ let instrumentos = {
     fechaDeCreacion: "11/3/2021",
     imagen: "https://www.yulmar.com.ar/fotos/articulos/1793420292-Flauta-Traversa-Wisemann-Dfl-310-Plateada-16-Llaves-Estuche.jpg", 
     descripcion: 'La flauta travesera es un tipo de flauta que se encuentra fabricada en diversos materiales como el metal, hueso, madera, plástico, alpaca o combinaciones de estos.',
-    creadoPor: 'mheber',
+    creadoPor: 'iromani',
     precio: 95,
     comentarios: [ {usuarioQueComento: 'mlang', comentario:'Tremendo'}]
 },
@@ -207,7 +207,7 @@ let instrumentos = {
         clave: 'abbc2',
         cantidadDeProductos: 4,
         seguidores: 921,
-        comentarios: 12,
+        comentarios: 16,
         idsDeLosProductosCreados: [1, 7, 8, 12],
         fotoDePerfil: 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'
     },
@@ -218,7 +218,7 @@ let instrumentos = {
         clave: 'abccc1',
         cantidadDeProductos: 3,
         seguidores: 140,
-        comentarios: 10,
+        comentarios: 9,
         idsDeLosProductosCreados: [6, 11, 15],
         fotoDePerfil: 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'
     },
@@ -229,8 +229,8 @@ let instrumentos = {
         clave: 'abcde11',
         cantidadDeProductos: 3,
         seguidores: 110,
-        comentarios: 16,
-        idsDeLosProductosCreados: [3, 10, 14],
+        comentarios: 12,
+        idsDeLosProductosCreados: [3, 4, 13],
         fotoDePerfil: 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'
     },
     {
@@ -240,8 +240,8 @@ let instrumentos = {
         clave: 'abcd10',
         cantidadDeProductos: 3,
         seguidores: 100,
-        comentarios: 10,
-        idsDeLosProductosCreados: [4, 9, 13],
+        comentarios: 11,
+        idsDeLosProductosCreados: [ 9, 10, 14],
         fotoDePerfil: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU'
     },
     {
@@ -251,8 +251,8 @@ let instrumentos = {
         clave: 'abcd12',
         cantidadDeProductos: 8,
         seguidores: 100,
-        comentarios: 10,
-        idsDeLosProductosCreados: [3, 7, 10, 2, 0 ,6, 9, 13],
+        comentarios: 30,
+        idsDeLosProductosCreados: [0, 1, 2, 3, 4 ,5, 6, 7],
         fotoDePerfil: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png'
     },
 ]

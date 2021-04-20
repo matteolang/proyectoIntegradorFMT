@@ -49,7 +49,7 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
-							<p>El instrumento se fabrico en la fecha <%= instrumentitos[i].fechaDeCreacion %> </p>
+							<p>Precio: £<%= instrumentitos[i].precio %></p>
 							<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
 						</article>
 					</a>
@@ -67,7 +67,7 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < instrumentitos.length; i++) { %> 
+			<% for(let i = 0; i < 7; i++) { %> 
 				<% if (instrumentitos[i].comentarios.length == 5) { %>
 					<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
@@ -77,7 +77,7 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
-								<p>El instrumento se fabrico en la fecha <%= instrumentitos[i].fechaDeCreacion %> </p>
+								<p>Precio: £<%= instrumentitos[i].precio %></p>
 								<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
 							</article>
 						</a>
@@ -88,6 +88,32 @@
 		</div>
 	</div>
 	<!-- /Más comentados -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Más baratos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for(let i = 0; i < instrumentitos.length; i++) { %> 
+				<% if (instrumentitos[i].precio < 60) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="product/id/<%= instrumentitos[i].id %> ">
+							<figure class="product-box_image">
+								<img src="<%= instrumentitos[i].imagen%> " alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
+								<p>Precio: £<%= instrumentitos[i].precio %>  </p>
+								<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
+							</article>
+						</a>
+					</section>
+				</div>
+			<%	} %> 
+			<% } %> 
+		</div>
+	</div>
 
 
   <%- include("./parciales/footers") %>

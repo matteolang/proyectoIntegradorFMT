@@ -25,8 +25,15 @@ let usersController = {
         res.render('register', {title: 'Register'})
     },
     profileEdit: (req, res) => {
-        let id = req.params.id
-        res.render('profile-edit', {producto: instrumentos.lista, idSearch: id, usuario: instrumentos.usuarios})
+        let nombreUsuario = req.params.usuario
+        let result =  []
+        for( let i = 0; i < instrumentos.usuarios.length; i++){
+            if(nombreUsuario.toLowerCase() === instrumentos.usuarios[i].username.toLowerCase()){
+                result.push(instrumentos.usuarios[i])
+            }
+        }
+
+        res.render('profile-edit', {producto: instrumentos.lista, usuarioACambiar: nombreUsuario, usuario: instrumentos.usuarios, arrayDatosDelUsuario: result})
     },
 }
 

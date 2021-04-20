@@ -19,6 +19,8 @@
   box-sizing: border-box;
 }
 
+
+
 html,
 body {
   min-height: 100vh;
@@ -41,6 +43,10 @@ body {
 .creadoPor {
   padding-left: 30px;
   font-weight: bold;
+}
+
+#tuerca {
+  display: none;
 }
 
 .producto-no-encontrado {
@@ -635,6 +641,22 @@ textarea.form-input {
     justify-content: flex-end;
   }
 
+  #logo-deslogueado {
+    justify-content: space-between;
+    padding-left: 0px;
+  }
+
+  #logo-deslogueado img{
+    
+    padding-left: 0px;
+  }
+
+  #divheaderdeslog {
+    display: flex;
+    justify-content: space-between !important;
+  }
+
+ 
   #redes-sociales img {
     width: 25px;
     margin-left: 10px;
