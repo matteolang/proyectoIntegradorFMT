@@ -2,17 +2,17 @@ let instrumentos = require('../data/index')
 
 let usersController = {
     profile: (req, res) => {
-        let nombreUsuario = req.params.usuarioQueComento
+        let idUsuario = req.params.usuarioQueComento
 
         let result = []
-        if(nombreUsuario != null){
+        if(idUsuario != null){
         for( let i = 0; i < instrumentos.usuarios.length; i++){
-            if(instrumentos.usuarios[i].username.toLowerCase() == nombreUsuario.toLowerCase()){
+            if(instrumentos.usuarios[i].id == idUsuario){
                 result.push(instrumentos.usuarios[i])
             }
         }
 
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result, perfil: instrumentos.usuarios})
+        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios})
     }
     else {
         res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result, perfil: instrumentos.usuarios})
@@ -25,15 +25,15 @@ let usersController = {
         res.render('register', {title: 'Register'})
     },
     profileEdit: (req, res) => {
-        let nombreUsuario = req.params.usuario
+        let idUsuario = req.params.usuario
         let result =  []
         for( let i = 0; i < instrumentos.usuarios.length; i++){
-            if(nombreUsuario.toLowerCase() === instrumentos.usuarios[i].username.toLowerCase()){
+            if(idUsuario == instrumentos.usuarios[i].id){
                 result.push(instrumentos.usuarios[i])
             }
         }
 
-        res.render('profile-edit', {producto: instrumentos.lista, usuarioACambiar: nombreUsuario, usuario: instrumentos.usuarios, arrayDatosDelUsuario: result})
+        res.render('profile-edit', {producto: instrumentos.lista, usuarioACambiar: idUsuario, usuario: instrumentos.usuarios, arrayDatosDelUsuario: result})
     },
 }
 

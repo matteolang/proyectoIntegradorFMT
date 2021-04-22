@@ -28,6 +28,11 @@ body {
   font-size: 10px;
 }
 
+.fecha-comentario {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .titulo-register {
   display: flex;
   justify-content: center;
@@ -45,9 +50,7 @@ body {
   font-weight: bold;
 }
 
-#tuerca {
-  display: none;
-}
+
 
 .producto-no-encontrado {
   color: red;
