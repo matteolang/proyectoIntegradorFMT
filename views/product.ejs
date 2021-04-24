@@ -6,9 +6,9 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto[idSearch].nombreDelInstrumento + ' ' + producto[idSearch].marca + ' ' + producto[idSearch].modelo %> </h2> 
 			<p class="product-detail-description">
-				<!-- < % if(producto[idSearch].creadoPor == 5 ){%>  -->
+				<% if(usuario[5].idsDeLosProductosCreados.includes(producto[idSearch].id) ){%>
 				<a href="../product-edit/<%= producto[idSearch].id%>">Editar</a>
-				<!-- < % } %>  -->
+				<% } %> 
 			</p>
 		</div>
 		<div class="product-detail">
