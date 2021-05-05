@@ -6,25 +6,43 @@ let cols = {
     id: {
         autoincrement: true,
         primarykey: true,
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        unsigned: true
     },
-    nombre: {
+    username: {
         type: DataTypes.STRING
     },
-    fecha_nacimiento: {
-
+    fecha_de_nacimiento: {
+        type: DataTypes.DATE
+    },
+    clave: {
+        type: DataTypes.STRING
+    },
+    cantidad_de_productos: {
+        type: DataTypes.INTEGER,
+        unsigned: true
+    },
+    seguidores: {
+        type: DataTypes.INTEGER,
+        unsigned: true
+    },
+    comentarios: {
+        type: DataTypes.INTEGER,
+        unsigned: true
+    },
+    foto_perfil: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null 
     }
-//Los nombres aca de las columnas tienen q coincidir con los de la base de datos, y asignarle las mismas propiedades.
-//etc...
+
 }
 
 let config = {
-    //si no necesitas esto no se pone, pero sirve para aclarar cosas de mas sobre una tabla. Por ejemplo: 
-    tableName: 'usuario',
-    timestamps: false   
-    //->   desabilita las columnas de timestamp para esta tabla/modelo. 
+    tableName: 'usuarios',
+    timestamps: false    
 }
-//config es opcional
+
 
 const Usuarios = sequelize.define(alias, cols, config)
 
