@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 26-04-2021 a las 02:39:51
+-- Tiempo de generación: 06-05-2021 a las 02:31:32
 -- Versión del servidor: 5.7.32
 -- Versión de PHP: 7.4.12
 
@@ -25,40 +25,41 @@ CREATE TABLE `comentarios` (
   `id_autor` int(10) UNSIGNED NOT NULL,
   `comentario` varchar(255) NOT NULL,
   `fecha_de_creacion` date NOT NULL,
-  `foto_autor` varchar(1000) DEFAULT NULL
+  `foto_autor` varchar(1000) DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_producto_comentado`, `id_autor`, `comentario`, `fecha_de_creacion`, `foto_autor`) VALUES
-(0, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'),
-(0, 1, 'Tremendo', '2021-05-11', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'),
-(1, 1, 'Tremendo', '2021-05-31', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'),
-(2, 0, 'Malo', '2021-05-12', 'https://i.ibb.co/y0PkCDW/foto-fran.jpg'),
-(3, 3, 'Bueno', '2021-05-31', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'),
-(4, 2, 'Increible', '2021-05-14', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'),
-(5, 3, 'Bueno', '2021-05-15', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'),
-(6, 2, 'Malo', '2021-05-01', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'),
-(7, 1, 'Tremendo', '2021-05-20', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'),
-(8, 1, 'Bueno', '2021-05-01', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'),
-(9, 1, 'Tremendo', '2021-05-11', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg'),
-(10, 0, 'Estaba roto', '2021-05-06', 'https://i.ibb.co/y0PkCDW/foto-fran.jpg'),
-(11, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'),
-(12, 4, 'Malo', '2021-03-01', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU'),
-(13, 2, 'Increible', '2021-02-01', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg'),
-(14, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs'),
-(15, 4, 'Tremendo', '2021-05-22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU');
+INSERT INTO `comentarios` (`id_producto_comentado`, `id_autor`, `comentario`, `fecha_de_creacion`, `foto_autor`, `id`) VALUES
+(0, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs', 1),
+(0, 1, 'Tremendo', '2021-05-11', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg', 2),
+(1, 1, 'Tremendo', '2021-05-31', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg', 3),
+(2, 0, 'Malo', '2021-05-12', 'https://i.ibb.co/y0PkCDW/foto-fran.jpg', 4),
+(3, 3, 'Bueno', '2021-05-31', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs', 5),
+(4, 2, 'Increible', '2021-05-14', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg', 6),
+(5, 3, 'Bueno', '2021-05-15', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs', 7),
+(6, 2, 'Malo', '2021-05-01', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg', 8),
+(7, 1, 'Tremendo', '2021-05-20', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg', 9),
+(8, 1, 'Bueno', '2021-05-01', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg', 10),
+(9, 1, 'Tremendo', '2021-05-11', 'https://i.ibb.co/Tq9WPQ1/8-B93527-F-638-F-4-CED-823-C-3-B85-A27-BFD48.jpg', 11),
+(10, 0, 'Estaba roto', '2021-05-06', 'https://i.ibb.co/y0PkCDW/foto-fran.jpg', 12),
+(11, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs', 13),
+(12, 4, 'Malo', '2021-03-01', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU', 14),
+(13, 2, 'Increible', '2021-02-01', 'https://i.ibb.co/Gnx8cjt/foto-timo.jpg', 15),
+(14, 3, 'Bueno', '2021-05-01', 'https://media-exp1.licdn.com/dms/image/C5603AQGBiazQ36HrmQ/profile-displayphoto-shrink_200_200/0/1564075095565?e=1622678400&v=beta&t=zfFgeZI4Fljf6OSTnkamWPVW0guJV8uwka5MAwnIvgs', 16),
+(15, 4, 'Tremendo', '2021-05-22', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2oE02pX4mrruguaB5nyv-l0uIpvT9re_bQmTHjlrYhw68_gMBzuiaT3dEdpuh9bxTE60&usqp=CAU', 17);
 
 -- --------------------------------------------------------
-La insercion de datos en la tabla de comentarios consiste solo en algunos de los comentarios de la pagina, ya que para esta entrega insertar los 60 comentarios que hay en total en la pagina era demasiado.
 
 --
 -- Estructura de tabla para la tabla `productos_creados`
 --
 
 CREATE TABLE `productos_creados` (
+  `id` int(10) UNSIGNED NOT NULL,
   `usuario_id` int(10) UNSIGNED NOT NULL,
   `producto_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -67,23 +68,23 @@ CREATE TABLE `productos_creados` (
 -- Volcado de datos para la tabla `productos_creados`
 --
 
-INSERT INTO `productos_creados` (`usuario_id`, `producto_id`) VALUES
-(0, 0),
-(1, 1),
-(0, 2),
-(3, 3),
-(3, 4),
-(0, 5),
-(2, 6),
-(1, 7),
-(1, 8),
-(4, 9),
-(4, 10),
-(2, 11),
-(1, 12),
-(3, 13),
-(4, 14),
-(2, 15);
+INSERT INTO `productos_creados` (`id`, `usuario_id`, `producto_id`) VALUES
+(1, 1, 1),
+(2, 0, 2),
+(3, 3, 3),
+(4, 3, 4),
+(5, 0, 5),
+(6, 2, 6),
+(7, 1, 7),
+(8, 1, 8),
+(9, 4, 9),
+(10, 4, 10),
+(11, 2, 11),
+(12, 1, 12),
+(13, 3, 13),
+(14, 4, 14),
+(15, 2, 15),
+(17, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -161,6 +162,7 @@ INSERT INTO `usuarios` (`id`, `username`, `fecha_de_nacimiento`, `clave`, `canti
 -- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_producto_comentado` (`id_producto_comentado`),
   ADD KEY `id_autor` (`id_autor`);
 
@@ -168,8 +170,9 @@ ALTER TABLE `comentarios`
 -- Indices de la tabla `productos_creados`
 --
 ALTER TABLE `productos_creados`
-  ADD PRIMARY KEY (`usuario_id`,`producto_id`),
-  ADD KEY `producto_id` (`producto_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `productos_creados_ibfk_1` (`usuario_id`),
+  ADD KEY `productos_creados_ibfk_2` (`producto_id`);
 
 --
 -- Indices de la tabla `products`
@@ -183,6 +186,22 @@ ALTER TABLE `products`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de la tabla `productos_creados`
+--
+ALTER TABLE `productos_creados`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas

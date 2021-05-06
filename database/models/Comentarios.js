@@ -25,11 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     let config = {
-        tableName: 'products',
+        tableName: 'comentarios',
         timestamps: false
     }
 
-    const Comentarios = sequelize(alias, cols, config)
+    const Comentarios = sequelize.define(alias, cols, config)
 
 
     return Comentarios

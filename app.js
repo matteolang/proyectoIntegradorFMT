@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users')
 var profileEditRouter = require('./routes/profileEdit')
 var RegisterRouter = require('./routes/register')
 var loginRouter = require('./routes/login')
+var sequelizeRouter = require('./routes/sequelize')
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/profile', usersRouter)
 app.use('/profile-edit', profileEditRouter)
 app.use('/register', RegisterRouter)
 app.use('/login', loginRouter)
+app.use('/sequelize', sequelizeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

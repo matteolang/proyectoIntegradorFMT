@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize/types");
+
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -21,7 +21,7 @@ let config = {
     timestamps: false
 }
 
-const ProductosCreados = sequelize(alias, cols, config)
+const ProductosCreados = sequelize.define(alias, cols, config)
 
 return ProductosCreados
 

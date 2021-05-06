@@ -2,7 +2,7 @@ module.exports =
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "Melodiic",
     "host": "127.0.0.1",
     
