@@ -6,22 +6,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
-			
-			<% if(resultadoSearch.length === 0 ){ %>
-
-				<h2 class="producto-no-encontrado">No encontramos el producto que buscas. Intenta denuevo.</h2>
-
-			 <% } %> 
-			 <% if(parametroSearch == '' ){ %>
-
-				<h2 class="producto-no-encontrado">Ingresa algun valor en el campo de busqueda</h2>
-
-			 <% } else {%> 
-			 
-			
 			<% for(let i = 0; i < resultadoSearch.length; i++) { %> 
-				
-				
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="product/id/<%= resultadoSearch[i].id %>">
@@ -36,12 +21,7 @@
 					</a>
 				</section>
 			</div>
-			
-	
 		<% } %> 
-		<% } %> 
-		
-
       <%- include("./parciales/footers") %>
 </body>
 

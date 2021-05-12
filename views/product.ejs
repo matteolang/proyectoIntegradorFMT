@@ -15,44 +15,29 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<p class="precio">£ <%= producto[idSearch].precio%></p>
-					<% for(let i = 0; i < usuario.length; i++){ %> 
-						<% if(usuario[i].id === producto[idSearch].creadoPor){ %> 
-					<h2 class="creadoPor">Creado por: <a href="/../profile/<%= usuario[i].id %>"><%= usuario[i].username%></a></h2>
+					<h2 class="creadoPor">Creado por: <a href="/../profile/<%= creador[0].id %>"><%= creador[0].username%></a></h2>
 					<h2 class="creadoPor" class="fecha-creacion">Fecha de creación: <a><%= producto[idSearch].fechaDeCreacion%></a></h2>
-					<% } %> 
-					<% } %> 
 					<img src="<%= producto[idSearch].imagen %> " alt="" class="product-detail-img">
 					<p class="product-detail-description"><%= producto[idSearch].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < producto[idSearch].comentarios.length; i++) { %> 
-							
-								
-						<article>
-							<% for(let a = 0; a < usuario.length; a++){ %> 
-								
-							<% if(producto[idSearch].comentarios[i].usuarioQueComento == usuario[a].id){ %> 
-							<img src="<%= usuario[a].fotoDePerfil %> " alt="">
-							
+						<% for( let i = 0; i < infoComentarios.length; i++) { %> 
+						<article>				 
+							<img src="<%= infoComentarios[i].fotoDePerfil %> " alt="">
 							<div class="data">
 								<p class="user">
 										
-									<strong> <a href="/../profile/<%= usuario[a].id %>"><%= usuario[a].username %>: </a> </strong>
+									<strong> <a href="/../profile/<%= infoComentarios[i].id %>"><%= infoComentarios[i].username %>: </a> </strong>
 										<%= producto[idSearch].comentarios[i].comentario %> 
 										<br>
 										<div class="fecha-comentario">
 										<%= producto[idSearch].comentarios[i].fechaComentario %>	
 									</div>
 								</p>
-								<% } %> 
-								<% } %> 
 							</div>
 						</article>
-				
 					<% } %> 
-					
-
 					</section>
 					<form class="form" action="" method="GET">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">

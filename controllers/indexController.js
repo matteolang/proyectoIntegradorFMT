@@ -3,7 +3,22 @@ const { json } = require('express')
 
 let mainController = {
     index: (req, res) => {
-        res.render('index', {instrumentitos: instrumentos.lista})
+
+        let instrumentosConMasComentarios = []
+        for(let i = 0; i < instrumentos.lista.length; i++){
+            if(instrumentos.lista[i].comentarios.length == 5){
+                instrumentosConMasComentarios.push(instrumentos.lista[i])
+            }
+        }
+
+        let instrumentosMasBaratos = []
+        for(let i = 0; i < instrumentos.lista.length; i++){
+            if(instrumentos.lista[i].precio < 60){
+                instrumentosMasBaratos.push(instrumentos.lista[i])
+            }
+        }
+
+        res.render('index', {instrumentitos: instrumentos.lista, masComentados: instrumentosConMasComentarios, masBaratos: instrumentosMasBaratos})
     },
     searchResults: (req, res) => {
 
@@ -20,7 +35,18 @@ let mainController = {
                 result.push(instrumentos.lista[i])
             }
         }
-        res.render('search-results', {resultadoSearch: result, instrumentitos: instrumentos.lista, parametroSearch: search})
+
+     
+        
+        if(result.length == 0){
+            res.render('search-results-no-encontrados')
+        }
+        if (search == '') {
+            res.render('search-results-no-ingreso-ningun-valor')
+        }
+        else {
+            res.render('search-results-encontrados', {resultadoSearch: result, instrumentitos: instrumentos.lista, parametroSearch: search})
+        }
     },
 }
 

@@ -5,18 +5,24 @@ let usersController = {
         let idUsuario = req.params.usuarioQueComento
 
         let result = []
-        if(idUsuario != null){
+    
         for( let i = 0; i < instrumentos.usuarios.length; i++){
             if(instrumentos.usuarios[i].id == idUsuario){
                 result.push(instrumentos.usuarios[i])
             }
         }
 
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios})
+        let productosQueCreo = []
+        for(let i = 0; i < instrumentos.lista.length; i++){
+            for(let a = 0; a < result[0].idsDeLosProductosCreados.length; a++){
+            if(result[0].idsDeLosProductosCreados[a] === instrumentos.lista[i].id){
+                productosQueCreo.push(instrumentos.lista[i])
+            }
+        }
     }
-    else {
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: nombreUsuario, usuario: result, perfil: instrumentos.usuarios})
-    }
+
+        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+  
     },
     login: (req, res) => {
         res.render('login', {title: 'Inicia Sesion'})
