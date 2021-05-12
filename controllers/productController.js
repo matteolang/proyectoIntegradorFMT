@@ -20,7 +20,15 @@ let productController = {
             }
         }
 
-        res.render('product', {producto: instrumentos.lista, idSearch: idInstrumento, usuario: instrumentos.usuarios, creador: arrayCreadoPor, infoComentarios: comentarioss})
+        if (instrumentos.usuarios[5].idsDeLosProductosCreados.includes(instrumentos.lista[idInstrumento].id)) {
+            res.render('product', {producto: instrumentos.lista, idSearch: idInstrumento, usuario: instrumentos.usuarios, creador: arrayCreadoPor, infoComentarios: comentarioss})
+        }
+        else{
+            res.render('product-no-editable', {producto: instrumentos.lista, idSearch: idInstrumento, usuario: instrumentos.usuarios, creador: arrayCreadoPor, infoComentarios: comentarioss})
+        }
+
+
+        
     },
     productAdd: (req, res) => {
         res.render('product-add', {producto: instrumentos.lista})

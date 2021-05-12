@@ -1,0 +1,53 @@
+<%-include("./parciales/header")%>
+<% console.log(usuario) %> 
+<% console.log(productosDelUsuario) %> 
+	<!-- Datos del usuario -->
+		<section class="info-usuario container products-wrapper">
+			<div class="row">
+				<div class="img-container offset-3 col-2">
+					<img src="<%= usuario[0].fotoDePerfil %>" alt="" class="foto-perfil">
+				</div>
+				<div class="data-container col-6">
+					<div class="d-flex align-items-center ">
+						<h1 class="main-title"><%= usuario[0].username %> 
+							
+						</h1>
+						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					</div>
+					<div>
+						<ul class="">
+							<li><%= usuario[0].cantidadDeProductos %>  productos</li>
+							<li><%= usuario[0].seguidores %> seguidores</li>
+							<li><%= usuario[0].comentarios %> comentarios</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Mis productos</h2>
+				</div>
+				<!-- Show mis productos -->
+				<% for(let a = 0; a < productosDelUsuario.length; a++){ %> 
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="../product/id/<%= productosDelUsuario[a].id %>">
+								<figure class="product-box_image">
+									<img src="<%= productosDelUsuario[a].imagen%> " alt="">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= productosDelUsuario[a].nombreDelInstrumento + ' ' + productosDelUsuario[a].marca + ' ' + productosDelUsuario[a].modelo %> </h2>
+									<p>Precio: £<%= productosDelUsuario[a].precio %> </p>
+									<p>Comentarios: <%= productosDelUsuario[a].comentarios.length %> </p>
+								</article>
+							</a>
+						</section>
+					</div>
+					<% } %> 
+			</div>
+		</div>
+    <%- include("./parciales/footers") %>
+</body>	
+</html>

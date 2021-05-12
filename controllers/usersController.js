@@ -21,7 +21,15 @@ let usersController = {
         }
     }
 
-        res.render('profile', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+    if (idUsuario == 5) {
+        res.render('profile-logueado-prototipo', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+    }
+    else {
+        res.render('profiles-otros', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+    }
+
+
+       
   
     },
     login: (req, res) => {
