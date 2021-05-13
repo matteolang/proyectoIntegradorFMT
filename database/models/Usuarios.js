@@ -4,9 +4,9 @@ let alias = 'Usuarios'
 
 let cols = {
     id: {
-        autoincrement: true,
-        primaryKey: true,
         type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
         unsigned: true
     },
     username: {

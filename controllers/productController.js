@@ -1,4 +1,5 @@
 let instrumentos = require('../data/index')
+const db = require('../database/models')
 
 let productController = {
     product: (req, res) => {
@@ -31,8 +32,30 @@ let productController = {
         
     },
     productAdd: (req, res) => {
+
         res.render('product-add', {producto: instrumentos.lista})
+    },  
+      productSum: (req, res) => {
+          let producto = {
+              marca: req.body.marca,
+              modelo: req.body.modelo,
+              nombre_producto: req.body.nombre,
+              fecha_de_creacion: req.body.fecha,
+              descripcion: req.body.descripcion,
+              creado_por: 5,
+              foto_product: req.body.foto,
+              precio: req.body.precio
+          }
+          console.log(producto);
+            db.Products.create(producto)
+            .then(()=>{
+                res.redirect("/profile/5")
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
     },
+
     productEdit: (req, res) => {
         let id = req.params.id
         res.render('product-edit', {producto: instrumentos.lista, idSearch: id})

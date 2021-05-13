@@ -8,36 +8,36 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
-				<form class="register-form" action="">
+				<form method="POST" class="register-form" action="/product/product-add">
 					<div>
-					<label>Nombre de tu producto</label>
-					<input type="text" placeholder="Nombre...">
+					<label for="nombre">Nombre de tu producto</label>
+					<input type="text" id="nombre" name="nombre" placeholder="Nombre...">
 					</div>
 					<div>
-						<label>Modelo de tu producto</label>
-						<input type="text" placeholder="Modelo...">
+						<label for="modelo">Modelo de tu producto</label>
+						<input type="text" id="modelo" name="modelo" placeholder="Modelo...">
 					</div>
 					<div>
-						<label>Marca de tu producto</label>
-						<input type="text" placeholder="Marca...">
+						<label for="marca">Marca de tu producto</label>
+						<input type="text" id="marca" name="marca" placeholder="Marca...">
 					</div>
 	
 					<div>
-						<label>Fecha de creación de tu producto</label>
-					<input type="date" placeholder="">
+						<label for='fecha'>Fecha de creación de tu producto</label>
+					<input type="date" name='fecha' id='fecha' placeholder="">
 				</div>
 	
 				<div>
-					<label>Imagen del producto</label>
-					<input type="url" placeholder="URL de la imagen">
+					<label for="foto">Imagen del producto</label>
+					<input type="url" id="foto" name="foto" placeholder="URL de la imagen">
 				</div>
 				<div>
-					<label>Descripción</label>
-					<input type="text" placeholder="Descripción...">
+					<label for="descripcion">Descripción</label>
+					<input type="text" id="descripcion" name="descripcion" placeholder="Descripción...">
 				</div>
 				<div>
-					<label>Precio de tu producto en £</label>
-					<input type="number" placeholder="Precio...">
+					<label for="precio">Precio de tu producto en £</label>
+					<input type="number" id="precio" name="precio" placeholder="Precio...">
 					</div>
 					<br>
 					<button type="submit" class="boton">Añadir producto</button>
