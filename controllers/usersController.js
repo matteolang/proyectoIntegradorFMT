@@ -1,10 +1,11 @@
 let instrumentos = require('../data/index')
+const db = require('../database/models')
 
 let usersController = {
     profile: (req, res) => {
         let idUsuario = req.params.usuarioQueComento
 
-        let result = []
+       /* let result = []
     
         for( let i = 0; i < instrumentos.usuarios.length; i++){
             if(instrumentos.usuarios[i].id == idUsuario){
@@ -20,10 +21,60 @@ let usersController = {
             }
         }
     }
+*/
 
     if (idUsuario == 5) {
-        res.render('profile-logueado-prototipo', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
-    }
+
+        db.Products.findAll({
+            where: {
+                creado_por: idUsuario 
+                
+            }
+        })
+        .then((resultados)=>{
+
+            
+            db.Usuarios.findByPk(idUsuario)
+        .then((resultadoss)=>{
+          
+           
+
+       resultados.forEach(element => {
+        db.Comentarios.findAll({
+               
+            where: {
+                id_producto_comentado: element.dataValues.id
+            }
+        
+        })
+        .then((resultadosss)=>{
+            if(resultadosss == true){
+                res.render('profile-logueado-prototipo', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
+            }
+            })
+    .catch((error)=>{
+        return res.send(error)
+   })
+       });
+
+           
+
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+   
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+     
+       
+
+         
+
+       // res.render('profile-logueado-prototipo', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+        }
     else {
         res.render('profiles-otros', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
     }

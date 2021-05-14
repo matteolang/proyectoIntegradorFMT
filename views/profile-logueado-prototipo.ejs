@@ -1,16 +1,18 @@
 <%-include("./parciales/header")%>
-<% console.log(usuario) %> 
-<% console.log(productosDelUsuario) %> 
+<% //console.log(datosUsuario) %> 
+<% //console.log(productos) %> 
+<% console.log(numeroComentarios) %> 
+
 	<!-- Datos del usuario -->
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src="<%= usuario[0].fotoDePerfil %>" alt="" class="foto-perfil">
+					<img src="<%= datosUsuario.foto_perfil %>" alt="" class="foto-perfil">
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title">  <%= usuario[0].username %>
-							<a href="/../profile-edit/<%= usuarioClickeado %>">
+						<h1 class="main-title">  <%= datosUsuario.username %>
+							<a href="/../profile-edit/<%= datosUsuario.id %>">
 								<i class="fas fa-cog"></i>
 							</a>
 						</h1>
@@ -18,9 +20,9 @@
 					</div>
 					<div>
 						<ul class="">
-							<li><%= usuario[0].cantidadDeProductos %>  productos</li>
-							<li><%= usuario[0].seguidores %> seguidores</li>
-							<li><%= usuario[0].comentarios %> comentarios</li>
+							<li><%= productos.length %>  productos</li>
+							<li><%= datosUsuario.seguidores %> seguidores</li>
+							<li><%= datosUsuario.comentarios %> comentarios</li>
 						</ul>
 					</div>
 				</div>
@@ -32,17 +34,17 @@
 					<h2 class="products-title">Mis productos</h2>
 				</div>
 				<!-- Show mis productos -->
-				<% for(let i = 0; i < usuario[0].cantidadDeProductos; i++) { %> 
+				<% for(let i = 0; i < productos.length; i++) { %> 
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="../product/id/<%= instrumentitos[i].id %>">
+							<a href="../product/id/<%= productos[i].id %>">
 								<figure class="product-box_image">
-									<img src="<%= instrumentitos[i].imagen%> " alt="">
+									<img src="<%= productos[i].foto_product%> " alt="">
 								</figure>
 								<article class="product-box_data">
-									<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
-									<p>Precio: £<%= instrumentitos[i].precio %></p>
-									<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
+									<h2><%= productos[i].nombre_producto + ' ' + productos[i].marca + ' ' + productos[i].modelo %> </h2>
+									<p>Precio: £<%= productos[i].precio %></p>
+									<p>Comentarios: <%= numeroComentarios.length %> </p>
 								</article>
 							</a>
 						</section>
