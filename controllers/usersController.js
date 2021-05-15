@@ -48,6 +48,7 @@ let usersController = {
         
         })
         .then((resultadosss)=>{
+            
             // if(resultadosss == true){
                 res.render('profile-logueado-prototipo', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
             // }
@@ -75,8 +76,56 @@ let usersController = {
 
        // res.render('profile-logueado-prototipo', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
         }
-    else {
-        res.render('profiles-otros', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
+    
+    
+    
+        else {
+        db.Products.findAll({
+            where: {
+                creado_por: idUsuario 
+                
+            }
+        })
+        .then((productos)=>{
+
+            
+            db.Usuarios.findByPk(idUsuario)
+        .then((usuario)=>{
+          
+           
+
+       productos.forEach(element => {
+        db.Comentarios.findAll({
+               
+            where: {
+                id_producto_comentado: element.dataValues.id
+            }
+        
+        })
+        .then((comentarios)=>{
+            // if(resultadosss == true){
+
+                res.render('profiles-otros', {productos: productos, datosUsuario: usuario, numeroComentarios: comentarios })
+            // }
+            })
+    .catch((error)=>{
+        return res.send(error)
+   })
+       });
+
+           
+
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+   
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+     
+
     }
 
 
