@@ -48,9 +48,9 @@ let usersController = {
         
         })
         .then((resultadosss)=>{
-            if(resultadosss == true){
+            // if(resultadosss == true){
                 res.render('profile-logueado-prototipo', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
-            }
+            // }
             })
     .catch((error)=>{
         return res.send(error)

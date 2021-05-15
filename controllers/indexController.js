@@ -1,24 +1,108 @@
 let instrumentos = require('../data/index')
 const { json } = require('express')
+const db = require('../database/models')
+const op = db.Sequelize.Op;
 
 let mainController = {
     index: (req, res) => {
 
-        let instrumentosConMasComentarios = []
-        for(let i = 0; i < instrumentos.lista.length; i++){
-            if(instrumentos.lista[i].comentarios.length == 5){
-                instrumentosConMasComentarios.push(instrumentos.lista[i])
-            }
-        }
 
-        let instrumentosMasBaratos = []
-        for(let i = 0; i < instrumentos.lista.length; i++){
-            if(instrumentos.lista[i].precio < 60){
-                instrumentosMasBaratos.push(instrumentos.lista[i])
-            }
-        }
 
-        res.render('index', {instrumentitos: instrumentos.lista, masComentados: instrumentosConMasComentarios, masBaratos: instrumentosMasBaratos})
+        // db.Products.findAll({
+        //     order: [
+        //         ["fecha_de_creacion", "ASC"]
+        //     ],
+        //     limit:4
+        //  })
+        //  .then((masNuevos)=>{
+        //  db.Comentarios.findAll({
+        //  })
+        //  .then((comentarios)=>{
+        //      res.render('index', {masNuevos: masNuevos, comentarios:comentarios, instrumentitos: productos, masBaratos: masBaratos}) 
+        //      })
+        //  .catch((error)=>{
+        //      return res.send(error)
+        //   })
+        //  })
+        //  .catch((error)=>{
+        //      return res.send(error)
+        //  })
+
+
+         
+        db.Products.findAll({
+
+        })
+        .then((productos)=>{
+        db.Comentarios.findAll({
+        })
+        .then((comentarios)=>{
+            db.Products.findAll({
+                order: [
+                    ["precio", "ASC"]
+                ],
+                limit:4
+             })
+             .then((masBaratos)=>{
+
+
+         db.Products.findAll({
+             order: [
+                ["fecha_de_creacion", "DESC"]
+            ],
+             limit:4
+          })
+          .then((masNuevos)=>{
+            res.render('index', {instrumentitos: productos, comentarios:comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
+        })  
+        })
+            })
+        .catch((error)=>{
+            return res.send(error)
+         })
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+
+
+
+
+        // db.Products.findAll({
+        //     order: [
+        //         ["precio", "ASC"]
+        //     ],
+        //     limit:4
+        //  })
+        //  .then((masBaratos)=>{
+        //  db.Comentarios.findAll({
+        //  })
+        //  .then((comentarios)=>{
+        //      res.render('index', {masBaratos: masBaratos, comentarios:comentarios}) 
+        //      })
+        //  .catch((error)=>{
+        //      return res.send(error)
+        //   })
+        //  })
+        //  .catch((error)=>{
+        //      return res.send(error)
+        //  })
+
+        // let instrumentosConMasComentarios = []
+        // for(let i = 0; i < instrumentos.lista.length; i++){
+        //     if(instrumentos.lista[i].comentarios.length == 5){
+        //         instrumentosConMasComentarios.push(instrumentos.lista[i])
+        //     }
+        // }
+
+        // let instrumentosMasBaratos = []
+        // for(let i = 0; i < instrumentos.lista.length; i++){
+        //     if(instrumentos.lista[i].precio < 60){
+        //         instrumentosMasBaratos.push(instrumentos.lista[i])
+        //     }
+        // }
+
+       
     },
     searchResults: (req, res) => {
 

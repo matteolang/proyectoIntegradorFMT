@@ -43,14 +43,14 @@
 			<% for(let i = 0; i < 4; i++) { %> 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="product/id/<%= instrumentitos[i].id %>">
+					<a href="product/id/<%= masNuevos[i].id %>">
 						<figure class="product-box_image">
-							<img src="<%= instrumentitos[i].imagen%> " alt="">
+							<img src="<%= masNuevos[i].foto_product%> " alt="">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= instrumentitos[i].nombreDelInstrumento + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
-							<p>Precio: £<%= instrumentitos[i].precio %></p>
-							<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
+							<h2><%= masNuevos[i].nombre_producto + ' ' + masNuevos[i].marca + ' ' + masNuevos[i].modelo %> </h2>
+							<p>Precio: £<%= masNuevos[i].precio %></p>
+							<p>Comentarios: <%= comentarios.length %> </p>
 						</article>
 					</a>
 				</section>
@@ -71,14 +71,14 @@
 				
 					<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="product/id/<%= masComentados[i].id %> ">
+						<a href="product/id/<%= instrumentitos[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= masComentados[i].imagen%> " alt="">
+								<img src="<%= instrumentitos[i].foto_product%> " alt="">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= masComentados[i].nombreDelInstrumento + ' ' + masComentados[i].marca + ' ' + masComentados[i].modelo %> </h2>
-								<p>Precio: £<%= masComentados[i].precio %></p>
-								<p>Comentarios: <%= masComentados[i].comentarios.length %> </p>
+								<h2><%= instrumentitos[i].nombre_producto + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
+								<p>Precio: £<%= instrumentitos[i].precio %></p>
+								<p>Comentarios: <%= comentarios.length %> </p>
 							</article>
 						</a>
 					</section>
@@ -100,12 +100,12 @@
 					<section class="product-box">
 						<a href="product/id/<%= masBaratos[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= masBaratos[i].imagen%> " alt="">
+								<img src="<%= masBaratos[i].foto_product%> " alt="">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= masBaratos[i].nombreDelInstrumento + ' ' + masBaratos[i].marca + ' ' + masBaratos[i].modelo %> </h2>
+								<h2><%=masBaratos[i].nombre_producto + ' ' + masBaratos[i].marca + ' ' + masBaratos[i].modelo %> </h2>
 								<p>Precio: £<%= masBaratos[i].precio %>  </p>
-								<p>Comentarios: <%= masBaratos[i].comentarios.length %> </p>
+								<p>Comentarios: <%= comentarios.length %> </p>
 							</article>
 						</a>
 					</section>

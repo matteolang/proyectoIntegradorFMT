@@ -1,32 +1,80 @@
 let instrumentos = require('../data/index')
 const db = require('../database/models')
+const Usuarios = require('../database/models/Usuarios')
 
 let productController = {
     product: (req, res) => {
         let idInstrumento = req.params.id
 
-        let arrayCreadoPor = []
-        for(let i = 0; i < instrumentos.usuarios.length; i++){
-            if(instrumentos.usuarios[i].id == instrumentos.lista[idInstrumento].creadoPor){
-                arrayCreadoPor.push(instrumentos.usuarios[i])
+        db.Products.findAll({
+            where: {
+                id: idInstrumento
+                
             }
-        }
-
-        let comentarioss = []
-        for(let i = 0; i < instrumentos.lista[idInstrumento].comentarios.length; i++){
-            for(let a = 0; a < instrumentos.usuarios.length; a++){
-                if(instrumentos.lista[idInstrumento].comentarios[i].usuarioQueComento == instrumentos.usuarios[a].id){
-                    comentarioss.push(instrumentos.usuarios[a])
+        })
+        .then((producto)=>{
+            db.Usuarios.findAll({
+                where: {
+                    id : producto[0].creado_por
                 }
-            }
-        }
+            })
+        .then((usuario)=>{
+            let creadoPor = usuario[0].dataValues
 
-        if (instrumentos.usuarios[5].idsDeLosProductosCreados.includes(instrumentos.lista[idInstrumento].id)) {
-            res.render('product', {producto: instrumentos.lista, idSearch: idInstrumento, usuario: instrumentos.usuarios, creador: arrayCreadoPor, infoComentarios: comentarioss})
-        }
-        else{
-            res.render('product-no-editable', {producto: instrumentos.lista, idSearch: idInstrumento, usuario: instrumentos.usuarios, creador: arrayCreadoPor, infoComentarios: comentarioss})
-        }
+       producto.forEach(element => {
+        db.Comentarios.findAll({
+               
+            where: {
+                id_producto_comentado: element.dataValues.id
+            }
+        
+        })
+         .then((comentarios)=>{
+        //     let usuarioComentador = []
+            //for(let i = 0; i < comentarios.length; i++){
+            // db.Usuarios.findByPk(comentarios[i].id_autor)
+                // .then((usuarioComentadorr)=>{
+                //         usuarioComentador.push(usuarioComentadorr)
+
+                        // for (let a = 0; a < usuarioComentador.length; a++) {
+                        //     if (usuarioComentador[a].id == comentarios[i].id_autor) {
+                        //         let coment = usuarioComentador[a]
+                        //         console.log(coment.username);
+            res.render('product', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
+                        //     }
+                            
+                        // }
+                   
+               // })
+
+                
+            //}
+            // if (usuarios[5].idsDeLosProductosCreados.includes(productos[idInstrumento].id)) {
+               
+            // }
+            // else{
+            //     res.render('product-no-editable', {producto: productos, idSearch: idInstrumento, usuario: usuarios, creador: arrayCreadoPor, infoComentarios: comentarios})
+            // }
+            })
+    .catch((error)=>{
+        return res.send(error)
+   })
+       });
+
+           
+
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+   
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
 
 
         
