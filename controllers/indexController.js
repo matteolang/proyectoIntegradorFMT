@@ -109,28 +109,67 @@ let mainController = {
         let search = req.query.searchResults
 
         let result = []
-        for( let i = 0; i < instrumentos.lista.length; i++){
-            var nombreMarcaModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].marca.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
-            var nombreModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
-            if(instrumentos.lista[i].nombreDelInstrumento.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].marca.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].modelo.toLowerCase().includes(search.toLowerCase())){
-                result.push(instrumentos.lista[i])
+        let comentariosDeBuscados = []
+       // for( let i = 0; i < instrumentos.lista.length; i++){
+         //   var nombreMarcaModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].marca.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
+           // var nombreModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
+            //if(instrumentos.lista[i].nombreDelInstrumento.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].marca.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].modelo.toLowerCase().includes(search.toLowerCase())){
+              //  result.push(instrumentos.lista[i])
+            //}
+            //else if(nombreMarcaModelo.includes(search.toLowerCase()) || nombreModelo.includes(search.toLowerCase())){
+              //  result.push(instrumentos.lista[i])
+            //}
+        //}
+        db.Products.findAll({
+            where: {
+                [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}],
+                
             }
-            else if(nombreMarcaModelo.includes(search.toLowerCase()) || nombreModelo.includes(search.toLowerCase())){
-                result.push(instrumentos.lista[i])
+        },)
+        .then((resultados)=>{
+
+            for(let i = 0; i < resultados.length; i++){
+            result.push(resultados[i].dataValues)
+
+            db.Comentarios.findAll({
+                where: {
+                    id_producto_comentado: resultados[i].id
+                }
+            })
+            .then((comentarios)=>{
+                for(let a = 0; a < comentarios.length; a++){
+               // if(resultado){
+                comentariosDeBuscados.push(comentarios[a].dataValues)
+                //}
             }
-        }
+                 
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
+
+            }
+            
+
+            if(result.length == 0){
+
+                res.render('search-results-no-encontrados')
+            }
+            if (search == '') {
+                res.render('search-results-no-ingreso-ningun-valor')
+            }
+            else {
+                res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
+            }
+
+        })
+        .catch((error)=>{
+           return res.send(error)
+        })
 
      
         
-        if(result.length == 0){
-            res.render('search-results-no-encontrados')
-        }
-        if (search == '') {
-            res.render('search-results-no-ingreso-ningun-valor')
-        }
-        else {
-            res.render('search-results-encontrados', {resultadoSearch: result, instrumentitos: instrumentos.lista, parametroSearch: search})
-        }
+       
     },
 }
 
