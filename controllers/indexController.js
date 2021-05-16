@@ -107,9 +107,10 @@ let mainController = {
     searchResults: (req, res) => {
 
         let search = req.query.searchResults
+       
 
-        let result = []
-        let comentariosDeBuscados = []
+        const result = []
+        const comentariosDeBuscados = []
        // for( let i = 0; i < instrumentos.lista.length; i++){
          //   var nombreMarcaModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].marca.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
            // var nombreModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
@@ -120,12 +121,13 @@ let mainController = {
               //  result.push(instrumentos.lista[i])
             //}
         //}
-        db.Products.findAll({
+       
+         db.Products.findAll({
             where: {
                 [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}],
                 
             }
-        },)
+        })
         .then((resultados)=>{
 
             for(let i = 0; i < resultados.length; i++){
@@ -137,11 +139,18 @@ let mainController = {
                 }
             })
             .then((comentarios)=>{
+
+                
+
                 for(let a = 0; a < comentarios.length; a++){
-               // if(resultado){
+               
                 comentariosDeBuscados.push(comentarios[a].dataValues)
-                //}
+        
+                    res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
+                
+                
             }
+            
                  
             })
             .catch((error)=>{
@@ -149,27 +158,21 @@ let mainController = {
             })
 
             }
+          
+           
             
-
-            if(result.length == 0){
-
-                res.render('search-results-no-encontrados')
-            }
-            if (search == '') {
-                res.render('search-results-no-ingreso-ningun-valor')
-            }
-            else {
-                res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
-            }
 
         })
         .catch((error)=>{
-           return res.send(error)
+            return res.send(error)
         })
 
-     
+        if (search == '') {
+            res.render('search-results-no-ingreso-ningun-valor')
+        } 
+        //res.render('search-results-no-encontrados')
         
-       
+    
     },
 }
 
