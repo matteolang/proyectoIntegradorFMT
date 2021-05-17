@@ -40,21 +40,22 @@ let productController = {
                         //     if (usuarioComentador[a].id == comentarios[i].id_autor) {
                         //         let coment = usuarioComentador[a]
                         //         console.log(coment.username);
+
+            if (producto[0].creado_por == 5) {
             res.render('product', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
-                        //     }
-                            
+             }
+                else{
+                  res.render('product-no-editable', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
+                     }            
                         // }
                    
                // })
 
                 
             //}
-            // if (usuarios[5].idsDeLosProductosCreados.includes(productos[idInstrumento].id)) {
                
             // }
-            // else{
-            //     res.render('product-no-editable', {producto: productos, idSearch: idInstrumento, usuario: usuarios, creador: arrayCreadoPor, infoComentarios: comentarios})
-            // }
+
             })
     .catch((error)=>{
         return res.send(error)
@@ -78,10 +79,27 @@ let productController = {
 
 
         
+    },comentario: (req,res) =>{
+        let idInstrumento = req.params.id
+        let comentario = {
+            comentario: req.body.comentario,
+            id_producto_comentado: idInstrumento,
+            id_autor: 5,
+            fecha_de_creacion: 2021-03-05,
+            foto_autor: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+        }
+          db.Comentarios.create(comentario)
+          .then(()=>{
+              res.redirect("/product/id/"+idInstrumento)
+          })
+          .catch((error)=>{
+              return res.send(error)
+          })
+
     },
     productAdd: (req, res) => {
 
-        res.render('product-add', {producto: instrumentos.lista})
+        res.render('product-add', {})
     },  
       productSum: (req, res) => {
           let producto = {
@@ -94,7 +112,6 @@ let productController = {
               foto_product: req.body.foto,
               precio: req.body.precio
           }
-          console.log(producto);
             db.Products.create(producto)
             .then(()=>{
                 res.redirect("/profile/5")
@@ -105,9 +122,63 @@ let productController = {
     },
 
     productEdit: (req, res) => {
-        let id = req.params.id
-        res.render('product-edit', {producto: instrumentos.lista, idSearch: id})
+        let idInstrumento = req.params.id
+        db.Products.findAll({
+            where: {
+                id: idInstrumento
+                
+            }
+        })
+        .then((producto)=>{
+               
+            res.render('product-edit', {producto: producto})
+  
+        })
+
     },
+    productChange: (req,res) => {
+
+        let idInstrumento = req.params.id
+        let producto = {
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            nombre_producto: req.body.nombre,
+            fecha_de_creacion: req.body.fecha,
+            descripcion: req.body.descripcion,
+            creado_por: 5,
+            foto_product: req.body.foto,
+            precio: req.body.precio
+        }
+        console.log(producto);
+          db.Products.update(
+              {
+                nombre_producto: req.body.nombre,
+                marca: req.body.marca,
+                modelo: req.body.modelo,
+                fecha_de_creacion: req.body.fecha,
+                descripcion: req.body.descripcion,
+                creado_por: 5,
+                foto_product: req.body.foto,
+                precio: req.body.precio
+
+              },
+              {
+                  where: {
+                      id: idInstrumento
+                  }
+              }
+          )
+          .then((resultados)=>{
+              res.redirect("/profile/5")
+          })
+          .catch((error)=>{
+              return res.send(error)
+          })
+
+
+    }
+
+
 }
 
 module.exports = productController;

@@ -9,36 +9,36 @@
          
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form class="register-form" action="">
+				<form method="POST" class="register-form" action="/product/product-edit/<%= producto[0].id %> ">
 					<div>
-					<label>Nombre de tu producto</label>
-					<input type="text" value="<%= producto[idSearch].nombreDelInstrumento%>">
+					<label for="nombre">Nombre de tu producto</label>
+					<input type="text" id="nombre" name="nombre" value="<%= producto[0].nombre_producto%>">
 					</div>
 					<div>
-						<label>Modelo de tu producto</label>
-						<input type="text" value="<%= producto[idSearch].modelo%>">
+						<label for="modelo">Modelo de tu producto</label>
+						<input type="text" id="modelo" name="modelo" value="<%= producto[0].modelo%>">
 					</div>
 					<div>
-						<label>Marca de tu producto</label>
-						<input type="text" value="<%= producto[idSearch].marca%>">
+						<label for="marca">Marca de tu producto</label>
+						<input type="text" id="marca" name="marca" value="<%= producto[0].marca%>">
 					</div>
 	
 					<div>
-						<label>Fecha de creación de tu producto</label>
-					<input type="date" placeholder="">
+						<label for="fecha">Fecha de creación de tu producto</label>
+					<input type="date" id="fecha" name="fecha" value="<%= producto[0].fecha_de_creacion %> ">
 				</div>
 	
 				<div>
-					<label>Imagen del producto</label>
-					<input type="url" value="<%= producto[idSearch].imagen%>">
+					<label for="foto">Imagen del producto</label>
+					<input type="url" id="foto" name="foto" value="<%= producto[0].foto_product%>">
 				</div>
 				<div>
-					<label>Descripción</label>
-					<input type="text" value="<%= producto[idSearch].descripcion%>">
+					<label for="descripcion">Descripción</label>
+					<input type="text" id="descripcion" name="descripcion" value="<%= producto[0].descripcion%>">
 				</div>
 				<div>
-					<label>Precio de tu producto en £</label>
-					<input type="number" placeholder="<%= producto[idSearch].precio%>">
+					<label for="precio">Precio de tu producto en £</label>
+					<input type="number" id="precio" name="precio" value="<%= producto[0].precio%>">
 					</div>
 					<br>
 					<button type="submit" class="boton">Cargar producto</button>
