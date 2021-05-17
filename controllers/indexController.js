@@ -141,16 +141,16 @@ let mainController = {
             .then((comentarios)=>{
 
                 
-
                 for(let a = 0; a < comentarios.length; a++){
                
                 comentariosDeBuscados.push(comentarios[a].dataValues)
-        
-                    res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
-                
-                
-            }
+                }
+                if(result.length > 0){
+                   return res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
+                } else{
+                   return res.render('search-results-no-encontrados') //esto no anda
             
+                }
                  
             })
             .catch((error)=>{
