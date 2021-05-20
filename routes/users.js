@@ -4,10 +4,6 @@ var controllers = require(`../controllers/usersController`)
 
 router.get('/:usuarioQueComento?', controllers.profile);
 
-router.get("/login", controllers.login);
-
-router.get("/register", controllers.register);
-
 router.get("/profile-edit", controllers.profileEdit);
 
 module.exports = router

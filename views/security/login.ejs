@@ -1,0 +1,30 @@
+<%-include("../parciales/headerDeslogeado")%>
+
+<!-- Novedades -->
+<div class="titulo-register">
+    <h2 class="products-title">Ingresá</h2>
+</div>
+
+
+<form class="register-form" method="POST">
+    <div>
+    <label for="username">Ingresá tu nombre de usuario</label>
+    <input type="text" id="username" name="username" placeholder="juan.example">
+    </div>
+
+
+<div>
+    <label for="password">Ingresá tu clave de acceso</label>
+    <input type="password" id="password" name="password" placeholder="Clave">
+    </div>
+    <br>
+    <button type="submit" class="boton">Iniciar sesión</button>
+</form>
+<br>
+<h2 class="aRegister">¿No tenés un usuario todavía? <a href="../register">Registrate acá</a></h2>
+
+
+<%- include("../parciales/footers") %>
+</body>
+
+</html>

@@ -2,15 +2,15 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const session = require("express-session")
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users')
 var profileEditRouter = require('./routes/profileEdit')
-var RegisterRouter = require('./routes/register')
-var loginRouter = require('./routes/login')
 var sequelizeRouter = require('./routes/sequelize')
+var securityRouter = require("./routes/security")
 
 var app = express();
 
@@ -22,14 +22,35 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session(
+  { secret: 'Melodiic',
+    resave: false,
+    saveUninitialized: true}
+));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
+const firewall = [
+  '/login', '/register'
+]
+app.use(function(req, res, next){
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user
+    next();
+  } else{
+    if (!firewall.includes(req.path)){
+      return res.redirect("/login")
+    }
+  }
+  next();
+})
+
 app.use('/', indexRouter);
+app.use('/', securityRouter);
 app.use('/product', productRouter)
 app.use('/profile', usersRouter)
 app.use('/profile-edit', profileEditRouter)
-app.use('/register', RegisterRouter)
-app.use('/login', loginRouter)
 app.use('/sequelize', sequelizeRouter);
 
 // catch 404 and forward to error handler

@@ -1,0 +1,36 @@
+<%-include("./parciales/headerDeslogeado")%>
+
+	<!-- Novedades -->
+			<div class="titulo-register">
+				<h2 class="products-title">Registrate</h2>
+			</div>
+			
+		
+			<form class="register-form" method="POST">
+				<div>
+				<label for="username">Crea tu nombre de usuario</label>
+				<input type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
+				</div>
+
+				<div>
+					<label for="fecha">Ingresa tu fecha de nacimiento</label>
+				<input type="date" id="fecha" name="fecha" placeholder="">
+			</div>
+
+			<div>
+				<label for="password">Crea tu clave de acceso</label>
+				<input type="password" id="password" name="password" placeholder="Clave">
+				</div>
+				<div>
+					<label for="paswordd">Confirma tu clave de acceso</label>
+					<input type="password" id="paswordd" name="paswordd" placeholder="Clave">
+					</div>
+					<br>
+					<button type="submit" class="boton">Crear perfil</button>
+			</form>
+		
+
+            <%- include("./parciales/footers") %>
+</body>
+
+</html>

@@ -132,12 +132,6 @@ let usersController = {
        
   
     },
-    login: (req, res) => {
-        res.render('login', {title: 'Inicia Sesion'})
-    },
-    register: (req, res) => {
-        res.render('register', {title: 'Register'})
-    },
     profileEdit: (req, res) => {
         let idUsuario = req.params.usuario
         let result =  []
