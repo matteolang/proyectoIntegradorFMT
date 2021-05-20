@@ -1,6 +1,7 @@
 let instrumentos = require('../data/index')
 const db = require('../database/models')
 const Usuarios = require('../database/models/Usuarios')
+const currentDate = new Date
 
 let productController = {
     product: (req, res) => {
@@ -85,7 +86,7 @@ let productController = {
             comentario: req.body.comentario,
             id_producto_comentado: idInstrumento,
             id_autor: 5,
-            fecha_de_creacion: 2021-03-05,
+            fecha_de_creacion: currentDate,
             foto_autor: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
         }
           db.Comentarios.create(comentario)
