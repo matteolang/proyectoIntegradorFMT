@@ -107,18 +107,8 @@ let mainController = {
     searchResults: (req, res) => {
          
         let search = req.query.searchResults
-       
-       
-       // for( let i = 0; i < instrumentos.lista.length; i++){
-         //   var nombreMarcaModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].marca.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
-           // var nombreModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
-            //if(instrumentos.lista[i].nombreDelInstrumento.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].marca.toLowerCase().includes(search.toLowerCase()) || instrumentos.lista[i].modelo.toLowerCase().includes(search.toLowerCase())){
-              //  result.push(instrumentos.lista[i])
-            //}
-            //else if(nombreMarcaModelo.includes(search.toLowerCase()) || nombreModelo.includes(search.toLowerCase())){
-              //  result.push(instrumentos.lista[i])
-            //}
-        //}
+        const result = []
+        const comentariosDeBuscados = []
        
          db.Products.findAll({
             where: {
@@ -138,14 +128,14 @@ let mainController = {
             })
             .then((comentarios)=>{
 
-                
+                console.log(result)
                 for(let a = 0; a < comentarios.length; a++){
                
                 comentariosDeBuscados.push(comentarios[a].dataValues)
                 }
-               
+               if(result.length > 0){
                    return res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
-               
+               }
               //  return res.render('search-results-no-encontrados') //no anda
             })
             .catch((error)=>{

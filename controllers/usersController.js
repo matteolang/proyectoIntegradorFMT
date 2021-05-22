@@ -5,37 +5,22 @@ let usersController = {
     profile: (req, res) => {
         let idUsuario = req.params.usuarioQueComento
 
-       /* let result = []
-    
-        for( let i = 0; i < instrumentos.usuarios.length; i++){
-            if(instrumentos.usuarios[i].id == idUsuario){
-                result.push(instrumentos.usuarios[i])
-            }
-        }
-
-        let productosQueCreo = []
-        for(let i = 0; i < instrumentos.lista.length; i++){
-            for(let a = 0; a < result[0].idsDeLosProductosCreados.length; a++){
-            if(result[0].idsDeLosProductosCreados[a] === instrumentos.lista[i].id){
-                productosQueCreo.push(instrumentos.lista[i])
-            }
-        }
-    }
-*/
-
     if (idUsuario == req.session.user.id) {
 
-        db.Products.findAll({
-            where: {
-                creado_por: idUsuario 
-                
-            }
-        })
-        .then((resultados)=>{
-
-            
-            db.Usuarios.findByPk(idUsuario)
+        db.Usuarios.findByPk(idUsuario)
+       
         .then((resultadoss)=>{
+
+          
+
+           db.Products.findAll({
+                where: {
+                    creado_por: idUsuario 
+                    
+                }
+            })
+            //res.render('profile-logueado-prototipo-sin-productos')
+        .then((resultados)=>{
           
            
 
@@ -49,9 +34,9 @@ let usersController = {
         })
         .then((resultadosss)=>{
             
-            // if(resultadosss == true){
+          
                 res.render('profile-logueado-prototipo', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
-            // }
+      
             })
     .catch((error)=>{
         return res.send(error)
@@ -134,6 +119,8 @@ let usersController = {
     },
     profileEdit: (req, res) => {
         let idUsuario = req.params.usuario
+        if(req.method == "GET"){
+        
         let result =  []
         for( let i = 0; i < instrumentos.usuarios.length; i++){
             if(idUsuario == instrumentos.usuarios[i].id){
@@ -142,6 +129,27 @@ let usersController = {
         }
 
         res.render('profile-edit', {producto: instrumentos.lista, usuarioACambiar: idUsuario, usuario: instrumentos.usuarios, arrayDatosDelUsuario: result})
+    }
+    if(req.method == "POST"){
+        let usuario = {
+            clave: req.body.clave,
+            foto_perfil: req.body.foto_perfil,
+            fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+            username: req.body.username
+        }
+        db.Usuarios.update(usuario, {
+            where: {
+                id: idUsuario
+            }
+        })
+        .then((userr)=>{
+            req.session.user = userr
+            return res.redirect("/profile/"+req.session.user.id)
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+    }
     },
 }
 

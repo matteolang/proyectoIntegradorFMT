@@ -10,11 +10,10 @@ let securityController = {
                 where:{username: req.body.username}
             })
         .then((user)=> {
-            console.log(req.body.password);
-            console.log(user.clave);
+          
             if (req.body.password === user.clave) {
                 req.session.user = user
-                console.log(res.locals.user)
+                
                     return res.redirect("/")
                     
 
@@ -39,9 +38,9 @@ let securityController = {
             }
 
             db.Usuarios.create(usuarioCreado)
-            .then((user)=>{
-                
-              return res.redirect("/security/login") // NO ANDA
+            .then(()=>{
+               
+               res.redirect("/security/login") 
                 
             })
             .catch((error)=>{
@@ -49,7 +48,9 @@ let securityController = {
             })
         }
 
-        return res.render("security/register")
+        if(req.method == "GET"){
+                return res.render("security/register")
+        }
     },
     logout: function(req,res){
         req.session.destroy();

@@ -7,22 +7,22 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
-				<form class="register-form" action="">
+				<form class="register-form" action="" method="POST">
 					<div>
-					<label>Nombre del Usuario</label>
-					<input type="text" placeholder="<%= arrayDatosDelUsuario[0].username %> ">
+					<label for="username">Nombre del Usuario</label>
+					<input name="username" id="username" type="text" value="<%= user.username %> ">
 					</div>
 					<div>
-						<label>Contraseña</label>
-						<input type="text" placeholder="<%= arrayDatosDelUsuario[0].clave %>">
+						<label for="clave">Contraseña</label>
+						<input id="clave" name="clave" type="password" value="<%= user.clave %>">
 					</div>
 					<div>
-						<label>Fecha de Nacimiento</label>
-					<input type="date" placeholder="<%= arrayDatosDelUsuario[0].fechaDeNacimiento %>">
+						<label for="fehca_de_nacimiento">Fecha de Nacimiento</label>
+					<input id="fecha_de_nacimiento" name="fecha_de_nacimiento" type="date" value="<%= user.fecha_de_nacimiento %>">
 					</div>
 					<div>
-					<label>Foto de Perfil</label>
-					<input type="url" placeholder="<%= arrayDatosDelUsuario[0].fotoDePerfil %>">
+					<label for="foto_perfil">Foto de Perfil</label>
+					<input id="foto_perfil" name="foto_perfil" type="url" value="<%= user.foto_perfil %>">
 					</div>
 					<br>
 					<button type="submit" class="boton">Guardar cambios</button>

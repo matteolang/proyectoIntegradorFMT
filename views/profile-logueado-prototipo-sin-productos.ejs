@@ -1,0 +1,34 @@
+<%-include("./parciales/header")%>
+<% //console.log(datosUsuario) %> 
+<% //console.log(productos) %> 
+<% console.log(user) %> 
+
+	<!-- Datos del usuario -->
+		<section class="info-usuario container products-wrapper">
+			<div class="row">
+				<div class="img-container offset-3 col-2">
+					<img src="<%= user.foto_perfil %>" alt="" class="foto-perfil">
+				</div>
+				<div class="data-container col-6">
+					<div class="d-flex align-items-center ">
+						<h1 class="main-title">  <%= user.username %>
+							<a href="/../profile-edit/<%= user.id %>">
+								<i class="fas fa-cog"></i>
+							</a>
+						</h1>
+						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					</div>
+					<div>
+						<ul class="">
+							<li><%= user.cantidad_de_productos %>  productos</li>
+							<li><%= user.seguidores %> seguidores</li>
+							<li><%= user.comentarios %> comentarios</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div>Aún no publicaste ningún producto.</div>
+    <%- include("./parciales/footers") %>
+</body>	
+</html>

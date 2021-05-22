@@ -152,17 +152,7 @@ let productController = {
         }
         console.log(producto);
           db.Products.update(
-              {
-                nombre_producto: req.body.nombre,
-                marca: req.body.marca,
-                modelo: req.body.modelo,
-                fecha_de_creacion: req.body.fecha,
-                descripcion: req.body.descripcion,
-                creado_por: req.session.user.id,
-                foto_product: req.body.foto,
-                precio: req.body.precio
-
-              },
+              producto,
               {
                   where: {
                       id: idInstrumento
