@@ -105,12 +105,10 @@ let mainController = {
        
     },
     searchResults: (req, res) => {
-
+         
         let search = req.query.searchResults
        
-
-        const result = []
-        const comentariosDeBuscados = []
+       
        // for( let i = 0; i < instrumentos.lista.length; i++){
          //   var nombreMarcaModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].marca.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
            // var nombreModelo = instrumentos.lista[i].nombreDelInstrumento.toLowerCase() + ' ' + instrumentos.lista[i].modelo.toLowerCase()
@@ -145,13 +143,10 @@ let mainController = {
                
                 comentariosDeBuscados.push(comentarios[a].dataValues)
                 }
-                if(result.length > 0){
+               
                    return res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
-                } else{
-                   return res.render('search-results-no-encontrados') //esto no anda
-            
-                }
-                 
+               
+              //  return res.render('search-results-no-encontrados') //no anda
             })
             .catch((error)=>{
                 return res.send(error)

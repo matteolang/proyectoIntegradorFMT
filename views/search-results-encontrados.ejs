@@ -1,6 +1,7 @@
 <%-include("./parciales/header")%>
 <% //console.log(comentariosDeBuscados) %> 
 	<!-- Novedades -->
+	<% if(resultadoSearch != undefined) { %> 
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
@@ -20,6 +21,13 @@
 						</article>
 					</a>
 				</section>
+			</div>
+		<% } %> 
+		<% } else { %> 
+			<div class="container products-wrapper">
+				<div class="row">	
+						<h2 class="producto-no-encontrado">No encontramos el producto que buscas. Intenta denuevo.</h2>
+						</div>
 			</div>
 		<% } %> 
       <%- include("./parciales/footers") %>

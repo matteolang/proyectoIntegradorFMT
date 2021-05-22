@@ -42,7 +42,7 @@ let productController = {
                         //         let coment = usuarioComentador[a]
                         //         console.log(coment.username);
 
-            if (producto[0].creado_por == 5) {
+            if (producto[0].creado_por == req.session.user.id) {
             res.render('product', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
              }
                 else{
@@ -85,9 +85,9 @@ let productController = {
         let comentario = {
             comentario: req.body.comentario,
             id_producto_comentado: idInstrumento,
-            id_autor: 5,
+            id_autor: req.session.user.id,
             fecha_de_creacion: currentDate,
-            foto_autor: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+            foto_autor: req.session.user.foto_perfil
         }
           db.Comentarios.create(comentario)
           .then(()=>{
@@ -107,15 +107,15 @@ let productController = {
               marca: req.body.marca,
               modelo: req.body.modelo,
               nombre_producto: req.body.nombre,
-              fecha_de_creacion: req.body.fecha,
+              fecha_de_creacion: currentDate,
               descripcion: req.body.descripcion,
-              creado_por: 5,
+              creado_por: req.session.user.id,
               foto_product: req.body.foto,
               precio: req.body.precio
           }
             db.Products.create(producto)
             .then(()=>{
-                res.redirect("/profile/5")
+                res.redirect("/profile/"+req.session.user.id)
             })
             .catch((error)=>{
                 return res.send(error)
@@ -144,9 +144,9 @@ let productController = {
             marca: req.body.marca,
             modelo: req.body.modelo,
             nombre_producto: req.body.nombre,
-            fecha_de_creacion: req.body.fecha,
+
             descripcion: req.body.descripcion,
-            creado_por: 5,
+            creado_por: req.session.user.id,
             foto_product: req.body.foto,
             precio: req.body.precio
         }
@@ -158,7 +158,7 @@ let productController = {
                 modelo: req.body.modelo,
                 fecha_de_creacion: req.body.fecha,
                 descripcion: req.body.descripcion,
-                creado_por: 5,
+                creado_por: req.session.user.id,
                 foto_product: req.body.foto,
                 precio: req.body.precio
 
@@ -170,7 +170,7 @@ let productController = {
               }
           )
           .then((resultados)=>{
-              res.redirect("/profile/5")
+              res.redirect("/profile/"+req.session.user.id)
           })
           .catch((error)=>{
               return res.send(error)

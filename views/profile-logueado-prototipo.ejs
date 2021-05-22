@@ -1,18 +1,18 @@
 <%-include("./parciales/header")%>
 <% //console.log(datosUsuario) %> 
 <% //console.log(productos) %> 
-<% console.log(numeroComentarios) %> 
+<% console.log(user) %> 
 
 	<!-- Datos del usuario -->
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src="<%= datosUsuario.foto_perfil %>" alt="" class="foto-perfil">
+					<img src="<%= user.foto_perfil %>" alt="" class="foto-perfil">
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title">  <%= datosUsuario.username %>
-							<a href="/../profile-edit/<%= datosUsuario.id %>">
+						<h1 class="main-title">  <%= user.username %>
+							<a href="/../profile-edit/<%= user.id %>">
 								<i class="fas fa-cog"></i>
 							</a>
 						</h1>
@@ -21,8 +21,8 @@
 					<div>
 						<ul class="">
 							<li><%= productos.length %>  productos</li>
-							<li><%= datosUsuario.seguidores %> seguidores</li>
-							<li><%= datosUsuario.comentarios %> comentarios</li>
+							<li><%= user.seguidores %> seguidores</li>
+							<li><%= user.comentarios %> comentarios</li>
 						</ul>
 					</div>
 				</div>

@@ -20,20 +20,23 @@ let cols = {
     },
     cantidad_de_productos: {
         type: DataTypes.INTEGER,
-        unsigned: true
+        unsigned: true,
+        defaultValue: 0
     },
     seguidores: {
         type: DataTypes.INTEGER,
-        unsigned: true
+        unsigned: true,
+        defaultValue: 0
     },
     comentarios: {
         type: DataTypes.INTEGER,
-        unsigned: true
+        unsigned: true,
+        defaultValue: 0
     },
     foto_perfil: {
         type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: null 
+        allowNull: false,
+        defaultValue: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
     }
 
 }

@@ -14,7 +14,10 @@ let securityController = {
             console.log(user.clave);
             if (req.body.password === user.clave) {
                 req.session.user = user
-                return res.redirect("/")
+                console.log(res.locals.user)
+                    return res.redirect("/")
+                    
+
             }
              res.redirect("/login?failed=true")
             })
@@ -25,10 +28,21 @@ let securityController = {
 
     },
     register: function(req,res){
+        
+        
+       
         if (req.method == "POST") {
-            db.Users.create(req.body)
-            .then(()=>{
-                res.redirect("/")
+            let usuarioCreado = {
+                username: req.body.username,
+                fecha_de_nacimiento: req.body.fecha,
+                clave: req.body.password
+            }
+
+            db.Usuarios.create(usuarioCreado)
+            .then((user)=>{
+                
+              return res.redirect("/security/login") // NO ANDA
+                
             })
             .catch((error)=>{
                 return res.send(error)
@@ -40,7 +54,7 @@ let securityController = {
     logout: function(req,res){
         req.session.destroy();
 
-        return res.redirect("/")
+        res.redirect("/security/login")
     },
 
 

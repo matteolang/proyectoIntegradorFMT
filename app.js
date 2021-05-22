@@ -31,27 +31,33 @@ app.use(session(
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 const firewall = [
-  '/login', '/register'
+  '/security/login', '/security/register'
 ]
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
-    next();
-  } else{
+  }  
+  else{
     if (!firewall.includes(req.path)){
-      return res.redirect("/login")
+      return res.redirect("/security/login")
     }
   }
   next();
 })
 
+
+app.use('/security', securityRouter);
+
+
 app.use('/', indexRouter);
-app.use('/', securityRouter);
 app.use('/product', productRouter)
 app.use('/profile', usersRouter)
 app.use('/profile-edit', profileEditRouter)
 app.use('/sequelize', sequelizeRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

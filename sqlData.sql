@@ -248,3 +248,8 @@ ALTER TABLE `productos_creados`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`creado_por`) REFERENCES `usuarios` (`id`);
+
+--Foto de perfil predeterminada para usuarios
+ALTER TABLE `usuarios` CHANGE `foto_perfil` `foto_perfil` VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png';
+
+ALTER TABLE `usuarios` CHANGE `cantidad_de_productos` `cantidad_de_productos` INT(10) UNSIGNED NOT NULL DEFAULT '0', CHANGE `seguidores` `seguidores` INT(10) UNSIGNED NOT NULL DEFAULT '0', CHANGE `comentarios` `comentarios` INT(10) UNSIGNED NOT NULL DEFAULT '0';

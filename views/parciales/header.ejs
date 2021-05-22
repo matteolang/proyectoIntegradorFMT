@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+	<%= console.log(user.id) %> 
 <!-- Include Head -->
 <head>
 	<meta charset="UTF-8">
@@ -64,14 +65,14 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/../profile/5">
+					<li><a href="/../profile/<%= user.id %>">
 							Perfil <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
 						<form action="" method="post">
 							<button class="logout" type="submit">
-								<a href="/login">
+								<a href="/security/login">
 								Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
 							</button>
 						</form>

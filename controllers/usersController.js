@@ -23,7 +23,7 @@ let usersController = {
     }
 */
 
-    if (idUsuario == 5) {
+    if (idUsuario == req.session.user.id) {
 
         db.Products.findAll({
             where: {
