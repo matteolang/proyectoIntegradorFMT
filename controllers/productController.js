@@ -31,6 +31,7 @@ let productController = {
         
         })
          .then((comentarios)=>{
+             console.log(comentarios);
         //     let usuarioComentador = []
             //for(let i = 0; i < comentarios.length; i++){
             // db.Usuarios.findByPk(comentarios[i].id_autor)

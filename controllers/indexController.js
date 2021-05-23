@@ -1,4 +1,3 @@
-let instrumentos = require('../data/index')
 const { json } = require('express')
 const db = require('../database/models')
 const op = db.Sequelize.Op;
@@ -128,7 +127,6 @@ let mainController = {
             })
             .then((comentarios)=>{
 
-                console.log(result)
                 for(let a = 0; a < comentarios.length; a++){
                
                 comentariosDeBuscados.push(comentarios[a].dataValues)

@@ -4,7 +4,7 @@ const db = require('../database/models')
 
 let sequelizeController = {
     usuarios: (req, res) => {
-        let usuarios = db.Usuarios.findAll()
+        db.Usuarios.findAll()
         .then((resultados) => {
             return res.send(resultados)
         })
@@ -13,7 +13,7 @@ let sequelizeController = {
         })
     },
     products: (req, res) => {
-        let products = db.Products.findAll()
+        db.Products.findAll()
         .then((resultados) => {
             return res.send(resultados)
         })
@@ -22,7 +22,7 @@ let sequelizeController = {
         })
     },
     comentarios: (req, res) => {
-        let comentarios = db.Comentarios.findAll()
+        db.Comentarios.findAll()
         .then((resultados) => {
             return res.send(resultados)
         })
@@ -31,7 +31,7 @@ let sequelizeController = {
         })
     },
     productosCreados: (req, res) => {
-        let productosCreados = db.ProductosCreados.findAll()
+        db.ProductosCreados.findAll()
         .then((resultados) => {
             return res.send(resultados)
         })

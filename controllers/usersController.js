@@ -1,4 +1,3 @@
-let instrumentos = require('../data/index')
 const db = require('../database/models')
 
 let usersController = {
@@ -7,23 +6,16 @@ let usersController = {
 
     if (idUsuario == req.session.user.id) {
 
-        db.Usuarios.findByPk(idUsuario)
-       
-        .then((resultadoss)=>{
-
-          
-
+        db.Usuarios.findByPk(req.session.user.id)
+        .then((resultadoss)=>{ 
            db.Products.findAll({
                 where: {
-                    creado_por: idUsuario 
+                    creado_por: resultadoss.id 
                     
                 }
             })
             //res.render('profile-logueado-prototipo-sin-productos')
-        .then((resultados)=>{
-          
-           
-
+        .then((resultados)=>{     
        resultados.forEach(element => {
         db.Comentarios.findAll({
                
@@ -33,34 +25,24 @@ let usersController = {
         
         })
         .then((resultadosss)=>{
-            
+            req.session.user = resultadoss
           
-                res.render('profile-logueado-prototipo', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
+            res.render('profile-logueado', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
       
             })
     .catch((error)=>{
         return res.send(error)
    })
-       });
-
-           
-
+       });          
         })
         .catch((error)=>{
             return res.send(error)
         })
-   
         })
         .catch((error)=>{
             return res.send(error)
         })
-     
-       
-
-         
-
-       // res.render('profile-logueado-prototipo', {instrumentitos: instrumentos.lista, usuarioClickeado: idUsuario, usuario: result, perfil: instrumentos.usuarios, productosDelUsuario: productosQueCreo})
-        }
+     }
     
     
     
@@ -120,15 +102,10 @@ let usersController = {
     profileEdit: (req, res) => {
         let idUsuario = req.params.usuario
         if(req.method == "GET"){
-        
-        let result =  []
-        for( let i = 0; i < instrumentos.usuarios.length; i++){
-            if(idUsuario == instrumentos.usuarios[i].id){
-                result.push(instrumentos.usuarios[i])
-            }
-        }
 
-        res.render('profile-edit', {producto: instrumentos.lista, usuarioACambiar: idUsuario, usuario: instrumentos.usuarios, arrayDatosDelUsuario: result})
+            res.render('profile-edit', {})
+        
+       
     }
     if(req.method == "POST"){
         let usuario = {
@@ -142,9 +119,22 @@ let usersController = {
                 id: idUsuario
             }
         })
-        .then((userr)=>{
-            req.session.user = userr
-            return res.redirect("/profile/"+req.session.user.id)
+        .then(()=>{
+            db.Usuarios.findOne({
+                where: {
+                    id: idUsuario
+                }
+            })
+            .then((usuarioUpdateado)=>{
+                console.log(usuarioUpdateado);
+                req.session.user = usuarioUpdateado
+
+             res.redirect("/profile/"+req.session.user.id)
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
+            
         })
         .catch((error)=>{
             return res.send(error)
