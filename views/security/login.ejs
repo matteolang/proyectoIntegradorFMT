@@ -4,6 +4,11 @@
 <div class="titulo-register">
     <h2 class="products-title">Ingresá</h2>
 </div>
+<% if(failed){ %>
+    <div class="titulo-register">
+        <h2 style="color: red;">Error: Verificá los datos ingresados e intenta nuevamente.</h2>
+    </div>
+<% } %> 
 
 
 <form class="register-form" method="POST">

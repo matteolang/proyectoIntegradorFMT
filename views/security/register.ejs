@@ -4,30 +4,114 @@
 			<div class="titulo-register">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+			<% if(failed){ %>
+				<div class="titulo-register">
+					<h2 style="color: red;">Error: El nombre de usuario no esta disponible o contiene espacios, volvé a intentar con otro distinto que no contenga espacios.</h2>
+				</div>
+				<form class="register-form" method="POST">
+					<div>
+					<label for="username">Crea tu nombre de usuario</label>
+					<input style="border-color: red;" type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
+					</div>
+	
+					<div>
+						<label for="fecha">Ingresa tu fecha de nacimiento</label>
+					<input type="date" id="fecha" name="fecha" placeholder="">
+				</div>
+	
+				<div>
+					<label for="password">Crea tu clave de acceso</label>
+					<input type="password" id="password" name="password" placeholder="Clave">
+					</div>
+					<div>
+						<label for="paswordd">Confirma tu clave de acceso</label>
+						<input type="password" id="paswordd" name="passwordd" placeholder="Clave">
+						</div>
+						<br>
+						<button type="submit" class="boton">Crear perfil</button>
+				</form>
+			<% } else if(failed2){  %> 
+				<div class="titulo-register">
+					<h2 style="color: red;">Error: Tu clave es muy corta, intentá con alguna que supere los 5 caracteres.</h2>
+				</div>
+				<form class="register-form" method="POST">
+					<div>
+					<label for="username">Crea tu nombre de usuario</label>
+					<input type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
+					</div>
+	
+					<div>
+						<label for="fecha">Ingresa tu fecha de nacimiento</label>
+					<input type="date" id="fecha" name="fecha" placeholder="">
+				</div>
+	
+				<div>
+					<label for="password">Crea tu clave de acceso</label>
+					<input style="border-color: red;" type="password" id="password" name="password" placeholder="Clave">
+					</div>
+					<div>
+						<label for="paswordd">Confirma tu clave de acceso</label>
+						<input style="border-color: red;" type="password" id="paswordd" name="passwordd" placeholder="Clave">
+						</div>
+						<br>
+						<button type="submit" class="boton">Crear perfil</button>
+				</form>
+			<% } else if(failed3){ %> 
+
+				<div class="titulo-register">
+					<h2 style="color: red;">Error: Las claves que ingresaste no coinciden, verificá que sean iguales.</h2>
+				</div>
+				<form class="register-form" method="POST">
+					<div>
+					<label for="username">Crea tu nombre de usuario</label>
+					<input type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
+					</div>
+	
+					<div>
+						<label for="fecha">Ingresa tu fecha de nacimiento</label>
+					<input type="date" id="fecha" name="fecha" placeholder="">
+				</div>
+	
+				<div>
+					<label for="password">Crea tu clave de acceso</label>
+					<input style="border-color: red;" type="password" id="password" name="password" placeholder="Clave">
+				</div>
+					<div>
+						<label for="paswordd">Confirma tu clave de acceso</label>
+						<input style="border-color: red;" type="password" id="paswordd" name="passwordd" placeholder="Clave">
+					</div>
+						<br>
+						<button type="submit" class="boton">Crear perfil</button>
+				</form>
+			<% } else { %> 
+				<form class="register-form" method="POST">
+					<div>
+					<label for="username">Crea tu nombre de usuario</label>
+					<input type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
+					</div>
+	
+					<div>
+						<label for="fecha">Ingresa tu fecha de nacimiento</label>
+					<input type="date" id="fecha" name="fecha" placeholder="">
+				</div>
+	
+				<div>
+					<label for="password">Crea tu clave de acceso</label>
+					<input type="password" id="password" name="password" placeholder="Clave">
+					</div>
+					<div>
+						<label for="paswordd">Confirma tu clave de acceso</label>
+						<input type="password" id="paswordd" name="passwordd" placeholder="Clave">
+						</div>
+						<br>
+						<button type="submit" class="boton">Crear perfil</button>
+				</form>
+			<% } %> 
+			
+	
 			
 		
-			<form class="register-form" method="POST">
-				<div>
-				<label for="username">Crea tu nombre de usuario</label>
-				<input type="text" id="username" name="username" placeholder="Crea tu nombre de usuario...">
-				</div>
-
-				<div>
-					<label for="fecha">Ingresa tu fecha de nacimiento</label>
-				<input type="date" id="fecha" name="fecha" placeholder="">
-			</div>
-
-			<div>
-				<label for="password">Crea tu clave de acceso</label>
-				<input type="password" id="password" name="password" placeholder="Clave">
-				</div>
-				<div>
-					<label for="paswordd">Confirma tu clave de acceso</label>
-					<input type="password" id="paswordd" name="paswordd" placeholder="Clave">
-					</div>
-					<br>
-					<button type="submit" class="boton">Crear perfil</button>
-			</form>
+			
 		
 
             <%- include("../parciales/footers") %>
