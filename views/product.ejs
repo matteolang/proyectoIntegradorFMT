@@ -6,6 +6,13 @@
 			<p class="product-detail-description">
 				<a href="../product-edit/<%= producto[0].id%>">Editar</a>
 			</p>
+			<p class="product-detail-description">
+				<form action="/product/id/<%= producto[0].id %>/eliminar" method="POST">
+					<button type="submit" class="buy-now-button" style="font-size: small;">
+					<a>Eliminar producto</a>
+					</button>
+				</form>
+			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">

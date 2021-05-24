@@ -7,7 +7,7 @@ router.get('/', controllers.product);
 
 router.get("/id/:id", controllers.product);
 router.post("/id/:id", controllers.comentario);
-
+router.post("/id/:id/eliminar", controllers.eliminar);
 
 router.get("/product-add", controllers.productAdd);
 

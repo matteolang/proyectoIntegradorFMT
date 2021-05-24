@@ -151,6 +151,36 @@ let productController = {
         })
 
 
+    }, 
+    eliminar: (req,res) =>{
+        let idInstrumento = req.params.id
+        db.ProductosCreados.destroy({
+            where:{
+                producto_id: idInstrumento
+            }
+
+        })
+
+        .then(()=>{
+            
+                db.Products.destroy({
+                    where: {
+                        id: idInstrumento
+                    }
+            })
+            .then(()=>{
+                 return res.redirect("/profile/"+req.session.user.id)
+            })
+
+
+           
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
     }
 
 
