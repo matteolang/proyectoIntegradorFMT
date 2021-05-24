@@ -12,14 +12,13 @@ let securityController = {
         .then((user)=> {
           
             if (req.body.password === user.clave) {
-                req.session.user = user
-                
-                    return res.redirect("/")
-                    
-
+                    req.session.user = user
+                    return res.redirect("/")  
             }
+
             return res.redirect("/security/login?failed=true")
-            })
+
+        })
         .catch((error)=>{
             return res.redirect("/security/login?failed=true")
 
@@ -28,57 +27,56 @@ let securityController = {
     },
     register: function(req,res){
         
-        
-       
-    if (req.method == "POST") {
+        if (req.method == "POST") {
 
-        if(req.body.password === req.body.passwordd){
+            if(req.body.password === req.body.passwordd){
 
-            const usuarioCreado = {
-                username: req.body.username,
-                fecha_de_nacimiento: req.body.fecha,
-                clave: req.body.password
-            }
-            if(usuarioCreado.clave.length < 5){
-                res.redirect("/security/register?failed2=true")
-            } else {
-
-                db.Usuarios.count({where: {username: usuarioCreado.username}})
-                .then((count)=>{
-
-                    if(usuarioCreado.username.indexOf(' ') >= 0){
-                        res.redirect("/security/register?failed=true")
-                    } else if(count == 0){
-                        db.Usuarios.create(usuarioCreado)
-                         .then((usuario)=>{
-                    
-                            return res.redirect("/security/login") 
-                
-                         })
-                         .catch((error)=>{
-                              return res.send(error)
-                          })
-                          } else  {
-                             res.redirect("/security/register?failed=true")
-                          }
-                 })
-                .catch((error)=>{
-                    return res.send(error)
-                 })
+                const usuarioCreado = {
+                    username: req.body.username,
+                    fecha_de_nacimiento: req.body.fecha,
+                    clave: req.body.password
                 }
-        } else if (req.body.password != req.body.passwordd) {
-            res.redirect("/security/register?failed3=true")
-        }
-    }
 
-    if(req.method == "GET"){
-                return res.render("security/register", {failed: req.query.failed, failed2: req.query.failed2, failed3: req.query.failed3})
-    }
+                if(usuarioCreado.clave.length < 5){
+                    res.redirect("/security/register?failed2=true")
+                } 
+                else {
+                    db.Usuarios.count({where: {username: usuarioCreado.username}})
+                    .then((count)=>{
+
+                        if(usuarioCreado.username.indexOf(' ') >= 0){
+                            res.redirect("/security/register?failed=true")
+                        } else if(count == 0){
+                            db.Usuarios.create(usuarioCreado)
+                            .then((usuario)=>{
+                    
+                                return res.redirect("/security/login") 
+                
+                            })
+                            .catch((error)=>{
+                                 return res.send(error)
+                            })
+                        } else  {
+                             res.redirect("/security/register?failed=true")
+                        }
+                    })
+                    .catch((error)=>{
+                    return res.send(error)
+                    })
+                }
+            } else if (req.body.password != req.body.passwordd) {
+                res.redirect("/security/register?failed3=true")
+            }
+        }
+
+        if(req.method == "GET"){
+            return res.render("security/register", {failed: req.query.failed, failed2: req.query.failed2, failed3: req.query.failed3})
+        }
      
     },
     logout: function(req,res){
         req.session.destroy();
-
+        //destroy cookies aca
         res.redirect("/security/login")
     },
 
