@@ -1,4 +1,5 @@
 const db = require('../database/models')
+const bcrypt = require('bcryptjs')
 
 let securityController = {
     login: function(req,res){
@@ -11,7 +12,7 @@ let securityController = {
             })
         .then((user)=> {
           
-            if (req.body.password === user.clave) {
+            if (bcrypt.compareSync(req.body.password, user.clave)) {
                     req.session.user = user
                     return res.redirect("/")  
             }
@@ -30,6 +31,8 @@ let securityController = {
         if (req.method == "POST") {
 
             if(req.body.password === req.body.passwordd){
+
+                req.body.password = bcrypt.hashSync(req.body.password)
 
                 const usuarioCreado = {
                     username: req.body.username,

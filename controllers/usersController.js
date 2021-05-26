@@ -1,4 +1,5 @@
 const db = require('../database/models')
+const bcrypt = require('bcryptjs')
 
 let usersController = {
     profile: (req, res) => {
@@ -101,15 +102,23 @@ let usersController = {
         let idUsuario = req.params.usuario
         if(req.method == "GET"){
 
-            res.render('profile-edit', {})
+            res.render('profile-edit', {failed: req.query.failed})
         }
         if(req.method == "POST"){
+
+            if(req.body.clavee == req.body.clave){
+
+            req.body.clave = bcrypt.hashSync(req.body.clave)
+
             let usuario = {
             clave: req.body.clave,
             foto_perfil: req.body.foto_perfil,
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username
             }
+
+
+
             db.Usuarios.update(usuario, {
                 where: {
                     id: idUsuario
@@ -135,6 +144,9 @@ let usersController = {
             .catch((error)=>{
                 return res.send(error)
             })
+        } else if (req.body.clavee != req.body.clave){
+            res.redirect("/profile-edit/"+req.session.user.id+"?failed=true")
+        }
         }
     },
 }

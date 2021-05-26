@@ -1,7 +1,7 @@
 let instrumentos = require('../data/index')
 const db = require('../database/models')
-const Usuarios = require('../database/models/Usuarios')
 const currentDate = new Date
+
 
 let productController = {
     product: (req, res) => {
@@ -30,13 +30,8 @@ let productController = {
                     })
                     .then((comentarios)=>{
             
-                        if (producto[0].creado_por == req.session.user.id) {
                                 res.render('product', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
-                        }
-                        else {
-                            res.render('product-no-editable', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
-                        }            
-
+                       
                     })
                     .catch((error)=>{
                         return res.send(error)
@@ -93,9 +88,19 @@ let productController = {
           }
             
             db.Products.create(producto)
-            .then(()=>{
-               // db.Usuarios.update(cantidad_de_productos: ) ARREGLAR ACA QUE CUANDO SE AGREGAN PRODUCTOS SE UPDATEA CANTIDAD_DE_PRODUCTOS DEL USUARIO Q LO CREO
-                res.redirect("/profile/"+req.session.user.id)
+            .then((productoo)=>{
+                db.ProductosCreados.create({
+                    usuario_id: req.session.user.id,
+                    producto_id: productoo.id
+                }
+                )
+                .then(()=>{
+                    // db.Usuarios.update(cantidad_de_productos: ) ARREGLAR ACA QUE CUANDO SE AGREGAN PRODUCTOS SE UPDATEA CANTIDAD_DE_PRODUCTOS DEL USUARIO Q LO CREO
+                    res.redirect("/profile/"+req.session.user.id)
+                })
+                .catch((error)=>{
+                    return res.send(error)
+                })
             })
             .catch((error)=>{
                 return res.send(error)
@@ -154,36 +159,63 @@ let productController = {
     }, 
     eliminar: (req,res) =>{
         let idInstrumento = req.params.id
-        db.ProductosCreados.destroy({
-            where:{
-                producto_id: idInstrumento
+       
+        
+       
+        db.Comentarios.destroy({
+            where: {
+                id_producto_comentado: idInstrumento
             }
-
         })
-
         .then(()=>{
-            
+    
+            db.ProductosCreados.destroy({
+                where:{
+                    producto_id: idInstrumento
+                }
+    
+            })
+    
+            .then(()=>{
+                
                 db.Products.destroy({
                     where: {
-                        id: idInstrumento
-                    }
+                       id: idInstrumento
+                        }
+                })
+                .then(()=>{
+                     return res.redirect("/profile/"+req.session.user.id)
+                })
+                .catch((error)=>{
+                    return res.send(error)
+                })
+    
+    
+               
             })
-            .then(()=>{
-                 return res.redirect("/profile/"+req.session.user.id)
+            .catch((error)=>{
+                return res.send(error)
             })
-
-
-           
+            
+    
         })
         .catch((error)=>{
             return res.send(error)
         })
-        .catch((error)=>{
-            return res.send(error)
-        })
-    }
+       
+       
+       // return res.redirect('/product/id/'+idInstrumento)
+       
+       
+    
 
-
+    
+    } 
+       
+    
 }
+
+
+
 
 module.exports = productController;

@@ -5,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
 let alias = 'ProductosCreados'
 
 let cols = {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+            primaryKey: true,
+            unsigned: true
+    },
     usuario_id: {
         type: DataTypes.INTEGER,
         unsigned: true

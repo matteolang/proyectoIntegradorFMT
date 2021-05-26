@@ -4,14 +4,18 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto[0].nombre_producto + ' ' + producto[0].marca + ' ' + producto[0].modelo %> </h2> 
 			<p class="product-detail-description">
+				<% if (user.id == creador.id){ %> 
 				<a href="../product-edit/<%= producto[0].id%>">Editar</a>
+			<% } %> 
 			</p>
 			<p class="product-detail-description">
+				<% if (user.id == creador.id){ %> 
 				<form action="/product/id/<%= producto[0].id %>/eliminar" method="POST">
-					<button type="submit" class="buy-now-button" style="font-size: small;">
+					<button style="cursor: pointer;" type="submit" class="buy-now-button" style="font-size: small;">
 					<a>Eliminar producto</a>
 					</button>
 				</form>
+				<% } %> 
 			</p>
 		</div>
 		<div class="product-detail">
@@ -44,7 +48,7 @@
 					<form method="POST" class="form" action="/product/id/<%= producto[0].id %>">
 						<label for="comentario"></label>
 						<input class="form-input" id="comentario" name="comentario" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<button style="cursor: pointer;" type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
 				</div>
