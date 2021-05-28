@@ -58,7 +58,7 @@ let mainController = {
 
           db.Products.count({
               where: {
-                [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}]
+                [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}, {descripcion: {[op.like]: `%${search}%`}}]
               }
           })
           .then((count)=>{  
@@ -67,11 +67,11 @@ let mainController = {
 
             db.Products.findAll({
                 where: {
-                    [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}],
+                    [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}, {descripcion: {[op.like]: `%${search}%`}}],
                 }
             })
             .then((resultados)=>{
-
+                console.log(search)
                 for(let i = 0; i < resultados.length; i++){
                     result.push(resultados[i].dataValues)
 

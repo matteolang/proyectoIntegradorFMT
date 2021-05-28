@@ -99,14 +99,14 @@ let usersController = {
   
     },
     profileEdit: (req, res) => {
-        let idUsuario = req.params.usuario
+        let idUsuario = req.session.user.id
         if(req.method == "GET"){
 
             res.render('profile-edit', {failed: req.query.failed})
         }
         if(req.method == "POST"){
 
-            if(req.body.clavee == req.body.clave){
+            if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
 
             req.body.clave = bcrypt.hashSync(req.body.clave)
 
@@ -144,8 +144,8 @@ let usersController = {
             .catch((error)=>{
                 return res.send(error)
             })
-        } else if (req.body.clavee != req.body.clave){
-            res.redirect("/profile-edit/"+req.session.user.id+"?failed=true")
+        } else  {
+            res.redirect("/profile-edit/?failed=true")
         }
         }
     },

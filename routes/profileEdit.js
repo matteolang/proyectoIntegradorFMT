@@ -3,8 +3,8 @@ var router = express.Router();
 var controllers = require(`../controllers/usersController`)
 
 
-router.get("/:usuario?", controllers.profileEdit);
-router.post("/:usuario?", controllers.profileEdit)
+router.get("/", controllers.profileEdit);
+router.post("/", controllers.profileEdit)
 
 
 module.exports = router
