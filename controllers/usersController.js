@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs')
 let usersController = {
     profile: (req, res) => {
         let idUsuario = req.params.usuarioQueComento
-
         if (idUsuario == req.session.user.id) {
 
             db.Usuarios.findByPk(req.session.user.id)
@@ -107,16 +106,21 @@ let usersController = {
         if(req.method == "POST"){
 
             if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
+                if(req.body.foto_perfil == undefined){
 
+                
             req.body.clave = bcrypt.hashSync(req.body.clave)
 
             let usuario = {
             clave: req.body.clave,
-            foto_perfil: req.body.foto_perfil,
+            foto_perfil: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png",
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username
             }
-
+            let fotoUpdate = {
+                foto_autor:  "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+            }
+    
 
 
             db.Usuarios.update(usuario, {
@@ -125,29 +129,94 @@ let usersController = {
                 }
             })
             .then(()=>{
-                db.Usuarios.findOne({
+                db.Comentarios.update(fotoUpdate,{
                     where: {
-                        id: idUsuario
-                    }
+                        id_autor: idUsuario
+                    }   
+    
                 })
-                .then((usuarioUpdateado)=>{
-                
-                    req.session.user = usuarioUpdateado
-
-                    res.redirect("/profile/"+req.session.user.id)
-                })
-                .catch((error)=>{
+                .then(()=>{
+                    db.Usuarios.findOne({
+                        where: {
+                            id: idUsuario
+                        }
+                    })
+                    .then((usuarioUpdateado)=>{
+                    
+                        req.session.user = usuarioUpdateado
+    
+                        res.redirect("/profile/"+req.session.user.id)
+                    })
+                    .catch((error)=>{
+                        return res.send(error)
+                    })
+                }).catch((error)=>{
                     return res.send(error)
                 })
+               
             
             })
             .catch((error)=>{
                 return res.send(error)
             })
+        } else {
+            req.body.clave = bcrypt.hashSync(req.body.clave)
+
+            let usuario = {
+            clave: req.body.clave,
+            foto_perfil: req.body.foto_perfil,
+            fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+            username: req.body.username
+            }
+            let fotoUpdate = {
+                foto_autor:  req.body.foto_perfil
+            }
+    
+
+
+            db.Usuarios.update(usuario, {
+                where: {
+                    id: idUsuario
+                }
+            })
+            .then(()=>{
+                db.Comentarios.update(fotoUpdate,{
+                    where: {
+                        id_autor: idUsuario
+                    }   
+    
+                })
+                .then(()=>{
+                    db.Usuarios.findOne({
+                        where: {
+                            id: idUsuario
+                        }
+                    })
+                    .then((usuarioUpdateado)=>{
+                    
+                        req.session.user = usuarioUpdateado
+    
+                        res.redirect("/profile/"+req.session.user.id)
+                    })
+                    .catch((error)=>{
+                        return res.send(error)
+                    })
+                }).catch((error)=>{
+                    return res.send(error)
+                })
+               
+            
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
+        }
+
         } else  {
             res.redirect("/profile-edit/?failed=true")
         }
         }
+
     },
 }
 

@@ -26,10 +26,14 @@ let productController = {
                     db.Comentarios.findAll({
                         where: {
                             id_producto_comentado: element.dataValues.id
-                        }
+                        },
+                        // include: [
+                        //     {association: "autor" },
+                        //     {association: "comentarios"}
+                        // ]
                     })
                     .then((comentarios)=>{
-            
+
                                 res.render('product', {producto: producto, idSearch: idInstrumento, usuario: usuario, creador: creadoPor, infoComentarios: comentarios})
                        
                     })
@@ -64,11 +68,13 @@ let productController = {
           
         db.Comentarios.create(comentario)
         .then(()=>{
+
               res.redirect("/product/id/"+idInstrumento)
         })
         .catch((error)=>{
               return res.send(error)
         })
+
 
     },
     productAdd: (req, res) => {

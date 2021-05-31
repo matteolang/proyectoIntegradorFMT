@@ -52,6 +52,14 @@ module.exports = (sequelize, DataTypes) => {
 
     const Products = sequelize.define(alias, cols, config)
 
+    
+    Products.associate = function(models){
+        Products.belongsTo(models.Usuarios, {
+            as: "creador",
+            foreignKey: "creado_por"
+        })
+    }
+
 return Products
 
 }
