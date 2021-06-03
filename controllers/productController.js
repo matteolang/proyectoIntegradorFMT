@@ -164,26 +164,20 @@ let productController = {
 
     }, 
     eliminar: (req,res) =>{
-        let idInstrumento = req.params.id
-       
-        
-       
+        let idInstrumento = req.params.id      
         db.Comentarios.destroy({
             where: {
                 id_producto_comentado: idInstrumento
             }
         })
         .then(()=>{
-    
             db.ProductosCreados.destroy({
                 where:{
                     producto_id: idInstrumento
                 }
-    
             })
     
-            .then(()=>{
-                
+            .then(()=>{     
                 db.Products.destroy({
                     where: {
                        id: idInstrumento
@@ -194,10 +188,7 @@ let productController = {
                 })
                 .catch((error)=>{
                     return res.send(error)
-                })
-    
-    
-               
+                })           
             })
             .catch((error)=>{
                 return res.send(error)
@@ -209,14 +200,21 @@ let productController = {
             return res.send(error)
         })
        
-       
        // return res.redirect('/product/id/'+idInstrumento)
-       
-       
-    
+    },
+    borrar: (req,res) =>{
+        let idComentario = req.params.comentario 
+        let idInstrumento = req.params.id   
+        db.Comentarios.destroy({
+            where: {
+                id: idComentario
+            }
+        })
+        .then((comentario)=>{
+            return res.redirect("/product/id/"+idInstrumento)
+        })
+    }
 
-    
-    } 
        
     
 }

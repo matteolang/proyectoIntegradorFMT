@@ -41,6 +41,13 @@
 										<%= infoComentarios[i].fecha_de_creacion %>	
 									</div>
 								</p>
+								<div class="fecha-comentario">
+								<% if(infoComentarios[i].id_autor == user.id){ %>
+									<form action="/product/id/<%= producto[0].id %>/borrar/<%= infoComentarios[i].id %>" method="POST">
+									<button type="submit" class="borrarComentario">Borrar</button>
+									</form>
+								<% } %>
+								</div>
 							</div>
 						</article>
 					<% } %> 

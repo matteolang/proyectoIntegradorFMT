@@ -35,6 +35,14 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.borrarComentario{
+  height: 15px;
+  width: 55px;
+  background-color: var(--light-blue);
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
 
 .titulo-register {
   display: flex;

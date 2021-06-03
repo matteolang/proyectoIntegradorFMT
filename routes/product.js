@@ -8,6 +8,7 @@ router.get('/', controllers.product);
 router.get("/id/:id", controllers.product);
 router.post("/id/:id", controllers.comentario);
 router.post("/id/:id/eliminar", controllers.eliminar);
+router.post("/id/:id/borrar/:comentario", controllers.borrar);
 
 router.get("/product-add", controllers.productAdd);
 
