@@ -115,7 +115,8 @@ let usersController = {
             clave: req.body.clave,
             foto_perfil: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png",
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-            username: req.body.username
+            username: req.body.username,
+            email: req.body.email
             }
             let fotoUpdate = {
                 foto_autor:  "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
@@ -166,7 +167,8 @@ let usersController = {
             clave: req.body.clave,
             foto_perfil: req.body.foto_perfil,
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-            username: req.body.username
+            username: req.body.username,
+            email: req.body.email
             }
             let fotoUpdate = {
                 foto_autor:  req.body.foto_perfil

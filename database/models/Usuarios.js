@@ -37,6 +37,10 @@ let cols = {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
     }
 
 }

@@ -12,6 +12,10 @@
 				<h2 class="col-12">
 					<form class="register-form" action="" method="POST">
 						<div>
+							<label for="email">Email del Usuario</label>
+							<input name="email" id="username" type="email" value="<%= user.email %>">
+							</div>
+						<div>
 						<label for="username">Nombre del Usuario</label>
 						<input name="username" id="username" type="text" value="<%= user.username %>">
 						</div>
@@ -42,6 +46,10 @@
 			<% } else { %> 
 			<h2 class="col-12">
 				<form class="register-form" action="" method="POST">
+					<div>
+						<label for="email">Email del Usuario</label>
+						<input name="email" id="username" type="email" value="<%= user.email %>">
+						</div>
 					<div>
 					<label for="username">Nombre del Usuario</label>
 					<input name="username" id="username" type="text" value="<%= user.username %>">

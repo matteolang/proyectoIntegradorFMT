@@ -8,7 +8,7 @@ let securityController = {
     authenticate: function(req,res){
         db.Usuarios.findOne(
             {
-                where:{username: req.body.username}
+                where:{email: req.body.email}
             })
         .then((user)=> {
           
@@ -37,17 +37,19 @@ let securityController = {
                 const usuarioCreado = {
                     username: req.body.username,
                     fecha_de_nacimiento: req.body.fecha,
-                    clave: req.body.password
+                    clave: req.body.password,
+                    email: req.body.email,
+
                 }
 
                 if(usuarioCreado.clave.length < 5){
                     res.redirect("/security/register?failed2=true")
                 } 
                 else {
-                    db.Usuarios.count({where: {username: usuarioCreado.username}})
+                    db.Usuarios.count({where: {email: usuarioCreado.email}})
                     .then((count)=>{
 
-                        if(usuarioCreado.username.indexOf(' ') >= 0){
+                        if(usuarioCreado.email.indexOf(' ') >= 0){
                             res.redirect("/security/register?failed=true")
                         } else if(count == 0){
                             db.Usuarios.create(usuarioCreado)
