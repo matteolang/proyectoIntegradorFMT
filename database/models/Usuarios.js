@@ -1,4 +1,8 @@
+
+
+
 module.exports = (sequelize, DataTypes) => {
+
 
 let alias = 'Usuarios'
 
@@ -41,13 +45,15 @@ let cols = {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
-
+    },
+   
+   
 }
 
 let config = {
     tableName: 'usuarios',
-    timestamps: false    
+    timestamps: true
+   
 }
 
 

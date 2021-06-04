@@ -1,5 +1,6 @@
 const db = require('../database/models')
 const bcrypt = require('bcryptjs')
+const currentDate = new Date
 
 let usersController = {
     profile: (req, res) => {
@@ -101,12 +102,14 @@ let usersController = {
         let idUsuario = req.session.user.id
         if(req.method == "GET"){
 
-            res.render('profile-edit', {failed: req.query.failed})
+            res.render('profile-edit', {failed: req.query.failed, error: req.query.error})
         }
         if(req.method == "POST"){
 
+            
+
             if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
-                if(req.body.foto_perfil == undefined){
+                if(req.body.foto_perfil == false){
 
                 
             req.body.clave = bcrypt.hashSync(req.body.clave)
@@ -116,14 +119,16 @@ let usersController = {
             foto_perfil: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png",
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username,
-            email: req.body.email
+            email: req.body.email,
+            
+
             }
             let fotoUpdate = {
                 foto_autor:  "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
             }
     
 
-
+          
             db.Usuarios.update(usuario, {
                 where: {
                     id: idUsuario
@@ -158,7 +163,7 @@ let usersController = {
             
             })
             .catch((error)=>{
-                return res.send(error)
+                return res.redirect('/profile-edit?error=true')
             })
         } else {
             req.body.clave = bcrypt.hashSync(req.body.clave)
@@ -168,7 +173,8 @@ let usersController = {
             foto_perfil: req.body.foto_perfil,
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username,
-            email: req.body.email
+            email: req.body.email,
+        
             }
             let fotoUpdate = {
                 foto_autor:  req.body.foto_perfil
@@ -210,7 +216,7 @@ let usersController = {
             
             })
             .catch((error)=>{
-                return res.send(error)
+                return res.redirect('/profile-edit?error=true')
             })
         }
 

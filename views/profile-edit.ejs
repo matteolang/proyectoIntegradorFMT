@@ -43,6 +43,43 @@
 					</form>
 				</h2>
 	
+			<% } else if(error) { %>
+				<div class="titulo-register">
+					<h2 style="color: red;">Error: El email que intentaste utilizar ya esta siendo usado por otro usuario.</h2>
+				</div>
+				<h2 class="col-12">
+					<form class="register-form" action="" method="POST">
+						<div>
+							<label for="email">Email del Usuario</label>
+							<input style="border-color: red;" name="email" id="username" type="email" value="<%= user.email %>">
+							</div>
+						<div>
+						<label for="username">Nombre del Usuario</label>
+						<input name="username" id="username" type="text" value="<%= user.username %>">
+						</div>
+						<div>
+							<label for="fecha_de_nacimiento">Fecha de Nacimiento</label>
+						<input id="fecha_de_nacimiento" name="fecha_de_nacimiento" type="date" value="<%= user.fecha_de_nacimiento %>">
+						</div>
+						<div>
+						<label for="foto_perfil">Foto de Perfil</label>
+						<input id="foto_perfil" name="foto_perfil" type="url" value="<%= user.foto_perfil %>">
+						</div>
+						<div>
+							<label for="clave">Nueva contraseña</label>
+							<input id="clave" name="clave" type="password" placeholder="Contraseña">
+						</div>
+						<div>
+							<label for="clavee">Confirmá tu nueva contraseña</label>
+							<input id="clavee" name="clavee" type="password" placeholder="Confirmá tu contraseña">
+						</div>
+						<div style="margin-top: 10px;">
+							<p>Si deseás conservar tu contraseña previa, simplemente ingresá la misma como si fuese tu "nueva contraseña".</p>
+						</div>
+						<br>
+						<button type="submit" class="boton">Guardar cambios</button>
+					</form>
+				</h2>
 			<% } else { %> 
 			<h2 class="col-12">
 				<form class="register-form" action="" method="POST">
