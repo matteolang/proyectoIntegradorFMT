@@ -109,14 +109,14 @@ let usersController = {
             
 
             if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
-                if(req.body.foto_perfil == false){
+                if(!req.file){
 
                 
             req.body.clave = bcrypt.hashSync(req.body.clave)
 
             let usuario = {
             clave: req.body.clave,
-            foto_perfil: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png",
+            foto_perfil: '/undefined-1623092790999.png',
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username,
             email: req.body.email,
@@ -124,7 +124,7 @@ let usersController = {
 
             }
             let fotoUpdate = {
-                foto_autor:  "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+                foto_autor:  '/undefined-1623092790999.png' 
             }
     
 
@@ -170,14 +170,14 @@ let usersController = {
 
             let usuario = {
             clave: req.body.clave,
-            foto_perfil: req.body.foto_perfil,
+            foto_perfil: req.file.filename,
             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
             username: req.body.username,
             email: req.body.email,
         
             }
             let fotoUpdate = {
-                foto_autor:  req.body.foto_perfil
+                foto_autor:  req.file.filename
             }
     
 

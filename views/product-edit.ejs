@@ -9,7 +9,7 @@
          
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-				<form method="POST" class="register-form" action="/product/product-edit/<%= producto[0].id %> ">
+				<form method="POST" class="register-form" action="/product/product-edit/<%= producto[0].id %> " enctype="multipart/form-data">
 					<div>
 					<label for="nombre">Nombre de tu producto</label>
 					<input type="text" id="nombre" name="nombre" value="<%= producto[0].nombre_producto%>">
@@ -26,7 +26,7 @@
 					
 				<div>
 					<label for="foto">Imagen del producto</label>
-					<input type="url" id="foto" name="foto" value="<%= producto[0].foto_product%>">
+					<input type="file" id="foto" name="foto" value="<%= producto[0].foto_product%>">
 				</div>
 				<div>
 					<label for="descripcion">Descripción</label>

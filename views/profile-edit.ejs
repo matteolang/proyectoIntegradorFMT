@@ -10,7 +10,7 @@
 					<h2 style="color: red;">Error: Las claves que ingresaste no son validas, verificá que llenaste los campos correctamente y que sean iguales.</h2>
 				</div>
 				<h2 class="col-12">
-					<form class="register-form" action="" method="POST">
+					<form class="register-form" action="" method="POST" enctype="multipart/form-data">
 						<div>
 							<label for="email">Email del Usuario</label>
 							<input name="email" id="username" type="email" value="<%= user.email %>">
@@ -25,7 +25,7 @@
 						</div>
 						<div>
 						<label for="foto_perfil">Foto de Perfil</label>
-						<input id="foto_perfil" name="foto_perfil" type="text" value="<%= user.foto_perfil %>">
+						<input id="foto_perfil" name="foto_perfil" type="file" value="<%= user.foto_perfil %>">
 						</div>
 						<div>
 							<label for="clave">Nueva contraseña</label>
@@ -48,7 +48,7 @@
 					<h2 style="color: red;">Error: El email que intentaste utilizar ya esta siendo usado por otro usuario.</h2>
 				</div>
 				<h2 class="col-12">
-					<form class="register-form" action="" method="POST">
+					<form class="register-form" action="" method="POST" enctype="multipart/form-data">
 						<div>
 							<label for="email">Email del Usuario</label>
 							<input style="border-color: red;" name="email" id="username" type="email" value="<%= user.email %>">
@@ -63,7 +63,7 @@
 						</div>
 						<div>
 						<label for="foto_perfil">Foto de Perfil</label>
-						<input id="foto_perfil" name="foto_perfil" type="url" value="<%= user.foto_perfil %>">
+						<input id="foto_perfil" name="foto_perfil" type="file" value="<%= user.foto_perfil %>">
 						</div>
 						<div>
 							<label for="clave">Nueva contraseña</label>
@@ -82,7 +82,7 @@
 				</h2>
 			<% } else { %> 
 			<h2 class="col-12">
-				<form class="register-form" action="" method="POST">
+				<form class="register-form" action="" method="POST" enctype="multipart/form-data">
 					<div>
 						<label for="email">Email del Usuario</label>
 						<input name="email" id="username" type="email" value="<%= user.email %>">
@@ -97,7 +97,7 @@
 					</div>
 					<div>
 					<label for="foto_perfil">Foto de Perfil</label>
-					<input id="foto_perfil" name="foto_perfil" type="url" value="<%= user.foto_perfil %>">
+					<input id="foto_perfil" name="foto_perfil" type="file" value="<%= user.foto_perfil %>">
 					</div>
 					<div>
 						<label for="clave">Nueva contraseña</label>

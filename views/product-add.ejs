@@ -8,7 +8,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
-				<form method="POST" class="register-form" action="/product/product-add">
+				<form method="POST" class="register-form" action="/product/product-add" enctype="multipart/form-data">
 					<div>
 					<label for="nombre">Nombre de tu producto</label>
 					<input type="text" id="nombre" name="nombre" placeholder="Nombre...">
@@ -24,9 +24,13 @@
 	
 					
 	
-				<div>
+				<!--<div>
 					<label for="foto">Imagen del producto</label>
 					<input type="url" id="foto" name="foto" placeholder="URL de la imagen">
+				</div>-->
+				<div>
+					<label for="foto">Imagen del producto</label>
+					<input type="file" id="foto" name="foto" >
 				</div>
 				<div>
 					<label for="descripcion">Descripción</label>

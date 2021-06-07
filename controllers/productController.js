@@ -89,7 +89,7 @@ let productController = {
               fecha_de_creacion: currentDate,
               descripcion: req.body.descripcion,
               creado_por: req.session.user.id,
-              foto_product: req.body.foto,
+              foto_product: req.file.filename,
               precio: req.body.precio
           }
             
@@ -142,7 +142,7 @@ let productController = {
             nombre_producto: req.body.nombre,
             descripcion: req.body.descripcion,
             creado_por: req.session.user.id,
-            foto_product: req.body.foto,
+            foto_product: req.file.filename,
             precio: req.body.precio
         }
         
