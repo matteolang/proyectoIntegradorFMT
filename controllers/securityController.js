@@ -14,6 +14,10 @@ let securityController = {
           
             if (bcrypt.compareSync(req.body.password, user.clave)) {
                     req.session.user = user
+
+                    if (req.body.rememberMe) {
+                        res.cookie('userId', user.id, { maxAge: 1000* 60*60*24})
+                    }
                     return res.redirect("/")  
             }
 
@@ -81,8 +85,9 @@ let securityController = {
     },
     logout: function(req,res){
         req.session.destroy();
-        //destroy cookies aca
-        res.redirect("/security/login")
+        res.clearCookie('userId')
+
+        return res.redirect("/")
     },
 
 

@@ -10,7 +10,8 @@ var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users')
 var profileEditRouter = require('./routes/profileEdit')
 var sequelizeRouter = require('./routes/sequelize')
-var securityRouter = require("./routes/security")
+var securityRouter = require("./routes/security");
+const db = require('./database/models');
 
 var app = express();
 
@@ -33,19 +34,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const firewall = [
-  '/security/login', '/security/register'
+  '/product/product-add', '/profile/'
 ]
+app.use(function(req, res, next){
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    db.Usuarios.findByPk(req.cookies.userId)
+    .then( user =>{
+        req.session.user = user
+        return next()
+    })
+    .catch( e =>{
+      next(createError(e.status))
+    })
+   }
+    else{
+      next()
+    }
+  });
+
+
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
-  }  
+  }
   else{
-    if (!firewall.includes(req.path)){
+    if (firewall.includes(req.path)){
       return res.redirect("/security/login")
     }
-  }
+  } 
   next();
 })
+
+  
+
 
 
 app.use('/security', securityRouter);
