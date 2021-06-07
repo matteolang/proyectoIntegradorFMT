@@ -4,12 +4,12 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto[0].nombre_producto + ' ' + producto[0].marca + ' ' + producto[0].modelo %> </h2> 
 			<p class="product-detail-description">
-				<% if (user.id == creador.id){ %> 
+				<% if (locals.user && user.id == creador.id){ %> 
 				<a href="../product-edit/<%= producto[0].id%>">Editar</a>
 			<% } %> 
 			</p>
 			<p class="product-detail-description">
-				<% if (user.id == creador.id){ %> 
+				<% if (locals.user && user.id == creador.id){ %> 
 				<form action="/product/id/<%= producto[0].id %>/eliminar" method="POST">
 					<button style="cursor: pointer;" type="submit" class="buy-now-button" style="font-size: small;">
 					<a>Eliminar producto</a>
@@ -22,7 +22,7 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<p class="precio">£ <%= producto[0].precio%></p>
-					<h2 class="creadoPor">Creado por: <a href="/../profile/<%= creador.id %>"><%= creador.username%></a></h2>
+					<h2 class="creadoPor">Creado por: <a href="/profile/<%= creador.id %>"><%= creador.username%></a></h2>
 					<h2 class="creadoPor" class="fecha-creacion">Fecha de creación: <a><%= producto[0].fecha_de_creacion%></a></h2>
 					<img src="/images/<%= producto[0].foto_product %> " alt="" class="product-detail-img">
 					<p class="product-detail-description"><%= producto[0].descripcion %></p>
@@ -31,7 +31,7 @@
 					<section class="comments">
 						<% for( let i = 0; i < infoComentarios.length; i++) { %> 
 						<article>				 
-							<img src="/images/<%= infoComentarios[i].foto_autor %> " alt="">
+							<img src="/images/<%= infoComentarios[i].foto_autor %>" alt="">
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/../profile/<%= infoComentarios[i].id_autor %>"><%= infoComentarios[i].id_autor %>: </a> </strong>
@@ -42,7 +42,7 @@
 									</div>
 								</p>
 								<div class="fecha-comentario">
-								<% if(infoComentarios[i].id_autor == user.id){ %>
+								<% if(locals.user && user.id  ==  infoComentarios[i].id_autor){ %>
 									<form action="/product/id/<%= producto[0].id %>/borrar/<%= infoComentarios[i].id %>" method="POST">
 									<button type="submit" class="borrarComentario">Borrar</button>
 									</form>
@@ -52,12 +52,15 @@
 						</article>
 					<% } %> 
 					</section>
+					<% if (locals.user){ %> 
 					<form method="POST" class="form" action="/product/id/<%= producto[0].id %>">
 						<label for="comentario"></label>
 						<input class="form-input" id="comentario" name="comentario" type="text" value="" placeholder="Agregar comentario">
 						<button style="cursor: pointer;" type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
+					<% } %>
+
 				</div>
 			</div>
 		</div>
