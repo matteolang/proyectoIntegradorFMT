@@ -5,7 +5,7 @@ const currentDate = new Date
 let usersController = {
     profile: (req, res) => {
         let idUsuario = req.params.usuarioQueComento
-        if (idUsuario == req.session.user.id) {
+        if (req.session.user && req.session.user.id == idUsuario) {
 
             db.Usuarios.findByPk(req.session.user.id)
             .then((resultadoss)=>{ 

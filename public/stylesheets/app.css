@@ -69,6 +69,13 @@ body {
   padding-left: 10px;
 }
 
+.imagen{
+    margin-top: auto;
+    height: 255px;
+    width: 100%;
+   object-fit: cover;
+}
+
 .register-form {
   display: flex;
   flex-direction: column;
@@ -574,6 +581,18 @@ textarea.form-input {
 
 .foto-perfil{
   border-radius: 50%;
+    margin-top: auto;
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+
+}
+.fotito-autor{
+  border-radius: 50%;
+    height: 30px;
+    width: 100%;
+    object-fit: cover;
+
 }
 
 .main-title{
@@ -608,6 +627,21 @@ textarea.form-input {
 
   .banner {
     height: 320px;
+  }
+  .foto-perfil{
+    border-radius: 50%;
+      margin-top: auto;
+      height: 150px;
+      width: 100%;
+      object-fit: cover;
+  
+  }
+  .fotito-autor{
+    border-radius: 50%;
+      height: 30px;
+      width: 100%;
+      object-fit: cover;
+  
   }
 
   .btn-toggle-navbar {

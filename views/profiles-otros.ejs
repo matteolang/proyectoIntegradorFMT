@@ -10,7 +10,9 @@
 						<h1 class="main-title"><%= datosUsuario.username %> 
 							
 						</h1>
+						<% if(locals.user && user.id != datosUsuario.id) { %> 
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+						<% } %>
 					</div>
 					<div>
 						<ul class="">

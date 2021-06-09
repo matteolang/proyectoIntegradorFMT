@@ -10,13 +10,13 @@
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title">  <%= datosUsuario.username %>
-							<% if(datosUsuario.id == user.id) { %> 
+							<% if(locals.user && user.id == datosUsuario.id) { %> 
 							<a href="/../profile-edit/">
 								<i class="fas fa-cog"></i>
 							</a>
 						<% } %> 
 						</h1>
-						<% if(datosUsuario.id != user.id) { %> 
+						<% if(locals.user && user.id != datosUsuario.id) { %> 
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 						<% } %> 
 					</div>

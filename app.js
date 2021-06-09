@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const firewall = [
-  '/product/product-add', '/profile/'
+  '/product/product-add', '/profile-edit/'
 ]
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){
