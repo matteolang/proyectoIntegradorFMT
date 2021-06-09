@@ -1,6 +1,6 @@
 let instrumentos = require('../data/index')
 const db = require('../database/models')
-const currentDate = new Date
+const currentDate = Date.now()
 
 
 let productController = {
