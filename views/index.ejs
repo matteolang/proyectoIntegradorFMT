@@ -49,9 +49,9 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%= masNuevos[i].nombre_producto + ' ' + masNuevos[i].marca + ' ' + masNuevos[i].modelo %> </h2>
-							<p>Creado por: <%= masNuevos[i].creado_por %></p>
+							<p>Creado por: <%= masNuevos[i].creador.username %></p>
 							<p>Precio: £<%= masNuevos[i].precio %></p>
-							<p>Comentarios: <%= comentarios.length %> </p>
+							<p>Comentarios: <%= masNuevos[i].comentarios.length %> </p>
 						</article>
 					</a>
 				</section>
@@ -78,9 +78,9 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%= instrumentitos[i].nombre_producto + ' ' + instrumentitos[i].marca + ' ' + instrumentitos[i].modelo %> </h2>
-								<p>Creado por: <%= instrumentitos[i].creado_por %></p>
+								<p>Creado por: <%= instrumentitos[i].creador.username %></p>
 								<p>Precio: £<%= instrumentitos[i].precio %></p>
-								<p>Comentarios: <%= comentarios.length %> </p>
+								<p>Comentarios: <%= instrumentitos[i].comentarios.length %> </p>
 							</article>
 						</a>
 					</section>
@@ -106,9 +106,9 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%=masBaratos[i].nombre_producto + ' ' + masBaratos[i].marca + ' ' + masBaratos[i].modelo %> </h2>
-								<p>Creado por: <%= masBaratos[i].creado_por %></p>
+								<p>Creado por: <%= masBaratos[i].creador.username %></p>
 								<p>Precio: £<%= masBaratos[i].precio %>  </p>
-								<p>Comentarios: <%= comentarios.length %> </p>
+								<p>Comentarios: <%= masBaratos[i].comentarios.length %> </p>
 							</article>
 						</a>
 					</section>

@@ -6,7 +6,12 @@ let mainController = {
     index: (req, res) => {
 
          
-        db.Products.findAll({})
+        db.Products.findAll({
+            include: [
+                {association: 'creador'},
+                {association: 'comentarios'}
+            ]
+        })
         .then((productos)=>{
             db.Comentarios.findAll({})
             .then((comentarios)=>{
@@ -14,7 +19,11 @@ let mainController = {
                     order: [
                         ["precio", "ASC"]
                     ],
-                    limit:4
+                    limit:4,
+                    include: [
+                        {association: 'creador'},
+                        {association: 'comentarios'}
+                    ]
                 })
                 .then((masBaratos)=>{
 
@@ -22,7 +31,13 @@ let mainController = {
                         order: [
                             ["fecha_de_creacion", "DESC"]
                         ],
-                        limit:4
+                        limit:4,
+                        
+                            include: [
+                                {association: 'creador'},
+                                {association: 'comentarios'}
+                            ]
+                        
                     })
                     .then((masNuevos)=>{
                         res.render('index', {instrumentitos: productos, comentarios:comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
@@ -68,7 +83,11 @@ let mainController = {
             db.Products.findAll({
                 where: {
                     [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}, {descripcion: {[op.like]: `%${search}%`}}],
-                }
+                },
+                include: [
+                    {association: 'creador'},
+                    {association: 'comentarios'}
+                ]
             })
             .then((resultados)=>{
                 console.log(search)
