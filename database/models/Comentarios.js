@@ -17,11 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         fecha_de_creacion: {
             type: DataTypes.DATE
         },
-        foto_autor: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null
-        }
+       
     }
 
     let config = {

@@ -40,7 +40,24 @@ let mainController = {
                         
                     })
                     .then((masNuevos)=>{
-                        res.render('index', {instrumentitos: productos, comentarios:comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
+                        db.Products.findAll({
+                            order: [
+                                ["cantidad_de_comentarios", "DESC"]
+                            ],
+                            limit:4,
+                            
+                              include: [
+                                    {association: 'creador'},
+                                    {association: 'comentarios'}
+                                ]
+                            
+                        })
+                        .then((masComentados)=>{
+                            res.render('index', {masComentados: masComentados, instrumentitos: productos, comentarios:comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
+                        })  
+                        .catch((error)=>{
+                            return res.send(error)
+                        })
                     })  
                     .catch((error)=>{
                         return res.send(error)

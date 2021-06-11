@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 09-06-2021 a las 15:08:54
+-- Tiempo de generación: 11-06-2021 a las 13:31:07
 -- Versión del servidor: 5.7.32
 -- Versión de PHP: 7.4.12
 
@@ -25,7 +25,6 @@ CREATE TABLE `comentarios` (
   `id_autor` int(10) UNSIGNED NOT NULL,
   `comentario` varchar(255) NOT NULL,
   `fecha_de_creacion` date NOT NULL,
-  `foto_autor` varchar(1000) DEFAULT NULL,
   `id` int(10) UNSIGNED NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -35,12 +34,20 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_producto_comentado`, `id_autor`, `comentario`, `fecha_de_creacion`, `foto_autor`, `id`, `createdAt`, `updatedAt`) VALUES
-(48, 48, 'Buenardas', '2021-06-07', '/undefined-1623092790999.png', 82, '2021-06-07 18:23:57', '2021-06-08 12:13:45'),
-(47, 51, 'Pablo Perez', '2021-06-07', '/undefined-1623092790999.png', 83, '2021-06-07 19:14:42', '2021-06-07 19:14:42'),
-(47, 45, 'MC Frozono', '2021-06-07', 'undefined-1623092944485.jpeg', 84, '2021-06-07 19:15:41', '2021-06-07 19:15:41'),
-(56, 45, 'TERRIBLE PERRRRRRRRRRRRRO', '2021-06-07', 'undefined-1623092944485.jpeg', 85, '2021-06-07 19:20:00', '2021-06-07 19:20:00'),
-(50, 45, 'muy buena', '2021-06-07', 'undefined-1623092944485.jpeg', 86, '2021-06-08 12:15:54', '2021-06-08 12:15:54');
+INSERT INTO `comentarios` (`id_producto_comentado`, `id_autor`, `comentario`, `fecha_de_creacion`, `id`, `createdAt`, `updatedAt`) VALUES
+(48, 48, 'Buenardas', '2021-06-07', 82, '2021-06-07 18:23:57', '2021-06-08 12:13:45'),
+(47, 51, 'Pablo Perez', '2021-06-07', 83, '2021-06-07 19:14:42', '2021-06-07 19:14:42'),
+(47, 45, 'MC Frozono', '2021-06-07', 84, '2021-06-07 19:15:41', '2021-06-07 19:15:41'),
+(56, 45, 'TERRIBLE PERRRRRRRRRRRRRO', '2021-06-07', 85, '2021-06-07 19:20:00', '2021-06-07 19:20:00'),
+(50, 45, 'muy buena', '2021-06-07', 86, '2021-06-08 12:15:54', '2021-06-08 12:15:54'),
+(58, 45, 'a', '2021-06-09', 87, '2021-06-09 15:10:19', '2021-06-09 15:10:19'),
+(51, 45, 'HOLA BEIBI', '2021-06-10', 88, '2021-06-10 19:43:56', '2021-06-10 19:43:56'),
+(58, 45, 'sluculini', '2021-06-10', 89, '2021-06-10 20:47:30', '2021-06-10 20:47:30'),
+(58, 45, 'k', '2021-06-10', 90, '2021-06-10 21:24:21', '2021-06-10 21:24:21'),
+(47, 45, 'k', '2021-06-10', 91, '2021-06-10 21:24:49', '2021-06-10 21:24:49'),
+(47, 45, 'l', '2021-06-10', 92, '2021-06-10 21:28:12', '2021-06-10 21:28:12'),
+(47, 45, 'k', '2021-06-10', 93, '2021-06-10 21:33:37', '2021-06-10 21:33:37'),
+(58, 45, 't', '2021-06-10', 94, '2021-06-10 21:33:47', '2021-06-10 21:33:47');
 
 -- --------------------------------------------------------
 
@@ -187,19 +194,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT de la tabla `productos_creados`
 --
 ALTER TABLE `productos_creados`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -230,3 +237,4 @@ ALTER TABLE `productos_creados`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`creado_por`) REFERENCES `usuarios` (`id`);
+

@@ -1,7 +1,8 @@
 let instrumentos = require("../data/index");
 const db = require("../database/models");
 const currentDate = Date.now();
-const Swal = require('sweetalert2')
+const Swal = require('sweetalert2');
+const { where, Error } = require("sequelize");
 
 let productController = {
   product: (req, res) => {
@@ -40,12 +41,32 @@ let productController = {
       id_producto_comentado: idInstrumento,
       id_autor: req.session.user.id,
       fecha_de_creacion: currentDate,
-      foto_autor: req.session.user.foto_perfil,
+      
     };
 
     db.Comentarios.create(comentario)
       .then(() => {
-        res.redirect("/product/id/" + idInstrumento);
+
+        db.Comentarios.count({
+            where: {
+                id_producto_comentado: idInstrumento
+            }
+        })
+        .then((count)=>{
+            db.Products.update({cantidad_de_comentarios: count}, {where: {id: idInstrumento}} )
+            .then(()=>{
+                res.redirect("/product/id/" + idInstrumento)
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
+         
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+
+         
       })
       .catch((error) => {
         return res.send(error);
@@ -73,8 +94,20 @@ let productController = {
           producto_id: productoo.id,
         })
           .then(() => {
-            // db.Usuarios.update(cantidad_de_productos: ) ARREGLAR ACA QUE CUANDO SE AGREGAN PRODUCTOS SE UPDATEA CANTIDAD_DE_PRODUCTOS DEL USUARIO Q LO CREO
-            res.redirect("/profile/" + req.session.user.id);
+                 db.Products.count({where: {creado_por: producto.creado_por}})
+                 .then((count)=>{
+                    db.Usuarios.update({cantidad_de_productos: count}, {where: {id: productoo.creado_por}})
+                    .then(()=>{
+                        
+                        res.redirect("/profile/" + req.session.user.id);
+                    })
+                    .catch((error)=>{
+                        return res.send(error)
+                    })
+                 })
+                 .catch((error)=>{
+                     return res.send(error)
+                 })       
           })
           .catch((error) => {
             return res.send(error);
@@ -141,17 +174,40 @@ let productController = {
         })
 
           .then(() => {
-            db.Products.destroy({
-              where: {
-                id: idInstrumento,
-              },
-            })
-              .then(() => {
-                return res.redirect("/profile/" + req.session.user.id);
+              db.Products.findByPk(idInstrumento)
+              .then((producto)=>{
+                db.Products.destroy({
+                    where: {
+                      id: idInstrumento,
+                    },
+                  })
+                    .then((k) => {
+                        
+                        db.Products.count({where: {creado_por: producto.creado_por}})
+                        .then((count)=>{
+                            console.log(count)
+                            db.Usuarios.update({cantidad_de_productos: count}, {where: {id: producto.creado_por}})
+                            .then(()=>{
+                              return res.redirect("/profile/" + req.session.user.id);
+                            })
+                            .catch(()=>{
+                                return res.send(error)
+                            })
+                         
+                        })
+                        .catch((error)=>{
+                            return res.send(error)
+                        })
+                      
+                    })
+                    .catch((error) => {
+                      return res.send(error);
+                    });
               })
-              .catch((error) => {
-                return res.send(error);
-              });
+              .catch((error)=>{
+                  return res.send(error)
+              })
+         
           })
           .catch((error) => {
             return res.send(error);
@@ -170,9 +226,32 @@ let productController = {
       where: {
         id: idComentario,
       },
-    }).then((comentario) => {
-      return res.redirect("/product/id/" + idInstrumento);
-    });
+    })
+    .then((comentario) => {
+        db.Comentarios.count({
+            where: {
+                id_producto_comentado: idInstrumento
+            }
+        })
+        .then((count)=>{
+            db.Products.update({cantidad_de_comentarios: count}, {where: {id: idInstrumento}} )
+            .then(()=>{
+                return res.redirect("/product/id/" + idInstrumento);
+            })
+            .catch((error)=>{
+                return res.send(error)
+            })
+         
+        })
+        .catch((error)=>{
+            return res.send(error)
+        })
+
+      
+    })
+    .catch((error)=>{
+        return res.send(error)
+    })
   },
 };
 

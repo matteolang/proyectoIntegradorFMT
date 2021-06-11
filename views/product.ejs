@@ -32,10 +32,10 @@
 					<section class="comments">
 						<% for( let i = 0; i < comentarios.length; i++) { %> 
 						<article>				 
-							<img src="/images/<%= comentarios[i].foto_autor %>" alt="" class="fotito-autor">
+							<img src="/images/<%= comentarios[i].autor.foto_perfil %>" alt="" class="fotito-autor">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/../profile/<%= comentarios[i].id_autor %>"><%= comentarios[i].autor.username %>: </a> </strong>
+									<strong> <a href="/../profile/<%= comentarios[i].autor.id %>"><%= comentarios[i].autor.username %>: </a> </strong>
 										<%= comentarios[i].comentario %> 
 										<br>
 										<div class="fecha-comentario">
@@ -43,7 +43,7 @@
 									</div>
 								</p>
 								<div class="fecha-comentario">
-								<% if(locals.user && user.id  ==  comentarios[i].id_autor){ %>
+								<% if(locals.user && user.id  ==  comentarios[i].autor.id){ %>
 									<form action="/product/id/<%= producto.id %>/borrar/<%= comentarios[i].id %>" method="POST">
 									<button type="submit" class="borrarComentario">Borrar</button>
 									</form>
