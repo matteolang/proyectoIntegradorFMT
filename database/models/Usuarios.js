@@ -40,7 +40,7 @@ let cols = {
     foto_perfil: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "https://upload.wikimedia.org/wikipedia/commons/0/09/Man_Silhouette.png"
+        defaultValue: "undefined-1623092790999.png"
     },
     email: {
         type: DataTypes.STRING,
