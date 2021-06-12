@@ -55,7 +55,20 @@ let productController = {
         .then((count)=>{
             db.Products.update({cantidad_de_comentarios: count}, {where: {id: idInstrumento}} )
             .then(()=>{
-                res.redirect("/product/id/" + idInstrumento)
+              db.Comentarios.count({where: {id_autor: req.session.user.id}})
+              .then((countt)=>{
+                db.Usuarios.update({comentarios: countt}, {where: {id: req.session.user.id}})
+                .then(()=>{
+                  res.redirect("/product/id/" + idInstrumento)
+                })
+                .catch((error)=>{
+                  return res.send(error)
+                })
+              })
+              .catch((error)=>{
+                return res.send(error)
+              })
+                
             })
             .catch((error)=>{
                 return res.send(error)
@@ -217,7 +230,7 @@ let productController = {
         return res.send(error);
       });
 
-    // return res.redirect('/product/id/'+idInstrumento)
+    
   },
   borrar: (req, res) => {
     let idComentario = req.params.comentario;
@@ -236,7 +249,20 @@ let productController = {
         .then((count)=>{
             db.Products.update({cantidad_de_comentarios: count}, {where: {id: idInstrumento}} )
             .then(()=>{
-                return res.redirect("/product/id/" + idInstrumento);
+              db.Comentarios.count({where: {id_autor: req.session.user.id}})
+              .then((countt)=>{
+                db.Usuarios.update({comentarios: countt}, {where: {id: req.session.user.id}})
+                .then(()=>{
+                  return res.redirect("/product/id/" + idInstrumento);
+                })
+                .catch((error)=>{
+                  return res.send(error)
+                })
+              })
+              .catch((error)=>{
+                return res.send(error)
+              })
+                
             })
             .catch((error)=>{
                 return res.send(error)

@@ -26,7 +26,6 @@ let usersController = {
                             })
                             .then((resultadosss)=>{
                                 req.session.user = resultadoss
-          
                                 res.render('profile-logueado', {productos: resultados, datosUsuario: resultadoss, numeroComentarios: resultadosss })
       
                             })
