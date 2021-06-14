@@ -6,7 +6,12 @@
 </div>
 <% if(failed){ %>
     <div class="titulo-register">
-        <h2 style="color: red;">Error: Verificá los datos ingresados e intenta nuevamente.</h2>
+        <h2 style="color: red;">Error: El email que ingresaste no existe.</h2>
+    </div>
+<% } %> 
+<% if(failed2){ %>
+    <div class="titulo-register">
+        <h2 style="color: red;">Error: La contraseña que ingresaste no es correcta.</h2>
     </div>
 <% } %> 
 

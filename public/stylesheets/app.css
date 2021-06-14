@@ -299,6 +299,7 @@ hr {
 
 .product-box a {
   display: block;
+  
 }
 
 .product-box_image {
@@ -325,6 +326,8 @@ hr {
   color: var(--green);
   margin: 0 0 0 10px;
 }
+
+
 
 .product-box_data p {
   font-size: 1.5em;

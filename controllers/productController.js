@@ -159,77 +159,105 @@ let productController = {
       precio: req.body.precio,
     };
 
-    db.Products.update(producto, {
-      where: {
-        id: idInstrumento,
-      },
+  db.Products.update(producto, {
+    where: {
+      id: idInstrumento,
+    },
+  })
+    .then((resultados) => {
+      res.redirect("/profile/" + req.session.user.id);
     })
-      .then((resultados) => {
-        res.redirect("/profile/" + req.session.user.id);
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
+    .catch((error) => {
+      return res.send(error);
+    });
+
+    
   },
   eliminar: (req, res) => {
     
     let idInstrumento = req.params.id;
-    db.Comentarios.destroy({
-      where: {
-        id_producto_comentado: idInstrumento,
-      },
-    })
-      .then(() => {
-        db.ProductosCreados.destroy({
+    db.Products.findByPk(idInstrumento)
+    .then((productoEnCuestion)=>{
+      if(productoEnCuestion.creado_por == req.session.user.id){
+        db.Comentarios.destroy({
           where: {
-            producto_id: idInstrumento,
+            id_producto_comentado: idInstrumento,
           },
         })
-
           .then(() => {
-              db.Products.findByPk(idInstrumento)
-              .then((producto)=>{
-                db.Products.destroy({
-                    where: {
-                      id: idInstrumento,
-                    },
-                  })
-                    .then((k) => {
-                        
-                        db.Products.count({where: {creado_por: producto.creado_por}})
-                        .then((count)=>{
-                            console.log(count)
-                            db.Usuarios.update({cantidad_de_productos: count}, {where: {id: producto.creado_por}})
-                            .then(()=>{
-                              return res.redirect("/profile/" + req.session.user.id);
+            db.ProductosCreados.destroy({
+              where: {
+                producto_id: idInstrumento,
+              },
+            })
+    
+              .then(() => {
+                  db.Products.findByPk(idInstrumento)
+                  .then((producto)=>{
+                    db.Products.destroy({
+                        where: {
+                          id: idInstrumento,
+                        },
+                      })
+                        .then((k) => {
+                            
+                            db.Products.count({where: {creado_por: producto.creado_por}})
+                            .then((count)=>{
+                                console.log(count)
+                                db.Usuarios.update({cantidad_de_productos: count}, {where: {id: producto.creado_por}})
+                                .then(()=>{
+                                  db.Comentarios.count({where: {id_autor: req.session.user.id}})
+                                  .then((counttt)=>{
+                                    db.Usuarios.update({comentarios: counttt}, {where: {id: req.session.user.id}})
+                                    .then(()=>{
+                                      return res.redirect("/profile/" + req.session.user.id);
+                                    })
+                                    .catch((error)=>{
+                                      return res.send(error)
+                                    })
+                                   
+                                  })
+                                  .catch((error)=>{
+                                    return res.send(error)
+                                  })
+                                  
+                                })
+                                .catch(()=>{
+                                    return res.send(error)
+                                })
+                             
                             })
-                            .catch(()=>{
+                            .catch((error)=>{
                                 return res.send(error)
                             })
-                         
+                          
                         })
-                        .catch((error)=>{
-                            return res.send(error)
-                        })
-                      
-                    })
-                    .catch((error) => {
-                      return res.send(error);
-                    });
+                        .catch((error) => {
+                          return res.send(error);
+                        });
+                  })
+                  .catch((error)=>{
+                      return res.send(error)
+                  })
+             
               })
-              .catch((error)=>{
-                  return res.send(error)
-              })
-         
+              .catch((error) => {
+                return res.send(error);
+              });
           })
           .catch((error) => {
             return res.send(error);
           });
-      })
-      .catch((error) => {
-        return res.send(error);
-      });
-
+    
+      }
+      else {
+        res.redirect("../product/id/"+idInstrumento)
+      }
+    })
+    .catch((error)=>{
+      return res.send(error)
+    })
+    
     
   },
   borrar: (req, res) => {

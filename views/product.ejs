@@ -12,9 +12,11 @@
 			<p class="product-detail-description">
 				<% if (locals.user && user.id == producto.creador.id){ %> 
 				<form action="/product/id/<%= producto.id %>/eliminar" method="POST">
-					<button style="cursor: pointer;" type="submit" class="buy-now-button" style="font-size: small;">
+					<button style="cursor: pointer;" type="submit" class="buy-now-button" style="font-size: small;" onclick="return confirm('Estas seguro que querés eliminar este producto?') ? true : event.preventDefault()" >
+					
 					<a>Eliminar producto</a>
 					</button>
+					
 				</form>
 				<% } %> 
 			</p>

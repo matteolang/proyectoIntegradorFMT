@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 
 let securityController = {
     login: function(req,res){
-        return res.render("security/login", {failed: req.query.failed})
+        return res.render("security/login", {failed: req.query.failed, failed2: req.query.failed2})
     },
     authenticate: function(req,res){
         db.Usuarios.findOne(
@@ -19,9 +19,9 @@ let securityController = {
                         res.cookie('userId', user.id, { maxAge: 1000* 60*60*24})
                     }
                     return res.redirect("/")  
-            }
+            } 
 
-            return res.redirect("/security/login?failed=true")
+                return res.redirect("/security/login?failed2=true")
 
         })
         .catch((error)=>{
