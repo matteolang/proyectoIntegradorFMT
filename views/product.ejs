@@ -47,7 +47,7 @@
 								<div class="fecha-comentario">
 								<% if(locals.user && user.id  ==  comentarios[i].autor.id){ %>
 									<form action="/product/id/<%= producto.id %>/borrar/<%= comentarios[i].id %>" method="POST">
-									<button type="submit" class="borrarComentario">Borrar</button>
+									<button type="submit" class="borrarComentario"  onclick="return confirm('Estas seguro que querés eliminar este comentario?') ? true : event.preventDefault()">Borrar</button>
 									</form>
 								<% } %>
 								</div>

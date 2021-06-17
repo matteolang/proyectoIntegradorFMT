@@ -104,30 +104,18 @@ let usersController = {
             res.render('profile-edit', {failed: req.query.failed, error: req.query.error})
         }
         if(req.method == "POST"){
-
-            
-
-            if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
-                if(!req.file){
-
-                
-            req.body.clave = bcrypt.hashSync(req.body.clave)
-
             let usuario = {
-            clave: req.body.clave,
-            foto_perfil: '/undefined-1623092790999.png',
-            fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-            username: req.body.username,
-            email: req.body.email,
-            
-
+                fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+                username: req.body.username,
+                email: req.body.email,
             }
-            let fotoUpdate = {
-                foto_autor:  '/undefined-1623092790999.png' 
+            if (req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)) {
+                usuario.clave = bcrypt.hashSync(req.body.clave_nueva);
             }
-    
-
-          
+            if (req.file) {
+                usuario.foto_perfil = (req.file.filedestination).replace('public','') + req.file.filename;
+            }
+        
             db.Usuarios.update(usuario, {
                 where: {
                     id: idUsuario
@@ -219,10 +207,7 @@ let usersController = {
             })
         }
 
-        } else  {
-            res.redirect("/profile-edit/?failed=true")
-        }
-        }
+        
 
     },
 }
