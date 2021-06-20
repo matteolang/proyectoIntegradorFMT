@@ -6,6 +6,7 @@ let mainController = {
     index: (req, res) => {
 
          
+        
         db.Products.findAll({
             include: [
                 {association: 'creador'},

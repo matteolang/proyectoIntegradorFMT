@@ -12,6 +12,7 @@ let productController = {
     db.Products.findByPk(idInstrumento, {
       include: [{ association: "creador" }],
     })
+    
       .then((producto) => {
         db.Comentarios.findAll({
           where: {
