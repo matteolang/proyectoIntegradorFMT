@@ -9,7 +9,6 @@ var indexRouter = require('./routes/index');
 var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users')
 var profileEditRouter = require('./routes/profileEdit')
-var sequelizeRouter = require('./routes/sequelize')
 var securityRouter = require("./routes/security");
 const db = require('./database/models');
 
@@ -76,7 +75,6 @@ app.use('/', indexRouter);
 app.use('/product', productRouter)
 app.use('/profile', usersRouter)
 app.use('/profile-edit', profileEditRouter)
-app.use('/sequelize', sequelizeRouter);
 
 
 

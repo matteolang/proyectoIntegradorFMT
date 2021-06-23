@@ -1,4 +1,3 @@
-let instrumentos = require("../data/index");
 const db = require("../database/models");
 const currentDate = Date.now();
 const Swal = require('sweetalert2');

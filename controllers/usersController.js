@@ -97,25 +97,143 @@ let usersController = {
        
   
     },
+    // profileEdit: (req, res) => {
+    //     let idUsuario = req.session.user.id
+    //     if(req.method == "GET"){
+
+    //         res.render('profile-edit', {failed: req.query.failed, error: req.query.error})
+    //     }
+    //     if(req.method == "POST"){
+    //         let usuario = {
+    //             fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+    //             username: req.body.username,
+    //             email: req.body.email,
+    //         }
+    //         if (req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)) {
+    //             usuario.clave = bcrypt.hashSync(req.body.clave_nueva);
+    //         }
+    //         if (req.file) {
+    //             usuario.foto_perfil = (req.file.filedestination).replace('public','') + req.file.filename;
+    //         }
+        
+    //         db.Usuarios.update(usuario, {
+    //             where: {
+    //                 id: idUsuario
+    //             }
+    //         })
+    //         .then(()=>{
+    //             db.Comentarios.update(foto_perfil,{
+    //                 where: {
+    //                     id_autor: idUsuario
+    //                 }   
+    
+    //             })
+    //             .then(()=>{
+    //                 db.Usuarios.findOne({
+    //                     where: {
+    //                         id: idUsuario
+    //                     }
+    //                 })
+    //                 .then((usuarioUpdateado)=>{
+                    
+    //                     req.session.user = usuarioUpdateado
+    
+    //                     res.redirect("/profile/"+req.session.user.id)
+    //                 })
+    //                 .catch((error)=>{
+    //                     return res.send(error)
+    //                 })
+    //             }).catch((error)=>{
+    //                 return res.send(error)
+    //             })
+               
+            
+    //         })
+    //         .catch((error)=>{
+    //             return res.redirect('/profile-edit?error=true')
+    //         })
+    //     } else {
+    //         req.body.clave = bcrypt.hashSync(req.body.clave)
+
+    //         let usuario = {
+    //         clave: req.body.clave,
+    //         foto_perfil: req.file.filename,
+    //         fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+    //         username: req.body.username,
+    //         email: req.body.email,
+        
+    //         }
+    //         let fotoUpdate = {
+    //             foto_autor:  req.file.filename
+    //         }
+    
+
+
+    //         db.Usuarios.update(usuario, {
+    //             where: {
+    //                 id: idUsuario
+    //             }
+    //         })
+    //         .then(()=>{
+    //             db.Comentarios.update(fotoUpdate,{
+    //                 where: {
+    //                     id_autor: idUsuario
+    //                 }   
+    
+    //             })
+    //             .then(()=>{
+    //                 db.Usuarios.findOne({
+    //                     where: {
+    //                         id: idUsuario
+    //                     }
+    //                 })
+    //                 .then((usuarioUpdateado)=>{
+                    
+    //                     req.session.user = usuarioUpdateado
+    
+    //                     res.redirect("/profile/"+req.session.user.id)
+    //                 })
+    //                 .catch((error)=>{
+    //                     return res.send(error)
+    //                 })
+    //             }).catch((error)=>{
+    //                 return res.send(error)
+    //             })
+               
+            
+    //         })
+    //         .catch((error)=>{
+    //             return res.redirect('/profile-edit?error=true')
+    //         })
+    //     }
+
+        
+
+    // },
     profileEdit: (req, res) => {
         let idUsuario = req.session.user.id
         if(req.method == "GET"){
-
             res.render('profile-edit', {failed: req.query.failed, error: req.query.error})
         }
         if(req.method == "POST"){
+            
+            if(req.body.clavee == req.body.clave && req.body.clave.length > 5){
+                if(!req.file){
+                
+            req.body.clave = bcrypt.hashSync(req.body.clave)
             let usuario = {
-                fecha_de_nacimiento: req.body.fecha_de_nacimiento,
-                username: req.body.username,
-                email: req.body.email,
+            clave: req.body.clave,
+            foto_perfil: '/undefined-1623092790999.png',
+            fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+            username: req.body.username,
+            email: req.body.email,
+            
             }
-            if (req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)) {
-                usuario.clave = bcrypt.hashSync(req.body.clave_nueva);
+            let fotoUpdate = {
+                foto_autor:  '/undefined-1623092790999.png' 
             }
-            if (req.file) {
-                usuario.foto_perfil = (req.file.filedestination).replace('public','') + req.file.filename;
-            }
-        
+    
+          
             db.Usuarios.update(usuario, {
                 where: {
                     id: idUsuario
@@ -154,7 +272,6 @@ let usersController = {
             })
         } else {
             req.body.clave = bcrypt.hashSync(req.body.clave)
-
             let usuario = {
             clave: req.body.clave,
             foto_perfil: req.file.filename,
@@ -167,8 +284,6 @@ let usersController = {
                 foto_autor:  req.file.filename
             }
     
-
-
             db.Usuarios.update(usuario, {
                 where: {
                     id: idUsuario
@@ -206,9 +321,10 @@ let usersController = {
                 return res.redirect('/profile-edit?error=true')
             })
         }
-
-        
-
+        } else  {
+            res.redirect("/profile-edit/?failed=true")
+        }
+        }
     },
 }
 
