@@ -155,9 +155,11 @@ let productController = {
       nombre_producto: req.body.nombre,
       descripcion: req.body.descripcion,
       creado_por: req.session.user.id,
-      foto_product: req.file.filename,
       precio: req.body.precio,
     };
+       if (req.file) {
+       producto.foto_product = req.file.filename;
+   }
 
   db.Products.update(producto, {
     where: {
@@ -171,7 +173,45 @@ let productController = {
       return res.send(error);
     });
 
-    
+  //   let usuario = {
+  //     fecha_de_nacimiento: req.body.fecha_de_nacimiento,
+  //     username: req.body.username,
+  //     email: req.body.email,
+  // }
+  // if (req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)) {
+  //     usuario.clave = bcrypt.hashSync(req.body.clave_nueva);
+  // }else{
+  //     res.redirect("/profile-edit?failed=true")
+  // }
+  // if (req.file) {
+  //     usuario.foto_perfil = req.file.filename;
+  // }
+
+  // db.Usuarios.update(usuario, {
+  //     where: {
+  //         id: idUsuario
+  //     }
+  // })
+  // .then(()=>{
+  
+  //         db.Usuarios.findOne({
+  //             where: {
+  //                 id: idUsuario
+  //             }
+  //         })
+  //         .then((usuarioUpdateado)=>{
+  //             req.session.user = usuarioUpdateado
+
+  //             res.redirect("/profile/"+req.session.user.id)
+  //         })
+  //         .catch((error)=>{
+  //             return res.send(error)
+  //         })
+
+  // })
+  // .catch((error)=>{
+  //     return res.redirect("/profile-edit?error=true")
+  // })
   },
   eliminar: (req, res) => {
     
