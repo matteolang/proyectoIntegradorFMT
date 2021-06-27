@@ -40,8 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         foto_product: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue: null    
+            allowNull: false,  
         },
         cantidad_de_comentarios: {
             type: DataTypes.INTEGER,

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 23-06-2021 a las 16:38:00
+-- Tiempo de generación: 27-06-2021 a las 21:25:03
 -- Versión del servidor: 5.7.32
 -- Versión de PHP: 7.4.12
 
@@ -112,7 +112,8 @@ INSERT INTO `productos_creados` (`id`, `usuario_id`, `producto_id`) VALUES
 (47, 46, 54),
 (48, 47, 55),
 (49, 48, 56),
-(69, 45, 76);
+(69, 45, 76),
+(70, 64, 77);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,7 @@ CREATE TABLE `products` (
   `precio` int(10) UNSIGNED NOT NULL,
   `descripcion` mediumtext,
   `creado_por` int(10) UNSIGNED NOT NULL,
-  `foto_product` varchar(1000) DEFAULT NULL,
+  `foto_product` varchar(1000) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `cantidad_de_comentarios` bigint(20) NOT NULL DEFAULT '0'
@@ -149,7 +150,8 @@ INSERT INTO `products` (`id`, `nombre_producto`, `fecha_de_creacion`, `marca`, `
 (54, 'Ukelele', '2021-06-07', '', 'Rosa', 120, 'Ukelele rosa ', 46, 'undefined-1623090036831.png', '2021-06-07 18:20:36', '2021-06-11 15:04:20', 1),
 (55, 'Guitarra', '2021-06-07', 'Fender', 'Electrica', 400, 'Guitarra electrica', 47, 'undefined-1623090100073.jpeg', '2021-06-07 18:21:40', '2021-06-11 15:04:13', 1),
 (56, 'Microfono', '2021-06-07', '1X00', 'Lancaster', 145, 'Microfono tremendo', 48, 'undefined-1623093524326.png', '2021-06-07 18:23:05', '2021-06-12 16:44:20', 3),
-(76, 'Bateriaaa', '2021-06-12', '', '', 300, 'Alta bateria', 45, 'undefined-1624017615657.jpeg', '2021-06-12 13:45:10', '2021-06-18 12:00:15', 3);
+(76, 'Bateriaaa', '2021-06-12', '', '', 400, 'Alta bateria', 45, 'undefined-1624017615657.jpeg', '2021-06-12 13:45:10', '2021-06-27 20:26:32', 3),
+(77, 'Bateria Electrica', '2021-06-27', '', '', 200, '', 64, 'undefined-1624828987616.jpeg', '2021-06-27 21:23:07', '2021-06-27 21:23:07', 0);
 
 -- --------------------------------------------------------
 
@@ -178,7 +180,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `username`, `fecha_de_nacimiento`, `clave`, `cantidad_de_productos`, `seguidores`, `comentarios`, `foto_perfil`, `email`, `createdAt`, `updatedAt`) VALUES
 (43, 'languila electrica', '2021-05-05', '$2a$10$0Ai82tdyiGdx9Bh/G5GJkuBr.QqBnvZrFgdKLH.pLzqEh4lwh0d5y', 4, 0, 0, 'undefined-1623092790999.png', 'languilaelectrica001@gmail.com', '2021-06-04 17:49:58', '2021-06-07 16:13:03'),
 (44, 'langa capo ', '2021-05-01', '$2a$10$ate709pCWokLLBzGHUIp/Owq7stjVd6R2.LuGDD0cPaC6FxidyrQG', 1, 0, 1, 'undefined-1623092790999.png', 'langa2@gmail.com', '2021-06-04 17:49:58', '2021-06-12 13:51:46'),
-(45, 'frodo rizzi', '2021-05-12', '$2a$10$aYDzdbU5oUfZi98BLMFqxesN1qPyM.yJfBAbZE.QarmkcJzNf.qIi', 1, 0, 32, '/undefined-1623092790999.png', 'frizzi@gmail.com', '2021-06-04 17:49:58', '2021-06-23 16:19:50'),
+(45, 'frodo rizzi ', '2021-05-12', '$2a$10$gIvZeO4DavPHebKyBEkEeuxmlaLmGcBZMZgEXQU6Yqx9P/0j4OvOO', 1, 0, 32, 'undefined-1624788419641.jpeg', 'frizzi@gmail.com', '2021-06-04 17:49:58', '2021-06-27 10:24:51'),
 (46, 'timo gordo', '2021-05-06', '$2a$10$0wp6ggFeYprRk9DwgLWUiOJrXjhQVLi48XBEBCdfzF12AVxRCy7MG', 2, 0, 0, 'undefined-1623092790999.png', 'tmasic@gmail.com', '2021-06-04 17:49:58', '2021-06-07 16:13:03'),
 (47, 'pehuen romani', '2021-05-14', '$2a$10$Y.cF6APlSLKkydqGmmjoAOl6PmEv7yiILCjiQn0zRAGWKxVEGxrgC', 3, 0, 0, 'undefined-1623092790999.png', 'iromani@gmail.com', '2021-06-04 17:49:58', '2021-06-07 16:13:03'),
 (48, 'guido ponce', '2021-05-14', '$2a$10$eGTJDdIyZKE0PgDASji2ve.mN9LdC4tnr8iG25gpFSLKAWQyFhmVS', 1, 0, 4, '/undefined-1623092790999.png', 'gponce@gmail.com', '2021-06-04 17:49:58', '2021-06-12 16:44:20'),
@@ -190,7 +192,10 @@ INSERT INTO `usuarios` (`id`, `username`, `fecha_de_nacimiento`, `clave`, `canti
 (54, 'broo', '2021-06-26', '$2a$10$5iVNIPeBV3NxPjPG3Uohzu4kBq9z37//0aI75xOq9zBRVUFI.9DX2', 0, 0, 0, 'undefined-1623092790999.png', 'brodieretallick@gmail.com', '2021-06-04 18:39:36', '2021-06-07 16:13:03'),
 (55, 'Matteo ', '2021-06-01', '$2a$10$N8C0ovsPWB6QLNXv6tDfh.4EJoKw0l8Qq5i5mlSLq.LxZCjDYvLwm', 0, 0, 0, 'undefined-1623093431179.png', 'matteo.lang@gmail.com', '2021-06-07 18:37:43', '2021-06-07 19:17:11'),
 (56, 'Usuario De Prueba', '2001-11-12', '$2a$10$o/JZTNtwJp2FOWGyxZHR3Oh8/XaJREBZ.zcSEsZD3bB/JE7uqvs3S', 0, 0, 0, '/undefined-1623092790999.png', 'usuarioprueba@gmail.com', '2021-06-12 16:52:43', '2021-06-12 16:55:21'),
-(57, 'Matteo Lang', '2021-06-24', '$2a$10$Ea1QfCDdzgTe0OQyHHOL.uTspnz2e5rut8SqkxuB.b.KWy9xCne/2', 0, 0, 0, 'undefined-1623092790999.png', 'mlang@gmail.com', '2021-06-12 16:56:38', '2021-06-13 21:49:51');
+(57, 'Matteo Lang', '2021-06-24', '$2a$10$Ea1QfCDdzgTe0OQyHHOL.uTspnz2e5rut8SqkxuB.b.KWy9xCne/2', 0, 0, 0, 'undefined-1623092790999.png', 'mlang@gmail.com', '2021-06-12 16:56:38', '2021-06-13 21:49:51'),
+(60, '', '2021-06-08', '$2a$10$WcYxceX3QPQ6G.l5SZYRIOg8AuMAU4N/9mnoKeNyl4TNmpkThkqY.', 0, 0, 0, 'undefined-1623092790999.png', 'carlos@gmail.com', '2021-06-27 21:07:36', '2021-06-27 21:07:36'),
+(61, '', '2021-06-10', '$2a$10$sDiqCNhFElxSjVovDueciuk53Ef/e2NVrqHvWjq5v9X9vwUfURbgy', 0, 0, 0, 'undefined-1623092790999.png', 'tevez@gmail.com', '2021-06-27 21:10:19', '2021-06-27 21:10:19'),
+(64, 'SRUCA', '2021-06-01', '$2a$10$U6ZLfpTBw1fDGCtgs21HWOJ05YeTpoahucKKcleC8PY6P5YNec0cO', 1, 0, 0, 'undefined-1623092790999.png', 'carlitos@gmail.com', '2021-06-27 21:16:50', '2021-06-27 21:23:35');
 
 --
 -- Índices para tablas volcadas
@@ -240,19 +245,19 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `productos_creados`
 --
 ALTER TABLE `productos_creados`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Restricciones para tablas volcadas

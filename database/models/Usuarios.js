@@ -14,7 +14,8 @@ let cols = {
         unsigned: true
     },
     username: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: true
     },
     fecha_de_nacimiento: {
         type: DataTypes.DATE
@@ -45,6 +46,7 @@ let cols = {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
     },
    
    

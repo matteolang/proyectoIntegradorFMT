@@ -1,6 +1,51 @@
 <%-include("./parciales/header")%>
 
 	<!-- Novedades -->
+	<% if(error){ %> 
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Agregar productos</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<h2 class="col-12">
+					<div class="titulo-register">
+						<h2 style="color: red;">Error: Chequeá haber completado los campos obligatorios resaltados en rojo.</h2>
+					</div>
+					<div class="titulo-register">
+						<h2 style="color: red;">Recordá tambien que la foto del producto es obligatoria.</h2>
+					</div>
+					<form method="POST" class="register-form" action="/product/product-add" enctype="multipart/form-data">
+						<div>
+						<label for="nombre">Nombre de tu producto</label>
+						<input style="border-color: red;" type="text" id="nombre" name="nombre" placeholder="Nombre...">
+						</div>
+						<div>
+							<label for="modelo">Modelo de tu producto</label>
+							<input type="text" id="modelo" name="modelo" placeholder="Modelo...">
+						</div>
+						<div>
+							<label for="marca">Marca de tu producto</label>
+							<input type="text" id="marca" name="marca" placeholder="Marca...">
+						</div>
+		
+					<div>
+						<label for="foto">Imagen del producto</label>
+						<input  type="file" id="foto" name="foto" >
+					</div>
+					<div>
+						<label for="descripcion">Descripción</label>
+						<input type="text" id="descripcion" name="descripcion" placeholder="Descripción...">
+					</div>
+					<div>
+						<label for="precio">Precio de tu producto en £</label>
+						<input style="border-color: red;" type="number" id="precio" name="precio" placeholder="Precio...">
+						</div>
+						<br>
+						<button type="submit" class="boton">Añadir producto</button>
+					</form>
+				</h2>
+	<% } else { %> 
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
@@ -45,6 +90,7 @@
 				</form>
 			</h2>
 
+		<% } %> 
 
             <%- include("./parciales/footers") %>
 </body>

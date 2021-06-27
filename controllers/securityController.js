@@ -46,16 +46,16 @@ let securityController = {
 
                 }
 
-                if(usuarioCreado.clave.length < 5){
+                if(!usuarioCreado.clave || usuarioCreado.clave.length < 5){
                     res.redirect("/security/register?failed2=true")
                 } 
                 else {
-                    db.Usuarios.count({where: {email: usuarioCreado.email}})
-                    .then((count)=>{
+                   // db.Usuarios.count({where: {email: usuarioCreado.email}})
+                    //.then((count)=>{
 
-                        if(usuarioCreado.email.indexOf(' ') >= 0){
-                            res.redirect("/security/register?failed=true")
-                        } else if(count == 0){
+                        //if(usuarioCreado.email.indexOf(' ') >= 0){
+                          //  res.redirect("/security/register?failed=true")
+                        //} else if(count == 0){
                             db.Usuarios.create(usuarioCreado)
                             .then((usuario)=>{
                     
@@ -63,15 +63,15 @@ let securityController = {
                 
                             })
                             .catch((error)=>{
-                                 return res.send(error)
+                                 return res.redirect("/security/register?failed=true")
                             })
-                        } else  {
-                             res.redirect("/security/register?failed=true")
-                        }
-                    })
-                    .catch((error)=>{
-                    return res.send(error)
-                    })
+                        //} else  {
+                          //   res.redirect("/security/register?failed=true")
+                        //}
+                  //  })
+                    //.catch((error)=>{
+                    //return res.send(error)
+                    //z})
                 }
             } else if (req.body.password != req.body.passwordd) {
                 res.redirect("/security/register?failed3=true")
