@@ -111,8 +111,12 @@ let usersController = {
             }
             if (req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)) {
                 usuario.clave = bcrypt.hashSync(req.body.clave_nueva);
-            }else{
+            } else if(!req.body.clave_nueva && bcrypt.compareSync(req.body.clave, req.session.user.clave)){
+                usuario.clave = bcrypt.hashSync(req.body.clave)
+            }
+            else{
                 res.redirect("/profile-edit?failed=true")
+               
             }
             if (req.file) {
                 usuario.foto_perfil = req.file.filename;
