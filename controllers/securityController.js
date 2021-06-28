@@ -46,7 +46,7 @@ let securityController = {
 
                 }
 
-                if(!usuarioCreado.clave || usuarioCreado.clave.length < 5){
+                if(!usuarioCreado.clave || req.body.passwordd.length < 5){
                     res.redirect("/security/register?failed2=true")
                 } 
                 else {

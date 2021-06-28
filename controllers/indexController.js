@@ -79,20 +79,10 @@ let mainController = {
 
         const result = []
 
-        const comentariosDeBuscados = []
-
         if (search == '') {
             res.render('search-results-no-ingreso-ningun-valor')
         } 
 
-          db.Products.count({
-              where: {
-                [op.or]: [{nombre_producto: {[op.like]: `%${search}%`}}, {marca: {[op.like]: `%${search}%`}}, {modelo: {[op.like]: `%${search}%`}}, {descripcion: {[op.like]: `%${search}%`}}]
-              }
-          })
-          .then((count)=>{  
-
-            if(count > 0){
 
             db.Products.findAll({
                 where: {
@@ -104,40 +94,23 @@ let mainController = {
                 ]
             })
             .then((resultados)=>{
-                console.log(search)
+                
                 for(let i = 0; i < resultados.length; i++){
                     result.push(resultados[i].dataValues)
-
-                    db.Comentarios.findAll({
-                        where: {
-                            id_producto_comentado: resultados[i].id
-                        }
-                    })
-                    .then((comentarios)=>{
-
-                        for(let a = 0; a < comentarios.length; a++){
-               
-                        comentariosDeBuscados.push(comentarios[a].dataValues)
-                        }
-                        if(result.length > 0){
-                            return res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search, comentariosDeBuscados: comentariosDeBuscados})
-                        }
-                    })
-                    .catch((error)=>{
-                        return res.send(error)
-                    })
-
                 }
+
+                        if(result.length > 0){
+                            return res.render('search-results-encontrados', {resultadoSearch: result, parametroSearch: search})
+                        } else {
+                            return res.render('search-results-no-encontrados')
+                        }
+                   
+
+                
             })
             .catch((error)=>{
                 return res.send(error)
             })
-    
-            } 
-            else {
-                res.render('search-results-no-encontrados')
-            }
-        })
     
     },
 }
