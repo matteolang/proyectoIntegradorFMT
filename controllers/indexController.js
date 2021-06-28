@@ -14,8 +14,7 @@ let mainController = {
             ]
         })
         .then((productos)=>{
-            db.Comentarios.findAll({})
-            .then((comentarios)=>{
+
                 db.Products.findAll({
                     order: [
                         ["precio", "ASC"]
@@ -54,7 +53,7 @@ let mainController = {
                             
                         })
                         .then((masComentados)=>{
-                            res.render('index', {masComentados: masComentados, instrumentitos: productos, comentarios:comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
+                            res.render('index', {masComentados: masComentados, instrumentitos: productos, comentarios:productos.comentarios, masBaratos: masBaratos, masNuevos: masNuevos}) 
                         })  
                         .catch((error)=>{
                             return res.send(error)
@@ -71,10 +70,7 @@ let mainController = {
             .catch((error)=>{
                 return res.send(error)
             })
-        })
-        .catch((error)=>{
-            return res.send(error)
-        })
+        
        
     },
     searchResults: (req, res) => {
